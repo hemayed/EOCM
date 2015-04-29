@@ -40,22 +40,56 @@ namespace EOCM.Controllers
 
         public ActionResult _ClusterMap(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
         {
+            
+            List<ClusterMapViewModel> listClusterMapViewModel = new List<ClusterMapViewModel>();
+            listClusterMapViewModel = GetClusters(Govt_ID, District_ID, Sector_ID, Field_ID, Product_ID);
+
+            MultipartialResult result = new MultipartialResult(this);
+
+            var myArray = Json(listClusterMapViewModel, JsonRequestBehavior.AllowGet);
+
+            result.AddView("_ClusterList", "ClusterListContainer", listClusterMapViewModel);
+            result.AddView("_ClusterMap", "ClusterMapContainer", myArray.Data);
+
+            //result.AddContent("Form", "LastClickedSpan");
+            // result.AddScript(string.Format("GetMap('{0}');", myArray));
+
+            return (result);
+
+        }
+
+        //public ActionResult _ClusterMap(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
+        //{
+        //    var myArray = Json(GetClusters(Govt_ID, District_ID, Sector_ID, Field_ID, Product_ID), JsonRequestBehavior.AllowGet);    
+        //    return PartialView(myArray.Data);
+        //}
+
+        //public ActionResult _ClusterList(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
+        //{
+
+        //    return PartialView(GetClusters(Govt_ID,District_ID,Sector_ID,Field_ID,Product_ID));
+        //}
+
+
+        private List<ClusterMapViewModel> GetClusters(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
+        {
             var clusters = (from d in db.Clusters select d).ToList();
 
-            if (Govt_ID != "") {clusters = (from d in clusters where d.Govt_ID == Govt_ID select d).ToList();}
-            if (District_ID != "0" && District_ID !="") {clusters = (from d in clusters where d.District_ID == District_ID select d).ToList();}
-            if (Sector_ID != "") {clusters = (from d in clusters where d.Sector_ID == Sector_ID select d).ToList();}
+            if (Govt_ID != "") { clusters = (from d in clusters where d.Govt_ID == Govt_ID select d).ToList(); }
+            if (District_ID != "0" && District_ID != "") { clusters = (from d in clusters where d.District_ID == District_ID select d).ToList(); }
+            if (Sector_ID != "") { clusters = (from d in clusters where d.Sector_ID == Sector_ID select d).ToList(); }
             if (Field_ID != "0" && Field_ID != "") { clusters = (from d in clusters where d.Field_ID == Field_ID select d).ToList(); }
             if (Product_ID != "0" && Product_ID != "") { clusters = (from d in clusters where d.Product_ID == Product_ID select d).ToList(); }
 
             List<ClusterMapViewModel> listClusterMapViewModel = new List<ClusterMapViewModel>();
+            
             var i = 1;
             foreach (Cluster cluster in clusters)
             {
-              
+
                 ClusterMapViewModel clusterMapViewModel = new ClusterMapViewModel()
                 {
-                    Cluster_Num=i++,
+                    Cluster_Num = i++,
                     Cluster_Lat = cluster.Cluster_Lat,
                     Cluster_Long = cluster.Cluster_Long,
                     Cluster_ProductImage = cluster.Cluster_ProductImage,
@@ -64,56 +98,11 @@ namespace EOCM.Controllers
                     Cluster_Info1 = "عدد العاملين = " + ((int)(cluster.Cluster_EmpNum)).ToString(),
                     Cluster_Info2 = "عدد الورش = " + ((int)(cluster.Cluster_ShopNum)).ToString(),
                 };
-            listClusterMapViewModel.Add(clusterMapViewModel);
-        }
-
-            MultipartialResult result = new MultipartialResult(this);
-
-            var myArray = Json(listClusterMapViewModel, JsonRequestBehavior.AllowGet);
-
-            result.AddView("_ClusterList", "ClusterListContainer", listClusterMapViewModel);
-            result.AddView("_ClusterMap", "ClusterMapContainer", myArray.Data);
-            
-            //result.AddContent("Form", "LastClickedSpan");
-           // result.AddScript(string.Format("GetMap('{0}');", myArray));
-
-            return (result);
-
-            //return PartialView(clusters);
-        }
-
-        public ActionResult _ClusterList(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
-        {
-
-            var clusters = (from d in db.Clusters select d).ToList();
-
-            if (Govt_ID == null)
-            {
-                clusters = (from d in db.Clusters select d).ToList();
+                listClusterMapViewModel.Add(clusterMapViewModel);
             }
-            else
-            {
-                clusters = (from d in db.Clusters where d.Govt_ID == Govt_ID select d).ToList();
-            }
+            return (listClusterMapViewModel);
 
-
-            return PartialView(clusters.ToList());
         }
-       
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
 
         public JsonResult GetDistricts(string Govt_ID)
         {
@@ -131,6 +120,25 @@ namespace EOCM.Controllers
             }
 
             return Json(new SelectList(districtList, "Value", "Text"));
+        }
+
+
+        public JsonResult GetVillages(string District_ID)
+        {
+            var villages = (from d in db.Villages where d.District_ID == District_ID select d).ToList();
+            List<SelectListItem> villageList = new List<SelectListItem>();
+            foreach (Village village in villages)
+            {
+
+                SelectListItem villageItem = new SelectListItem()
+                {
+                    Value = village.Village_ID,
+                    Text = village.Village_Name
+                };
+                villageList.Add(villageItem);
+            }
+
+            return Json(new SelectList(villageList, "Value", "Text"));
         }
 
         public JsonResult GetFields(string Sector_ID)

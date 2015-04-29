@@ -34,7 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Govt_ID, "Govt_ID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Govt_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Govt_ID", null, "اختار المحافظة", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Govt_ID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -42,7 +42,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.District_ID, "District_ID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("District_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("District_ID", null, "اختار المركز-المدينة", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.District_ID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Village_ID, "Village_ID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Village_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Village_ID", null, "اختار القرية", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Village_ID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Sector_ID, "Sector_ID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Sector_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Sector_ID", null, "اختار القطاع", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Sector_ID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -66,7 +66,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Field_ID, "Field_ID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Field_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Field_ID", null, "اختار النشاط", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Field_ID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -74,7 +74,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Product_ID, "Product_ID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Product_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Product_ID", null, "اختار المنتج", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Product_ID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -147,7 +147,37 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
+@*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#District_ID').prop("disabled", true);
+        $('#Village_ID').prop("disabled", true);
+        $('#Field_ID').prop("disabled", true);
+        $('#Product_ID').prop("disabled", true);
+
+        $('#Govt_ID').change(function () {
+            UpdateDistricts($('#Govt_ID'), $('#District_ID'), "اختار المركز-المدينة", $('#Village_ID'), "اختار القرية")
+        });
+
+        $('#District_ID').change(function () {
+            UpdateVillages($('#District_ID'), $('#Village_ID'), "اختار القرية")
+        });
+
+        $('#Sector_ID').change(function () {
+            UpdateFields($('#Sector_ID'), $('#Field_ID'),$('#Product_ID'),"اختار النشاط")
+        });
+
+        $('#Field_ID').change(function () {
+            UpdateProducts($('#Field_ID'), $('#Product_ID'),"اختار المنتج")
+        });
+
+    });
+
+
+</script>
 

@@ -31,21 +31,28 @@ namespace EOCM
              defaults: new { controller = "Home", action = "_ClusterMap", id = UrlParameter.Optional }
          );
 
-            routes.MapRoute(
-            name: "_GetDistricts",
-            url: "{controller}/{action}/{id}",
-            defaults: new { controller = "Home", action = "GetDistricts", id = UrlParameter.Optional }
-        );
-            routes.MapRoute(
-            name: "_GetFields",
-            url: "{controller}/{action}/{id}",
-            defaults: new { controller = "Home", action = "GetFields", id = UrlParameter.Optional }
-        );
-            routes.MapRoute(
-           name: "_GetProducts",
-           url: "{controller}/{action}/{id}",
-           defaults: new { controller = "Home", action = "GetProducts", id = UrlParameter.Optional }
-       );
+      //      routes.MapRoute(
+      //      name: "_GetDistricts",
+      //      url: "{controller}/{action}/{id}",
+      //      defaults: new { controller = "Home", action = "GetDistricts", id = UrlParameter.Optional }
+      //  );
+
+      //      routes.MapRoute(
+      //    name: "_GetVillages",
+      //    url: "{controller}/{action}/{id}",
+      //    defaults: new { controller = "Home", action = "GetVillages", id = UrlParameter.Optional }
+      //);
+
+      //      routes.MapRoute(
+      //      name: "_GetFields",
+      //      url: "{controller}/{action}/{id}",
+      //      defaults: new { controller = "Home", action = "GetFields", id = UrlParameter.Optional }
+      //  );
+      //      routes.MapRoute(
+      //     name: "_GetProducts",
+      //     url: "{controller}/{action}/{id}",
+      //     defaults: new { controller = "Home", action = "GetProducts", id = UrlParameter.Optional }
+      // );
         }
     }
 }

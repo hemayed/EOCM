@@ -4,15 +4,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8; CodePage=65001" />
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
+
+    @*<script type="text/javascript" src="Multipartial.axd?js"></script>*@   
+
     <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
-
-
    
     <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&mkt=ngt"></script>
     <script type="text/javascript" src="~/Scripts/map.js"></script>
-
-    <script type="text/javascript" src="Multipartial.axd?js"></script>
+    <script type="text/javascript" src="~/Scripts/UpdateLists.js" ></script>
+    <script type="text/javascript" src="~/Scripts/UpdateMultipartialViews.js" ></script>
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -25,30 +26,14 @@
 
     <!-- DataTables -->
     <script type="text/javascript" charset="utf8" src="~/Scripts/DataTables-1.10.6/media/js/jquery.dataTables.js"></script>
-    <link href="~/Content/dataTables.jqueryui.css" rel="stylesheet" />
+  
 
-    <script src="~/Scripts/dataTables.jqueryui.js"></script>
     <link href="~/Content/jquery-ui.css" rel="stylesheet" />
 
 </head>
 
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>*@
-
-
+  
     <div class="container body-content">
 
         <div id="banner" class="banner">
@@ -67,9 +52,10 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jQueryPlugins")
     @Scripts.Render("~/bundles/jqueryval")
-
+      
     @RenderSection("scripts", required: false)
     @RenderSection("myMap", required: false)
+  
 
 </body>
 </html>

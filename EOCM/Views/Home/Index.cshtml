@@ -4,9 +4,8 @@
     ViewBag.Title = "التجمعات الطبيعية في محافظات مصر";
 }
 
-@*@using (Ajax.BeginForm("_ClusterMap", new AjaxOptions { UpdateTargetId = "ClusterMapContainer" }))
-{*@
-    
+
+ 
 
     <div class="row" style="direction: rtl;">
     <div class="col-md-3">
@@ -55,7 +54,9 @@
         <br /> <br />
         <div class="form-group">
             <div class="col-md-offset-3 col-md-9 text-center">
+
                 <input id="Submit" type="submit" value="عرض" />
+
                 @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
 
             </div>
@@ -67,7 +68,7 @@
 
         <div id="ClusterMapContainer">
           
-
+    
         </div>
     </div>
 
@@ -80,177 +81,34 @@
     </div>
 </div>
 
-
-   
+  
 
 <script>
+    
     $(document).ready(function () {
 
         $('#District_ID').prop("disabled", true);
         $('#Field_ID').prop("disabled", true);
         $('#Product_ID').prop("disabled", true);
 
-        $('#Govt_ID').change(function () {
-            if ($('#Govt_ID').val() != "") {
-                var options = {};
-                var Govt_ID = $('#Govt_ID').val();
-                var dataToSend = {
-                    Govt_ID: Govt_ID,
-                };
-
-                $.ajax({
-                    url: "/Home/GetDistricts",
-                    type: "POST",
-                    dataType: 'json',
-                    contentType: 'application/json; charset=utf-8',
-                    async: false,
-                    data: JSON.stringify(dataToSend),
-                    success: function (districts) {
-
-                        $("#District_ID").empty();
-                        $("#District_ID").append("<option value= 0 >كل المراكز</option>");
-                        $.each(districts, function (i, district) {
-                            $("#District_ID").append('<option value="' + district.Value + '">' +
-                                 district.Text + '</option>');
-                        });
-                        $('#District_ID').prop("disabled", false);
-                    },
-                    error: function (ex) {
-                        alert('خطأ في استعادة اسماء المراكز' + ex);
-                    }
-                });
-            }
-            else {
-                $("#District_ID").empty();
-                $("#District_ID").append("<option value= 0 >كل المراكز</option>");
-                $("#District_ID").prop("disabled", true);
-            }
+        UpdateViews($('#Govt_ID').val(), $('#District_ID').val(), $('#Sector_ID').val(), $('#Field_ID').val(), $('#Product_ID').val());
+        
+        $('#Submit').click(function () {
+            UpdateViews($('#Govt_ID').val(), $('#District_ID').val(), $('#Sector_ID').val(), $('#Field_ID').val(), $('#Product_ID').val());
         });
-
+                              
+        $('#Govt_ID').change(function () {
+            UpdateDistricts($('#Govt_ID'), $('#District_ID'), "كل المراكز")
+        });
+        
+        
         $('#Sector_ID').change(function () {
-            if ($('#Sector_ID').val() != "") {
-                var options = {};
-                var Sector_ID = $('#Sector_ID').val();
-                var dataToSend = {
-                    Sector_ID: Sector_ID,
-                };
-
-                $.ajax({
-                    url: "/Home/GetFields",
-                    type: "POST",
-                    dataType: 'json',
-                    contentType: 'application/json; charset=utf-8',
-                    async: false,
-                    data: JSON.stringify(dataToSend),
-                    success: function (fields) {
-
-                        $("#Field_ID").empty();
-                        $("#Field_ID").append("<option value= 0 >كل الانشطة</option>");
-                        $.each(fields, function (i, field) {
-                            $("#Field_ID").append('<option value="' + field.Value + '">' +
-                                 field.Text + '</option>');
-                        });
-                        $('#Field_ID').prop("disabled", false);
-                    },
-                    error: function (ex) {
-                        alert('خطأ في استعادة اسماء الانشطة' + ex);
-                    }
-                });
-            }
-            else {
-                $("#Field_ID").empty();
-                $("#Field_ID").append("<option value= 0 >كل الانشطة</option>");
-                $("#Field_ID").prop("disabled", true);
-            }
+            UpdateFields($('#Sector_ID'), $('#Field_ID'),$('#Product_ID'),"كل الانشطة")
         });
 
         $('#Field_ID').change(function () {
-            if ($('#Field_ID').val() != "0" && $('#Field_ID').val() != "") {
-                var options = {};
-                var Field_ID = $('#Field_ID').val();
-                var dataToSend = {
-                    Field_ID: Field_ID,
-                };
-
-                $.ajax({
-                    url: "/Home/GetProducts",
-                    type: "POST",
-                    dataType: 'json',
-                    contentType: 'application/json; charset=utf-8',
-                    async: false,
-                    data: JSON.stringify(dataToSend),
-                    success: function (products) {
-
-                        $("#Product_ID").empty();
-                        $("#Product_ID").append("<option value= 0 >كل المنتجات</option>");
-                        $.each(products, function (i, product) {
-                            $("#Product_ID").append('<option value="' + product.Value + '">' +
-                                 product.Text + '</option>');
-                        });
-                        $('#Product_ID').prop("disabled", false);
-                    },
-                    error: function (ex) {
-                        alert('خطأ في استعادة اسماء المنتجات' + ex);
-                    }
-                });
-            }
-            else {
-                $("#Product_ID").empty();
-                $("#Product_ID").append("<option value= 0 >كل المنتجات</option>");
-                $("#Product_ID").prop("disabled", true);
-            }
+            UpdateProducts($('#Field_ID'), $('#Product_ID'),"كل المنتجات")
         });
-
-        var Govt_ID = $('#Govt_ID').val();
-        var District_ID = $('#District_ID').val();
-        var Sector_ID = $('#Sector_ID').val();
-        var Field_ID = $('#Field_ID').val();
-        var Product_ID = $('#Product_ID').val();
-        var dataToSend = {
-            Govt_ID: Govt_ID,
-            District_ID: District_ID,
-            Sector_ID: Sector_ID,
-            Field_ID: Field_ID,
-            Product_ID: Product_ID
-        };
-        $.ajax({
-            url: "/Home/_ClusterMap",
-            type: "POST",
-            dataType: 'json',
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(dataToSend),
-            success: function (result) {
-                MultipartialUpdate(result);
-            },
-        });
-
-        $('#Submit').click(function () {
-            var Govt_ID = $('#Govt_ID').val();
-            var District_ID = $('#District_ID').val();
-            var Sector_ID = $('#Sector_ID').val();
-            var Field_ID = $('#Field_ID').val();
-            var Product_ID = $('#Product_ID').val();
-            var dataToSend = {
-                Govt_ID: Govt_ID,
-                District_ID: District_ID,
-                Sector_ID: Sector_ID,
-                Field_ID: Field_ID,
-                Product_ID: Product_ID
-            };
-            $.ajax({
-                url: "/Home/_ClusterMap",
-                type: "POST",
-                dataType: 'json',
-                contentType: 'application/json; charset=utf-8',
-                data: JSON.stringify(dataToSend),
-                success: function (result) {
-                    MultipartialUpdate(result);
-                },
-            });
-        });
-
-
-       
     
     });
 
