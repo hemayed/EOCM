@@ -1,0 +1,112 @@
+﻿@model IEnumerable<EOCM.Models.Cluster>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.District.District_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Field.Field_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Product_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sector.Sector_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Village.Village_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cluster_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cluster_Lat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cluster_Long)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cluster_EmpNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cluster_ShopNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cluster_ProductImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cluster_ProcessImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cluster_DetailPage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.District.District_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Field.Field_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Governorate.Govt_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Product_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sector.Sector_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Village.Village_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cluster_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cluster_Lat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cluster_Long)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cluster_EmpNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cluster_ShopNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cluster_ProductImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cluster_ProcessImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cluster_DetailPage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Cluster_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Cluster_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Cluster_ID })
+        </td>
+    </tr>
+}
+
+</table>

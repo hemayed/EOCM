@@ -1,0 +1,136 @@
+﻿@model EOCM.Models.Cluster
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Cluster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.District.District_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.District.District_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Field.Field_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Field.Field_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Governorate.Govt_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Product_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Product_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sector.Sector_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sector.Sector_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Village.Village_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Village.Village_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cluster_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cluster_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cluster_Lat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cluster_Lat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cluster_Long)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cluster_Long)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cluster_EmpNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cluster_EmpNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cluster_ShopNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cluster_ShopNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cluster_ProductImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cluster_ProductImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cluster_ProcessImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cluster_ProcessImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cluster_DetailPage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cluster_DetailPage)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

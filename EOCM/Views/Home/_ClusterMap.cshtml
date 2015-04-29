@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+<div id="myMap" class="mapframe">
+    
+    
+    <script>
+        var myModel = @Html.Raw(Json.Encode(Model));
+        GetMap(myModel);
+    </script>
+
+ </div>
+
+
