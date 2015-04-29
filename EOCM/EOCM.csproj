@@ -239,6 +239,12 @@
     <Content Include="Content\DataTables-1.10.6\media\images\sort_both.png" />
     <Content Include="Content\DataTables-1.10.6\media\images\sort_desc.png" />
     <Content Include="Content\DataTables-1.10.6\media\images\sort_desc_disabled.png" />
+    <Content Include="Images\Auto_Repair.jpg" />
+    <Content Include="Images\copper.jpg" />
+    <Content Include="Images\honey.jpg" />
+    <Content Include="Images\leather.jpg" />
+    <Content Include="Images\silver.jpg" />
+    <Content Include="Images\wood.jpg" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -336,6 +342,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\UpdateLists.js" />
     <Content Include="Scripts\UpdateMultipartialViews.js" />
+    <Content Include="Scripts\WIP.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="ClusterDetails\Cluster012019010512.html" />
     <Content Include="ClusterDetails\Cluster200102020401.html" />
@@ -351,8 +358,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -385,7 +390,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

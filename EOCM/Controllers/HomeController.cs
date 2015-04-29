@@ -73,13 +73,13 @@ namespace EOCM.Controllers
 
         private List<ClusterMapViewModel> GetClusters(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
         {
-            var clusters = (from d in db.Clusters select d).ToList();
+            var clusters = (from d in db.Clusters orderby d.Cluster_Name ascending select d).ToList();
 
-            if (Govt_ID != "") { clusters = (from d in clusters where d.Govt_ID == Govt_ID select d).ToList(); }
-            if (District_ID != "0" && District_ID != "") { clusters = (from d in clusters where d.District_ID == District_ID select d).ToList(); }
-            if (Sector_ID != "") { clusters = (from d in clusters where d.Sector_ID == Sector_ID select d).ToList(); }
-            if (Field_ID != "0" && Field_ID != "") { clusters = (from d in clusters where d.Field_ID == Field_ID select d).ToList(); }
-            if (Product_ID != "0" && Product_ID != "") { clusters = (from d in clusters where d.Product_ID == Product_ID select d).ToList(); }
+            if (Govt_ID != "") { clusters = (from d in clusters orderby d.Cluster_Name ascending where d.Govt_ID == Govt_ID select d).ToList(); }
+            if (District_ID != "0" && District_ID != "") { clusters = (from d in clusters orderby d.Cluster_Name ascending where d.District_ID == District_ID select d).ToList(); }
+            if (Sector_ID != "") { clusters = (from d in clusters orderby d.Cluster_Name ascending where d.Sector_ID == Sector_ID select d).ToList(); }
+            if (Field_ID != "0" && Field_ID != "") { clusters = (from d in clusters orderby d.Cluster_Name ascending where d.Field_ID == Field_ID select d).ToList(); }
+            if (Product_ID != "0" && Product_ID != "") { clusters = (from d in clusters orderby d.Cluster_Name ascending where d.Product_ID == Product_ID select d).ToList(); }
 
             List<ClusterMapViewModel> listClusterMapViewModel = new List<ClusterMapViewModel>();
             
@@ -106,7 +106,7 @@ namespace EOCM.Controllers
 
         public JsonResult GetDistricts(string Govt_ID)
         {
-            var districts = (from d in db.Districts where d.Govt_ID == Govt_ID select d).ToList();
+            var districts = (from d in db.Districts orderby d.District_Name ascending where d.Govt_ID == Govt_ID select d).ToList();
             List<SelectListItem> districtList = new List<SelectListItem>();
             foreach (District district in districts)
             {
@@ -125,7 +125,7 @@ namespace EOCM.Controllers
 
         public JsonResult GetVillages(string District_ID)
         {
-            var villages = (from d in db.Villages where d.District_ID == District_ID select d).ToList();
+            var villages = (from d in db.Villages orderby d.Village_Name ascending where d.District_ID == District_ID select d).ToList();
             List<SelectListItem> villageList = new List<SelectListItem>();
             foreach (Village village in villages)
             {
@@ -143,7 +143,7 @@ namespace EOCM.Controllers
 
         public JsonResult GetFields(string Sector_ID)
         {
-            var fields = (from d in db.Fields where d.Sector_ID == Sector_ID select d).ToList();
+            var fields = (from d in db.Fields orderby d.Field_Name ascending where d.Sector_ID == Sector_ID select d).ToList();
             List<SelectListItem> fieldList = new List<SelectListItem>();
             foreach (Field field in fields)
             {
@@ -161,7 +161,7 @@ namespace EOCM.Controllers
 
         public JsonResult GetProducts(string Field_ID)
         {
-            var products = (from d in db.Products where d.Field_ID == Field_ID select d).ToList();
+            var products = (from d in db.Products orderby d.Product_Name ascending where d.Field_ID == Field_ID select d).ToList();
             List<SelectListItem> productList = new List<SelectListItem>();
             foreach (Product product in products)
             {
