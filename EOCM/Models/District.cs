@@ -11,6 +11,7 @@ namespace EOCM.Models
     {
         [Key]
         [StringLength(255)]
+        [Display(Name = "المركز")]
         public string District_ID { get; set; }
          [Display(Name = "المركز")]
         public string District_Name { get; set; }

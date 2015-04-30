@@ -53,8 +53,21 @@ namespace EOCM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Cluster_ID,Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage")] Cluster cluster)
+        public ActionResult Create([Bind(Include = "Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage")] Cluster cluster)
         {
+            var id = (from d in db.Clusters orderby d.Cluster_ID descending where (d.Village_ID.Equals(cluster.Village_ID) && d.Product_ID.Equals(cluster.Product_ID)) select d.Cluster_ID).ToList();
+            if (id.Count() == 0)
+            {
+                cluster.Cluster_ID = cluster.Village_ID + cluster.Product_ID + "01";
+            }
+            else
+            {
+                string str = id[0].Substring(12, 2);
+
+                var clusterCode = Convert.ToInt32(str)+1;
+                cluster.Cluster_ID = cluster.Village_ID + cluster.Product_ID + clusterCode.ToString("00");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Clusters.Add(cluster);

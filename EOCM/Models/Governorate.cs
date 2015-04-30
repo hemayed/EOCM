@@ -10,6 +10,7 @@ namespace EOCM.Models
     {
         [Key]
         [StringLength(255)]
+        [Display(Name = "المحافظة")]
         public string Govt_ID { get; set; }
 
         [Display(Name = "المحافظة")]

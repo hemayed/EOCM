@@ -1,16 +1,16 @@
 ﻿@model EOCM.Models.Cluster
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "تفاصيل بيانات التجمع";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>Cluster</h4>
+<div style="font-family:Arial; text-align: center; direction: rtl;">
+    <h2>تفاصيل بيانات التجمع</h2>
+</div>
     <hr />
+
+   
     <dl class="dl-horizontal">
-        <dt>
+        <dt >
             @Html.DisplayNameFor(model => model.District.District_Name)
         </dt>
 
@@ -123,8 +123,9 @@
         </dd>
 
     </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Cluster_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+    <p>
+        @Html.ActionLink("تعديل", "Edit", new { id = Model.Cluster_ID }) |
+        @Html.ActionLink("عودة للقائمة الرئيسية", "Index")
+    </p>
+

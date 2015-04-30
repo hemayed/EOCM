@@ -97,6 +97,7 @@ namespace EOCM.Controllers
                     Cluster_Name = cluster.Cluster_Name,
                     Cluster_Info1 = "عدد العاملين = " + ((int)(cluster.Cluster_EmpNum)).ToString(),
                     Cluster_Info2 = "عدد الورش = " + ((int)(cluster.Cluster_ShopNum)).ToString(),
+                    Cluster_Info3 = "المنتج: " + cluster.Product.Product_Name,
                 };
                 listClusterMapViewModel.Add(clusterMapViewModel);
             }

@@ -1,15 +1,17 @@
 ﻿@model EOCM.Models.Cluster
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "حذف التجمع";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Cluster</h4>
+<div style="font-family:Arial; text-align: center; direction: rtl;">
+    <h2>حذف التجمع</h2>
     <hr />
+    </div>
+
+    <h3>هل تريد فعلا حذف التجمع؟ </h3>
+   
+
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.District.District_Name)
@@ -125,12 +127,18 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    <div class="form-actions no-color col-md-offset-1">
+        <input type="submit" value="احذف التجمع" class="btn btn-default " />
+        <br />
+        @Html.ActionLink("عودة للقائمة الرئيسية", "Index")
+
+    </div>
     }
+<div style="font-family:Arial; direction: rtl; text-align: right; ">
+  
 </div>
+

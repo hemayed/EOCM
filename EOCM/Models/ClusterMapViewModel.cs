@@ -17,7 +17,7 @@ namespace EOCM.Models
 
         public string Cluster_Info1 { get; set; }
         public string Cluster_Info2 { get; set; }
-       
+        public string Cluster_Info3 { get; set; }
 
     }
 }

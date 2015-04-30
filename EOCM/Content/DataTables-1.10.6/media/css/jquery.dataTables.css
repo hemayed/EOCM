@@ -36,7 +36,7 @@ table.dataTable thead .sorting,
 table.dataTable thead .sorting_asc,
 table.dataTable thead .sorting_desc {
   cursor: pointer;
-  *cursor: hand;
+  * cursor: hand;
 }
 table.dataTable thead .sorting,
 table.dataTable thead .sorting_asc,
@@ -312,7 +312,8 @@ table.dataTable td {
 }
 .dataTables_wrapper .dataTables_length {
   float: left;
-  width:80px;
+  /*width:80px;*/
+  /*width: 35%;*/
 }
 .dataTables_wrapper .dataTables_filter {
   float: right;
@@ -322,7 +323,8 @@ table.dataTable td {
 .dataTables_wrapper .dataTables_filter input {
   margin-left: 0.5em;
   float:right;
-   width: 150px;
+   /*width: 150px;*/
+   /*width: 65%;*/
 }
 .dataTables_wrapper .dataTables_info {
   clear: both;

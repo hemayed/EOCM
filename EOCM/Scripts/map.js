@@ -94,13 +94,13 @@ function AddData(myArray) {
         }
 
         if (myArray[i].Cluster_ProductImage != null && myArray[i].Cluster_ProductImage != "") {
-            imgSection = '<img src= "' + myArray[i].Cluster_ProductImage + '" alt="Product Image" style="position:absolute; top:5px; left:5px; width:70px; height:88px">';
+            imgSection = '<img src= "' + myArray[i].Cluster_ProductImage + '" alt="Product Image" style="position:absolute; top:5px; left:5px; width:65px; height:65px">';
         }
         else {
             imgSection = '';
         }
 
-        pin[i].htmlContent = '<div id="infoboxText' + myArray[i].Cluster_Num + '" style="direction: rtl; background-color:White; border-style:solid;border-width:medium; border-color:DarkOrange; min-height:100px;width:240px;">' + refSection + ' <b id="infoboxTitle' + i + '" style="text-decoration:underline; position:absolute; top:10px; left:10px; width:220px;"> ' + myArray[i].Cluster_Name + '</b> </a> <a id="infoboxDescription' + i + '" style="text-decoration:none; color:#000000; position:absolute; top:30px; left:10px; width:220px;">' + myArray[i].Cluster_Info1 + "<br>" + myArray[i].Cluster_Info2 + '</a>' + imgSection + '</div>';
+        pin[i].htmlContent = '<div id="infoboxText' + myArray[i].Cluster_Num + '" style="direction: rtl; background-color:White; border-style:solid;border-width:medium; border-color:DarkOrange; min-height:120px;width:250px;">' + refSection + ' <b id="infoboxTitle' + i + '" style="text-decoration:underline; position:absolute; top:10px; left:10px; width:220px;"> ' + myArray[i].Cluster_Name + '</b> </a> <a id="infoboxDescription' + i + '" style="text-decoration:none; color:#000000; position:absolute; top:30px; left:10px; width:220px;">' + myArray[i].Cluster_Info1 + "<br>" + myArray[i].Cluster_Info2 + "<br>" + myArray[i].Cluster_Info3 + '</a>' + imgSection + '</div>';
 
 
         // Add handler for the pushpin click event.

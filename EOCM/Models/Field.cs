@@ -11,6 +11,7 @@ namespace EOCM.Models
     {
         [Key]
         [StringLength(255)]
+        [Display(Name = "النشاط")]
         public string Field_ID { get; set; }
         [Display(Name = "النشاط")]
         public string Field_Name { get; set; }

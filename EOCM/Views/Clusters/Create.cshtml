@@ -1,183 +1,175 @@
 ﻿@model EOCM.Models.Cluster
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "اضافة تجمع جديد";
 }
 
-<h2>Create</h2>
-
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Cluster</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cluster_ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cluster_ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cluster_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cluster_Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cluster_Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cluster_Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Govt_ID, "Govt_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Govt_ID", null, "اختار المحافظة", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Govt_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.District_ID, "District_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("District_ID", null, "اختار المركز-المدينة", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.District_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Village_ID, "Village_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Village_ID", null, "اختار القرية", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Village_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sector_ID, "Sector_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Sector_ID", null, "اختار القطاع", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Sector_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Field_ID, "Field_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Field_ID", null, "اختار النشاط", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Field_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Product_ID, "Product_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Product_ID", null, "اختار المنتج", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Product_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cluster_Lat, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cluster_Lat, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cluster_Lat, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cluster_Long, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cluster_Long, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cluster_Long, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cluster_EmpNum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cluster_EmpNum, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cluster_EmpNum, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cluster_ShopNum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cluster_ShopNum, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cluster_ShopNum, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cluster_ProductImage, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cluster_ProductImage, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cluster_ProductImage, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cluster_ProcessImage, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cluster_ProcessImage, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cluster_ProcessImage, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cluster_DetailPage, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cluster_DetailPage, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cluster_DetailPage, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div style="font-family:Arial; text-align: center; direction: rtl;">
+    <h2>اضافة تجمع جديد</h2>
+    <hr />
 </div>
 
-@*@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}*@
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-<script>
+        <div style="font-family:Arial; direction: rtl; text-align: right; ">
+            <div class="form-horizontal">
+             
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @*<div class="form-group">
+                        @Html.LabelFor(model => model.Cluster_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Cluster_ID, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Cluster_ID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cluster_Name, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3 ">
+                        @Html.EditorFor(model => model.Cluster_Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Cluster_Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Govt_ID, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DropDownList("Govt_ID", null, "اختار المحافظة", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Govt_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.District_ID, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DropDownList("District_ID", null, "اختار المركز-المدينة", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.District_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Village_ID, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DropDownList("Village_ID", null, "اختار القرية", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Village_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Sector_ID, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DropDownList("Sector_ID", null, "اختار القطاع", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Sector_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Field_ID, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DropDownList("Field_ID", null, "اختار النشاط", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Field_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Product_ID, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DropDownList("Product_ID", null, "اختار المنتج", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Product_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cluster_Lat, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.Cluster_Lat, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Cluster_Lat, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cluster_Long, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.Cluster_Long, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Cluster_Long, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cluster_EmpNum, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.Cluster_EmpNum, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Cluster_EmpNum, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cluster_ShopNum, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.Cluster_ShopNum, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Cluster_ShopNum, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cluster_ProductImage, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.Cluster_ProductImage, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Cluster_ProductImage, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cluster_ProcessImage, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.Cluster_ProcessImage, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Cluster_ProcessImage, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cluster_DetailPage, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.Cluster_DetailPage, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Cluster_DetailPage, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-3">
+                        <input type="submit" value="اضافة التجمع" class="btn btn-default" />
+                        <br />
+                        @Html.ActionLink("عودة للقائمة الرئيسية", "Index")
+                    </div>
+                </div>
+            </div>
+            <div>
+   
+</div>
 
-    $(document).ready(function () {
+        </div>
+    }
 
-        $('#District_ID').prop("disabled", true);
-        $('#Village_ID').prop("disabled", true);
-        $('#Field_ID').prop("disabled", true);
-        $('#Product_ID').prop("disabled", true);
+  
 
-        $('#Govt_ID').change(function () {
-            UpdateDistricts($('#Govt_ID'), $('#District_ID'), "اختار المركز-المدينة", $('#Village_ID'), "اختار القرية")
+    @*@section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }*@
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('#District_ID').prop("disabled", true);
+            $('#Village_ID').prop("disabled", true);
+            $('#Field_ID').prop("disabled", true);
+            $('#Product_ID').prop("disabled", true);
+
+            $('#Govt_ID').change(function () {
+                UpdateDistricts($('#Govt_ID'), $('#District_ID'), "اختار المركز-المدينة", $('#Village_ID'), "اختار القرية")
+            });
+
+            $('#District_ID').change(function () {
+                UpdateVillages($('#District_ID'), $('#Village_ID'), "اختار القرية")
+            });
+
+            $('#Sector_ID').change(function () {
+                UpdateFields($('#Sector_ID'), $('#Field_ID'), $('#Product_ID'), "اختار النشاط")
+            });
+
+            $('#Field_ID').change(function () {
+                UpdateProducts($('#Field_ID'), $('#Product_ID'), "اختار المنتج")
+            });
+
         });
 
-        $('#District_ID').change(function () {
-            UpdateVillages($('#District_ID'), $('#Village_ID'), "اختار القرية")
-        });
 
-        $('#Sector_ID').change(function () {
-            UpdateFields($('#Sector_ID'), $('#Field_ID'),$('#Product_ID'),"اختار النشاط")
-        });
-
-        $('#Field_ID').change(function () {
-            UpdateProducts($('#Field_ID'), $('#Product_ID'),"اختار المنتج")
-        });
-
-    });
-
-
-</script>
-
+    </script>
