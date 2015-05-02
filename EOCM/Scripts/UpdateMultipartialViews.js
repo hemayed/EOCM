@@ -31,3 +31,4 @@ function UpdateViews(Govt_ID, District_ID, Sector_ID, Field_ID, Product_ID) {
         },
     });
 }
+

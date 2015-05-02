@@ -51,26 +51,27 @@ namespace EOCM.Controllers
             result.AddView("_ClusterList", "ClusterListContainer", listClusterMapViewModel);
             result.AddView("_ClusterMap", "ClusterMapContainer", myArray.Data);
 
-            //result.AddContent("Form", "LastClickedSpan");
-            // result.AddScript(string.Format("GetMap('{0}');", myArray));
-
+         
             return (result);
 
         }
 
-        //public ActionResult _ClusterMap(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
-        //{
-        //    var myArray = Json(GetClusters(Govt_ID, District_ID, Sector_ID, Field_ID, Product_ID), JsonRequestBehavior.AllowGet);    
-        //    return PartialView(myArray.Data);
-        //}
+        public ActionResult ClusterDetail(string id)
+        {
+            
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Cluster cluster = db.Clusters.Find(id);
+            if (cluster == null)
+            {
+                return HttpNotFound();
+            }
+            return View("ClusterDetail", cluster); ;
 
-        //public ActionResult _ClusterList(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
-        //{
-
-        //    return PartialView(GetClusters(Govt_ID,District_ID,Sector_ID,Field_ID,Product_ID));
-        //}
-
-
+        }
+       
         private List<ClusterMapViewModel> GetClusters(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
         {
             var clusters = (from d in db.Clusters orderby d.Cluster_Name ascending select d).ToList();
@@ -89,6 +90,7 @@ namespace EOCM.Controllers
 
                 ClusterMapViewModel clusterMapViewModel = new ClusterMapViewModel()
                 {
+                    Cluster_ID=cluster.Cluster_ID,
                     Cluster_Num = i++,
                     Cluster_Lat = cluster.Cluster_Lat,
                     Cluster_Long = cluster.Cluster_Long,
@@ -126,7 +128,7 @@ namespace EOCM.Controllers
 
         public JsonResult GetVillages(string District_ID)
         {
-            var villages = (from d in db.Villages orderby d.Village_Name ascending where d.District_ID == District_ID select d).ToList();
+            var villages = ((from d in db.Villages where d.District_ID == District_ID select d).ToList()).OrderBy(d=>d.Village_Name);
             List<SelectListItem> villageList = new List<SelectListItem>();
             foreach (Village village in villages)
             {

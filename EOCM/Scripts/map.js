@@ -30,34 +30,34 @@ function GetMap(myArray) {
     }
     
    
-    try{
-        map = new Microsoft.Maps.Map(document.getElementById("myMap"),
-               {
-                   credentials: "ApsJjM2R2v3U-bnatAF3H0IY4cbas9KnKtIwKzOsLVICG3kqmJaDUZEh_8J-RzR7",
-                   center: new Microsoft.Maps.Location(clat, clon),
-                   mapTypeId: Microsoft.Maps.MapTypeId.road,
-                   zoom: zoomLevel
-               });
-    }
-    catch (e) {
-        alert("الخريطة غير متاحة الان - حاول لاحقا");
-    }
+//    try{
+//        map = new Microsoft.Maps.Map(document.getElementById("myMap"),
+//               {
+//                   credentials: "ApsJjM2R2v3U-bnatAF3H0IY4cbas9KnKtIwKzOsLVICG3kqmJaDUZEh_8J-RzR7",
+//                   center: new Microsoft.Maps.Location(clat, clon),
+//                   mapTypeId: Microsoft.Maps.MapTypeId.road,
+//                   zoom: zoomLevel
+//               });
+//    }
+//    catch (e) {
+//        alert("الخريطة غير متاحة الان - حاول لاحقا");
+//    }
      
-   
-if (num>0 && map !=null)
-    {
-    dataLayer = new Microsoft.Maps.EntityCollection();
-    map.entities.push(dataLayer);
+  
+//if (num>0 && map !=null)
+//    {
+//    dataLayer = new Microsoft.Maps.EntityCollection();
+//    map.entities.push(dataLayer);
 
-    var infoboxLayer = new Microsoft.Maps.EntityCollection();
-    map.entities.push(infoboxLayer);
+//    var infoboxLayer = new Microsoft.Maps.EntityCollection();
+//    map.entities.push(infoboxLayer);
 
-    infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, offset: new Microsoft.Maps.Point(0, 20) });
-    infoboxLayer.push(infobox);
+//    infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, offset: new Microsoft.Maps.Point(0, 20) });
+//    infoboxLayer.push(infobox);
 
     
-        AddData(myArray);
-    }
+//        AddData(myArray);
+//    }
         
 }
 

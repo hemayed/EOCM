@@ -31,15 +31,15 @@ if ((GovtObj).val() != "") {
     });
 }
 else {
-    (DistrictObj).empty();
-    (DistrictObj).append("<option value= 0 >" + msg + "</option>");
-    (DistrictObj).prop("disabled", true);
+    DistrictObj.empty();
+    DistrictObj.append("<option value= 0 >" + msg + "</option>");
+    DistrictObj.prop("disabled", true);
 
     if(arguments.length>3)
     {
-        (VillageObj).empty();
-        (VillageObj).append("<option value= 0 >" + msg2 + "</option>");
-        (VillageObj).prop("disabled", true);
+        VillageObj.empty();
+        VillageObj.append("<option value= 0 >" + msg2 + "</option>");
+        VillageObj.prop("disabled", true);
     }
 }
 }

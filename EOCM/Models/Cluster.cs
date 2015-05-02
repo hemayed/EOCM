@@ -53,10 +53,16 @@ namespace EOCM.Models
         public Nullable<decimal> Cluster_EmpNum { get; set; }
         [Display(Name = "عدد الورش")]
         public Nullable<decimal> Cluster_ShopNum { get; set; }
+
+        [DataType(DataType.Upload)]
         [Display(Name = "صورة المنتج")]
         public string Cluster_ProductImage { get; set; }
+        
+        [DataType(DataType.Upload)]
         [Display(Name = "صورة عملية الانتاج")]
         public string Cluster_ProcessImage { get; set; }
+        
+        [DataType(DataType.Url)]
         [Display(Name = "رابط صفحة التفاصيل")]
         public string Cluster_DetailPage { get; set; }
 

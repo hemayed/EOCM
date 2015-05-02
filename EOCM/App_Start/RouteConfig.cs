@@ -31,6 +31,12 @@ namespace EOCM
              defaults: new { controller = "Home", action = "_ClusterMap", id = UrlParameter.Optional }
          );
 
+            routes.MapRoute(
+            name: "ClusterDetail",
+            url: "{controller}/{action}/{id}",
+            defaults: new { controller = "Home", action = "ClusterDetail", id = UrlParameter.Optional }
+        );
+
       //      routes.MapRoute(
       //      name: "_GetDistricts",
       //      url: "{controller}/{action}/{id}",

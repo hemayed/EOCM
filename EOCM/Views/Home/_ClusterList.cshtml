@@ -35,16 +35,27 @@
                 if (item.Cluster_DetailPage != null && item.Cluster_DetailPage != "")
                 {
 
-                    <a href="@Href(("~/"+item.Cluster_DetailPage))" target="_blank">@Html.DisplayFor(modelitem => item.Cluster_Name)</a>
+                    @*<a href="@Href(("~/"+item.Cluster_DetailPage))" target="_blank">@Html.DisplayFor(modelitem => item.Cluster_Name)</a>*@
+    @*<span class="ClusterDetailLink">
+        @Html.DisplayFor(modelitem => item.Cluster_Name)
+    </span>*@
+                            
+    @Html.DisplayFor(modelitem => item.Cluster_Name)
+
+  Console.WriteLine(item.Cluster_ID);
+  
+   @Html.ActionLink("تفاصيل", "ClusterDetail", new { id = item.Cluster_ID })
+
+
                 }
 
                 else
                 {
-                    @Html.DisplayFor(modelitem => item.Cluster_Name)
-                }
+                            @Html.DisplayFor(modelitem => item.Cluster_Name)
+                            }
 
-                        }
-                    </td>
+                            }
+</td>
 
                 </tr>
 
@@ -88,6 +99,16 @@
                 }
             }
         });
+
+      
+
+       // document.getElementById("btnsave").addEventListener("UpdateDetailView(item.Cluster_ID)", false);
+
+       
+       
+    
+      
+
 
     })
 </script>

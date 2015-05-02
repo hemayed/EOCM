@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EOCM.Models;
+using System.Web.UI.WebControls;
 
 namespace EOCM.Controllers
 {
@@ -35,6 +36,8 @@ namespace EOCM.Controllers
             }
             return View(cluster);
         }
+
+       
 
         // GET: Clusters/Create
         public ActionResult Create()
@@ -67,6 +70,21 @@ namespace EOCM.Controllers
                 var clusterCode = Convert.ToInt32(str)+1;
                 cluster.Cluster_ID = cluster.Village_ID + cluster.Product_ID + clusterCode.ToString("00");
             }
+
+            WebRequest wr = WebRequest.Create(cluster.Cluster_ProductImage);
+            try
+            {
+                 System.Net.WebClient wc = new System.Net.WebClient();
+                 string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProductImage);
+                 string imgFile = Server.MapPath("~/Images/")+cluster.Cluster_ID+imgExt;
+                 wc.DownloadFile(cluster.Cluster_ProductImage, imgFile);
+                 cluster.Cluster_ProductImage = "Images/"+cluster.Cluster_ID+imgExt;
+            }
+            catch (InvalidCastException e)
+            {
+                Console.WriteLine(e);
+            }
+           
 
             if (ModelState.IsValid)
             {
@@ -112,6 +130,20 @@ namespace EOCM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Cluster_ID,Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage")] Cluster cluster)
         {
+
+            try
+            {
+                System.Net.WebClient wc = new System.Net.WebClient();
+                string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProductImage);
+                string imgFile = Server.MapPath("~/Images/") + cluster.Cluster_ID + imgExt;
+                wc.DownloadFile(cluster.Cluster_ProductImage, imgFile);
+                cluster.Cluster_ProductImage = "Images/" + cluster.Cluster_ID + imgExt;
+            }
+            catch (InvalidCastException e)
+            {
+                Console.WriteLine(e);
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(cluster).State = EntityState.Modified;

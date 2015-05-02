@@ -21,7 +21,7 @@ namespace EOCM.Models
         [ForeignKey("Govt_ID")]
         public virtual Governorate Governorate { get; set; }
         
-        public virtual List<Village> Villages { get; set; }
+        //public virtual List<Village> Villages { get; set; }
         public virtual ICollection<Cluster> Clusters { get; set; }
                
     }

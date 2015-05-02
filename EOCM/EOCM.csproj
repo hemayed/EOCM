@@ -387,6 +387,7 @@
     <Content Include="Views\Clusters\Index.cshtml" />
     <Content Include="Views\Home\_ClusterList.cshtml" />
     <Content Include="Views\Home\_ClusterMap.cshtml" />
+    <Content Include="Views\Home\ClusterDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

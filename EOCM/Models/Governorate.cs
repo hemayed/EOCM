@@ -16,7 +16,8 @@ namespace EOCM.Models
         [Display(Name = "المحافظة")]
         public string Govt_Name { get; set; }
 
-        public virtual List<District> Districts { get; set; }
+        //public virtual List<District> Districts { get; set; }
+        //public virtual List<Village> Villages { get; set; }
         public virtual ICollection<Cluster> Clusters { get; set; }
           
        
