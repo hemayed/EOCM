@@ -1,131 +1,121 @@
 ﻿@model EOCM.Models.Cluster
 
 @{
-    ViewBag.Title = "ClusterDetail";
+    ViewBag.Title =  @Html.DisplayFor(model => model.Cluster_Name);
 }
 
-<h2>ClusterDetail</h2>
+<div style="font-family:Arial; text-align: center; direction: rtl;">
+    <h2>@Html.DisplayFor(model => model.Cluster_Name)</h2>
+ </div>
+<hr />
+    <div id="ClusterDetailContainer">
 
-<div id="ClusterDetailContainer">
-    <h4>Cluster</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.District.District_Name)
-        </dt>
+        
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.District.District_Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Governorate.Govt_Name)
+            </dd>
+            
+            <dt>
+                @Html.DisplayNameFor(model => model.District.District_Name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Field.Field_Name)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.District.District_Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Village.Village_Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Field.Field_Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Village.Village_Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Sector.Sector_Name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Sector.Sector_Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Field.Field_Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Governorate.Govt_Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Field.Field_Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Product.Product_Name)
-        </dt>
+           
 
-        <dd>
-            @Html.DisplayFor(model => model.Product.Product_Name)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Product.Product_Name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sector.Sector_Name)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Product.Product_Name)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sector.Sector_Name)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cluster_Lat)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Village.Village_Name)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cluster_Lat)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Village.Village_Name)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cluster_Long)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_Name)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cluster_Long)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_Name)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cluster_EmpNum)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_Lat)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cluster_EmpNum)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_Lat)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cluster_ShopNum)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_Long)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cluster_ShopNum)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_Long)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cluster_ProductImage)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_EmpNum)
-        </dt>
+            <dd>
+                <img src="~/@Html.DisplayFor(model => model.Cluster_ProductImage)" alt="صورة المنتج" style="width:65px; height:65px">
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_EmpNum)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cluster_ProcessImage)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_ShopNum)
-        </dt>
+            <dd>
+                <img src="~/@Html.DisplayFor(model => model.Cluster_ProcessImage)" alt="صورة عملية الانتاج" style="width:65px; height:65px">
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_ShopNum)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cluster_DetailPage)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_ProductImage)
-        </dt>
+            <dd>
+                <a target="_blank" href="#">@Html.DisplayFor(model => model.Cluster_DetailPage)</a>
+               
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_ProductImage)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_ProcessImage)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_ProcessImage)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_DetailPage)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_DetailPage)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Cluster_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
-
+        </dl>
+    </div>
+  

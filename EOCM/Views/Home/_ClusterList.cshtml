@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<EOCM.Models.ClusterMapViewModel>
 
-
 @{
     ViewBag.Title = "Index";
 }
-
 <div style="font-family:Arial">
 
-
-    <table id="clusterTable" class="display compact" cellspacing="0" width="250"> 
+    <table id="clusterTable" class="display compact" cellspacing="0" width="250">
         <thead>
             <tr>
                 <td>
@@ -18,10 +15,8 @@
                     اسم التجمع
                 </td>
             </tr>
-
         </thead>
         <tbody>
-
 
             @foreach (var item in Model)
             {
@@ -31,54 +26,28 @@
                     </td>
                     <td>
 
-                        @{
-                if (item.Cluster_DetailPage != null && item.Cluster_DetailPage != "")
-                {
+                        @Html.ActionLink(item.Cluster_Name, "ClusterDetail", new { id = item.Cluster_ID }, new { target = "_blank" })
 
-                    @*<a href="@Href(("~/"+item.Cluster_DetailPage))" target="_blank">@Html.DisplayFor(modelitem => item.Cluster_Name)</a>*@
-    @*<span class="ClusterDetailLink">
-        @Html.DisplayFor(modelitem => item.Cluster_Name)
-    </span>*@
-                            
-    @Html.DisplayFor(modelitem => item.Cluster_Name)
-
-  Console.WriteLine(item.Cluster_ID);
-  
-   @Html.ActionLink("تفاصيل", "ClusterDetail", new { id = item.Cluster_ID })
-
-
-                }
-
-                else
-                {
-                            @Html.DisplayFor(modelitem => item.Cluster_Name)
-                            }
-
-                            }
-</td>
-
+                    </td>
                 </tr>
 
             }
 
-
         </tbody>
     </table>
-
 </div>
-
 
 <script>
 
     $(document).ready(function () {
         $('#clusterTable').DataTable({
             "sdom": '<"row"lf><t><"center"p>',
-               "columns": [{ "width": "20%" }, null],        
+            "columns": [{ "width": "20%" }, null],
             "sPaginationType": "full_numbers",
             "oLanguage": {
                 "sSearch": "بحث",
                 "sEmptyTable": "لايوجد تجمعات",
-                "sInfoEmpty":"", 
+                "sInfoEmpty": "",
                 "sZeroRecords": "لايوجد تجمعات",
                 //"sInfo": "_TOTAL_ من _END_ الى _START_",
                 "sInfo": "",
@@ -100,16 +69,15 @@
             }
         });
 
-      
 
-       // document.getElementById("btnsave").addEventListener("UpdateDetailView(item.Cluster_ID)", false);
 
-       
-       
-    
-      
+        // document.getElementById("btnsave").addEventListener("UpdateDetailView(item.Cluster_ID)", false);
+
+
+
+
+
 
 
     })
 </script>
-
