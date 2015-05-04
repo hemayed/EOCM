@@ -84,43 +84,30 @@ namespace EOCM.Controllers
                 cluster.Cluster_ID = cluster.Village_ID + cluster.Product_ID + clusterCode.ToString("00");
             }
 
+            string sourceName;
+            string imgExt;
+            string destName;
+                 
             if (cluster.Cluster_ProductImage != null)
             {
-                 string sourceName = Path.GetFileName(Request.Files[0].FileName);
-                 string imgExt = System.IO.Path.GetExtension(sourceName);
+                 sourceName = Path.GetFileName(Request.Files[0].FileName);
+                 imgExt = System.IO.Path.GetExtension(sourceName);
                  //string destName = AppDomain.CurrentDomain.BaseDirectory + "ProductImage/"+cluster.Cluster_ID + imgExt;
-                 string destName = Server.MapPath("~/ProductImages/") + cluster.Cluster_ID + imgExt;
+                 destName = Server.MapPath("~/ProductImages/") + cluster.Cluster_ID + imgExt;
                  
                 Request.Files[0].SaveAs(destName);
                 cluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
                 }
 
-               
-
-                //Uri uri = new Uri(cluster.Cluster_ProductImage);
-                //if (uri.IsFile)
-                //{
-                //  //  string filename = System.IO.Path.GetFileName(uri.LocalPath);
-
-                //    Byte[] bytes = ReadImageFile(uri.AbsoluteUri);
-                //    Console.WriteLine("Filename = " + uri.LocalPath);
-                //    System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
-                //    System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
-                //    string imgExt = System.IO.Path.GetExtension(uri.LocalPath);
-                //    string imgFile = Server.MapPath("~/ProductImages/") + cluster.Cluster_ID + imgExt;
-                //    img.Save(imgFile);
-                //    cluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
-                //}
-            
-
+                               
             if (cluster.Cluster_ProcessImage != null)
             {
-                Byte[] bytes = ReadImageFile(cluster.Cluster_ProcessImage);
-                System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
-                System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
-                string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProcessImage);
-                string imgFile = Server.MapPath("~/ProcessImages/") + cluster.Cluster_ID + imgExt;
-                img.Save(imgFile);
+                 sourceName = Path.GetFileName(Request.Files[1].FileName);
+                 imgExt = System.IO.Path.GetExtension(sourceName);
+                //string destName = AppDomain.CurrentDomain.BaseDirectory + "ProductImage/"+cluster.Cluster_ID + imgExt;
+                 destName = Server.MapPath("~/ProcessImages/") + cluster.Cluster_ID + imgExt;
+
+                Request.Files[1].SaveAs(destName);
                 cluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
             }
 
@@ -196,15 +183,20 @@ namespace EOCM.Controllers
         public ActionResult Edit([Bind(Include = "Cluster_ID,Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage")] Cluster cluster)
         {
 
+            string sourceName;
+            string imgExt;
+            string destName;
+                 
             if (cluster.Cluster_ProductImage != null)
             {
-                Byte[] bytes = ReadImageFile(cluster.Cluster_ProductImage);
-                System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
-                System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
-                string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProductImage);
-                string imgFile = Server.MapPath("~/ProductImages/") + cluster.Cluster_ID + imgExt;
-                img.Save(imgFile);
+                 sourceName = Path.GetFileName(Request.Files[0].FileName);
+                 imgExt = System.IO.Path.GetExtension(sourceName);
+                //string destName = AppDomain.CurrentDomain.BaseDirectory + "ProductImage/"+cluster.Cluster_ID + imgExt;
+                 destName = Server.MapPath("~/ProductImages/") + cluster.Cluster_ID + imgExt;
+
+                Request.Files[0].SaveAs(destName);
                 cluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
+             
             }
             else
             {
@@ -214,12 +206,12 @@ namespace EOCM.Controllers
 
             if (cluster.Cluster_ProcessImage != null)
             {
-                Byte[] bytes = ReadImageFile(cluster.Cluster_ProcessImage);
-                System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
-                System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
-                string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProcessImage);
-                string imgFile = Server.MapPath("~/ProcessImages/") + cluster.Cluster_ID + imgExt;
-                img.Save(imgFile);
+                 sourceName = Path.GetFileName(Request.Files[1].FileName);
+                 imgExt = System.IO.Path.GetExtension(sourceName);
+                //string destName = AppDomain.CurrentDomain.BaseDirectory + "ProductImage/"+cluster.Cluster_ID + imgExt;
+                 destName = Server.MapPath("~/ProcessImages/") + cluster.Cluster_ID + imgExt;
+
+                Request.Files[1].SaveAs(destName);
                 cluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
             }
             else
@@ -227,50 +219,6 @@ namespace EOCM.Controllers
                 Cluster myCluster = db.Clusters.Find(cluster.Cluster_ID);
                 cluster.Cluster_ProcessImage = myCluster.Cluster_ProcessImage;
             }
-
-            //try
-            //{
-            //    System.Net.WebClient wc = new System.Net.WebClient();
-            //    string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProductImage);
-            //    string imgFile = Server.MapPath("~/ProductImages/") + cluster.Cluster_ID + imgExt;
-            //    if(cluster.Cluster_ProductImage != null)
-            //    {
-            //        wc.DownloadFile(cluster.Cluster_ProductImage, imgFile); 
-            //        cluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
-            //    }
-            //    else
-            //    {
-            //        Cluster myCluster = db.Clusters.Find(cluster.Cluster_ID);
-            //        cluster.Cluster_ProductImage = myCluster.Cluster_ProductImage;
-            //    }
-               
-            //}
-            //catch (InvalidCastException e)
-            //{
-            //    Console.WriteLine(e);
-            //}
-
-            //try
-            //{
-            //    System.Net.WebClient wc = new System.Net.WebClient();
-            //    string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProcessImage);
-            //    string imgFile = Server.MapPath("~/ProcessImages/") + cluster.Cluster_ID + imgExt;
-            //    if (cluster.Cluster_ProcessImage != null)
-            //    {
-            //        wc.DownloadFile(cluster.Cluster_ProcessImage, imgFile);
-            //        cluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
-            //    }
-            //    else
-            //    {
-            //        Cluster myCluster = db.Clusters.Find(cluster.Cluster_ID);
-            //        cluster.Cluster_ProcessImage = myCluster.Cluster_ProcessImage;
-            //    }
-                
-            //}
-            //catch (InvalidCastException e)
-            //{
-            //    Console.WriteLine(e);
-            //}
 
             if (ModelState.IsValid)
             {
