@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using EOCM.Models;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace EOCM.Controllers
 {
@@ -51,6 +52,18 @@ namespace EOCM.Controllers
             return View();
         }
 
+        public static byte[] ReadImageFile(string imageLocation)
+        {
+            byte[] imageData = null;
+            FileInfo fileInfo = new FileInfo(imageLocation);
+            long imageFileLength = fileInfo.Length;
+            FileStream fs = new FileStream(imageLocation, FileMode.Open, FileAccess.Read);
+            BinaryReader br = new BinaryReader(fs);
+            imageData = br.ReadBytes((int)imageFileLength);
+            return imageData;
+        }
+
+
         // POST: Clusters/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -71,32 +84,54 @@ namespace EOCM.Controllers
                 cluster.Cluster_ID = cluster.Village_ID + cluster.Product_ID + clusterCode.ToString("00");
             }
 
-            WebRequest wr = WebRequest.Create(cluster.Cluster_ProductImage);
-            try
+            if (cluster.Cluster_ProductImage != null)
             {
-                 System.Net.WebClient wc = new System.Net.WebClient();
-                 string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProductImage);
-                 string imgFile = Server.MapPath("~/ProductImages/")+cluster.Cluster_ID+imgExt;
-                 wc.DownloadFile(cluster.Cluster_ProductImage, imgFile);
-                 cluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
-            }
-            catch (InvalidCastException e)
-            {
-                Console.WriteLine(e);
+                Byte[] bytes = ReadImageFile(cluster.Cluster_ProductImage);
+                System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
+                System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+                string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProductImage);
+                string imgFile = Server.MapPath("~/ProductImages/")+cluster.Cluster_ID+imgExt;
+                img.Save(imgFile);
+                cluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;  
             }
 
-            try
+            if (cluster.Cluster_ProcessImage != null)
             {
-                System.Net.WebClient wc = new System.Net.WebClient();
+                Byte[] bytes = ReadImageFile(cluster.Cluster_ProcessImage);
+                System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
+                System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
                 string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProcessImage);
                 string imgFile = Server.MapPath("~/ProcessImages/") + cluster.Cluster_ID + imgExt;
-                wc.DownloadFile(cluster.Cluster_ProcessImage, imgFile);
+                img.Save(imgFile);
                 cluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
             }
-            catch (InvalidCastException e)
-            {
-                Console.WriteLine(e);
-            }
+
+            //WebRequest wr = WebRequest.Create(cluster.Cluster_ProductImage);
+            //try
+            //{
+            //     System.Net.WebClient wc = new System.Net.WebClient();
+            //     string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProductImage);
+            //     string imgFile = Server.MapPath("~/ProductImages/")+cluster.Cluster_ID+imgExt;
+            //     wc.DownloadFile(cluster.Cluster_ProductImage, imgFile);
+            //     cluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
+            //}
+            //catch (InvalidCastException e)
+            //{
+            //    Console.WriteLine(e);
+            //}
+
+            //try
+            //{
+            //    System.Net.WebClient wc = new System.Net.WebClient();
+            //    string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProcessImage);
+            //    string imgFile = Server.MapPath("~/ProcessImages/") + cluster.Cluster_ID + imgExt;
+            //    wc.DownloadFile(cluster.Cluster_ProcessImage, imgFile);
+            //    cluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
+            //}
+            //catch (InvalidCastException e)
+            //{
+            //    Console.WriteLine(e);
+            //}
 
             if (ModelState.IsValid)
             {
@@ -143,49 +178,81 @@ namespace EOCM.Controllers
         public ActionResult Edit([Bind(Include = "Cluster_ID,Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage")] Cluster cluster)
         {
 
-            try
+            if (cluster.Cluster_ProductImage != null)
             {
-                System.Net.WebClient wc = new System.Net.WebClient();
+                Byte[] bytes = ReadImageFile(cluster.Cluster_ProductImage);
+                System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
+                System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
                 string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProductImage);
                 string imgFile = Server.MapPath("~/ProductImages/") + cluster.Cluster_ID + imgExt;
-                if(cluster.Cluster_ProductImage != null)
-                {
-                    wc.DownloadFile(cluster.Cluster_ProductImage, imgFile); 
-                    cluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
-                }
-                else
-                {
-                    Cluster myCluster = db.Clusters.Find(cluster.Cluster_ID);
-                    cluster.Cluster_ProductImage = myCluster.Cluster_ProductImage;
-                }
-               
+                img.Save(imgFile);
+                cluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
             }
-            catch (InvalidCastException e)
+            else
             {
-                Console.WriteLine(e);
+                Cluster myCluster = db.Clusters.Find(cluster.Cluster_ID);
+                cluster.Cluster_ProductImage = myCluster.Cluster_ProductImage;
             }
 
-            try
+            if (cluster.Cluster_ProcessImage != null)
             {
-                System.Net.WebClient wc = new System.Net.WebClient();
+                Byte[] bytes = ReadImageFile(cluster.Cluster_ProcessImage);
+                System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
+                System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
                 string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProcessImage);
                 string imgFile = Server.MapPath("~/ProcessImages/") + cluster.Cluster_ID + imgExt;
-                if (cluster.Cluster_ProcessImage != null)
-                {
-                    wc.DownloadFile(cluster.Cluster_ProcessImage, imgFile);
-                    cluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
-                }
-                else
-                {
-                    Cluster myCluster = db.Clusters.Find(cluster.Cluster_ID);
-                    cluster.Cluster_ProcessImage = myCluster.Cluster_ProcessImage;
-                }
-                
+                img.Save(imgFile);
+                cluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
             }
-            catch (InvalidCastException e)
+            else
             {
-                Console.WriteLine(e);
+                Cluster myCluster = db.Clusters.Find(cluster.Cluster_ID);
+                cluster.Cluster_ProcessImage = myCluster.Cluster_ProcessImage;
             }
+
+            //try
+            //{
+            //    System.Net.WebClient wc = new System.Net.WebClient();
+            //    string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProductImage);
+            //    string imgFile = Server.MapPath("~/ProductImages/") + cluster.Cluster_ID + imgExt;
+            //    if(cluster.Cluster_ProductImage != null)
+            //    {
+            //        wc.DownloadFile(cluster.Cluster_ProductImage, imgFile); 
+            //        cluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
+            //    }
+            //    else
+            //    {
+            //        Cluster myCluster = db.Clusters.Find(cluster.Cluster_ID);
+            //        cluster.Cluster_ProductImage = myCluster.Cluster_ProductImage;
+            //    }
+               
+            //}
+            //catch (InvalidCastException e)
+            //{
+            //    Console.WriteLine(e);
+            //}
+
+            //try
+            //{
+            //    System.Net.WebClient wc = new System.Net.WebClient();
+            //    string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProcessImage);
+            //    string imgFile = Server.MapPath("~/ProcessImages/") + cluster.Cluster_ID + imgExt;
+            //    if (cluster.Cluster_ProcessImage != null)
+            //    {
+            //        wc.DownloadFile(cluster.Cluster_ProcessImage, imgFile);
+            //        cluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
+            //    }
+            //    else
+            //    {
+            //        Cluster myCluster = db.Clusters.Find(cluster.Cluster_ID);
+            //        cluster.Cluster_ProcessImage = myCluster.Cluster_ProcessImage;
+            //    }
+                
+            //}
+            //catch (InvalidCastException e)
+            //{
+            //    Console.WriteLine(e);
+            //}
 
             if (ModelState.IsValid)
             {
