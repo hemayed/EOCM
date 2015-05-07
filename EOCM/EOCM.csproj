@@ -373,6 +373,9 @@
     <Content Include="Scripts\UpdateMultipartialViews.js" />
     <Content Include="Scripts\WIP.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\HtmlPage1.html">
+      <BrowseToURL>~/Views/HtmlPage1.html</BrowseToURL>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

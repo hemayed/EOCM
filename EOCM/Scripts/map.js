@@ -197,23 +197,31 @@ function AddData(myArray) {
        
         if (myArray[i].Cluster_DetailPage != null && myArray[i].Cluster_DetailPage != "")
         {
-            refSection = '<a href="' + myArray[i].Cluster_DetailPage + '" target="_blank">';
+            refSection1 = '<a href="' + myArray[i].Cluster_DetailPage + '" target="_blank">';
+            refSection2='</a>';
         }
         else
         {
-            refSection = '';
+            refSection1 = '';
+            refSection2 = '';
         }
 
         if (myArray[i].Cluster_ProductImage != null && myArray[i].Cluster_ProductImage != "") {
-            imgSection = '<img src= "../' + myArray[i].Cluster_ProductImage + '" alt="Product Image" style="position:absolute; top:5px; left:5px; width:55px; height:55px">';
+            imgSection = '<img src= "../' + myArray[i].Cluster_ProductImage + '" alt="Product Image" style="position:absolute; top:40px; left:1px; width:40px; height:40px">';
         }
         else {
             imgSection = '';
         }
+        var divID="infoboxText"+myArray[i].Cluster_Num;
+        
+        pin[i].htmlContent = '<div id="' + divID + '" style="direction: rtl; background-color:White; border-style:solid;border-width:medium; border-color:DarkOrange; position:relative; top:-12px; left:-100px; min-height:145px;width:200px; ">' + 
+            '<button class="close" style="text-decoration:none; position:absolute; top:1px; left:1px;" onclick="document.getElementById(\'' + divID + '\').style.display =\'none\'">X</button>' +
+            refSection1 +
+            '<b id="infoboxTitle' + i +
+            '" style="text-decoration:underline; position:absolute; top:0px; right:1px; width:180px;"> ' + myArray[i].Cluster_Num + '-' + myArray[i].Cluster_Name + refSection2 +
+            '</b> <a id="infoboxDescription' + i + '" style="text-decoration:none; color:#000000; position:relative; top:18px; right:1px; min-height:50; width:198px;">' + myArray[i].Cluster_Info1 + "<br>" + myArray[i].Cluster_Info2 + "<br>" + myArray[i].Cluster_Info3 + "<br>" + myArray[i].Cluster_Info4 + '</a>' + imgSection + '</div>';
 
-        pin[i].htmlContent = '<div id="infoboxText' + myArray[i].Cluster_Num + '" style="direction: rtl; background-color:White; border-style:solid;border-width:medium; border-color:DarkOrange; position:relative; top:-12px; left:-100px; min-height:120px;width:200px; ">' + refSection + ' <b id="infoboxTitle' + i + '" style="text-decoration:underline; position:absolute; top:5px; right:5px; width:150px;"> ' + myArray[i].Cluster_Name + '</b> </a> <a id="infoboxDescription' + i + '" style="text-decoration:none; color:#000000; position:absolute; top:30px; right:5px; min-height:50; width:200px;">' + myArray[i].Cluster_Info1 + "<br>" + myArray[i].Cluster_Info2 + "<br>" + myArray[i].Cluster_Info3 + '</a>' + imgSection + '</div>';
-
-
+      
         // Add handler for the pushpin click event.
         Microsoft.Maps.Events.addHandler(pin[i], 'click', displayInfobox);
 

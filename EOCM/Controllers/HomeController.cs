@@ -91,16 +91,18 @@ namespace EOCM.Controllers
                 ClusterMapViewModel clusterMapViewModel = new ClusterMapViewModel()
                 {
                     Cluster_ID=cluster.Cluster_ID,
-                    Cluster_Num = i++,
+                    Cluster_Num = i,
                     Cluster_Lat = cluster.Cluster_Lat,
                     Cluster_Long = cluster.Cluster_Long,
                     Cluster_ProductImage = cluster.Cluster_ProductImage,
                     Cluster_DetailPage = cluster.Cluster_DetailPage,
                     Cluster_Name = cluster.Cluster_Name,
-                    Cluster_Info1 = "عدد العاملين = " + ((int)(cluster.Cluster_EmpNum)).ToString(),
-                    Cluster_Info2 = "عدد الورش = " + ((int)(cluster.Cluster_ShopNum)).ToString(),
-                    Cluster_Info3 = "المنتج: " + cluster.Product.Product_Name,
+                    Cluster_Info1 =cluster.Governorate.Govt_Name + " - " + cluster.District.District_Name + " - " + cluster.Village.Village_Name,
+                    Cluster_Info2 = "عدد العاملين = " + ((int)(cluster.Cluster_EmpNum)).ToString(),
+                    Cluster_Info3 = "عدد الورش = " + ((int)(cluster.Cluster_ShopNum)).ToString(),
+                    Cluster_Info4 = "المنتج: " + cluster.Product.Product_Name,
                 };
+                i++;
                 listClusterMapViewModel.Add(clusterMapViewModel);
             }
             return (listClusterMapViewModel);

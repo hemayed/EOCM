@@ -71,7 +71,10 @@ namespace EOCM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage")] Cluster cluster)
         {
+            if (ModelState.IsValid)
+            {
             var id = (from d in db.Clusters orderby d.Cluster_ID descending where (d.Village_ID.Equals(cluster.Village_ID) && d.Product_ID.Equals(cluster.Product_ID)) select d.Cluster_ID).ToList();
+
             if (id.Count() == 0)
             {
                 cluster.Cluster_ID = cluster.Village_ID + cluster.Product_ID + "01";
@@ -111,35 +114,7 @@ namespace EOCM.Controllers
                 cluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
             }
 
-            //WebRequest wr = WebRequest.Create(cluster.Cluster_ProductImage);
-            //try
-            //{
-            //     System.Net.WebClient wc = new System.Net.WebClient();
-            //     string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProductImage);
-            //     string imgFile = Server.MapPath("~/ProductImages/")+cluster.Cluster_ID+imgExt;
-            //     wc.DownloadFile(cluster.Cluster_ProductImage, imgFile);
-            //     cluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
-            //}
-            //catch (InvalidCastException e)
-            //{
-            //    Console.WriteLine(e);
-            //}
-
-            //try
-            //{
-            //    System.Net.WebClient wc = new System.Net.WebClient();
-            //    string imgExt = System.IO.Path.GetExtension(cluster.Cluster_ProcessImage);
-            //    string imgFile = Server.MapPath("~/ProcessImages/") + cluster.Cluster_ID + imgExt;
-            //    wc.DownloadFile(cluster.Cluster_ProcessImage, imgFile);
-            //    cluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
-            //}
-            //catch (InvalidCastException e)
-            //{
-            //    Console.WriteLine(e);
-            //}
-
-            if (ModelState.IsValid)
-            {
+                  
                 db.Clusters.Add(cluster);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -186,7 +161,23 @@ namespace EOCM.Controllers
             string sourceName;
             string imgExt;
             string destName;
-                 
+
+            if (ModelState.IsValid)
+            {
+                Cluster myCluster = db.Clusters.Find(cluster.Cluster_ID);
+                myCluster.Cluster_Lat = cluster.Cluster_Lat;
+                myCluster.Cluster_Long = cluster.Cluster_Long;
+                myCluster.Cluster_Name = cluster.Cluster_Name;
+                myCluster.Cluster_ShopNum = cluster.Cluster_ShopNum;
+                myCluster.Cluster_EmpNum = cluster.Cluster_EmpNum;
+                myCluster.Cluster_DetailPage = cluster.Cluster_DetailPage;
+                myCluster.Govt_ID = cluster.Govt_ID;
+                myCluster.District_ID = cluster.District_ID;
+                myCluster.Sector_ID = cluster.Sector_ID;
+                myCluster.Field_ID = cluster.Field_ID;
+                myCluster.Product_ID = cluster.Product_ID;
+                
+
             if (cluster.Cluster_ProductImage != null)
             {
                  sourceName = Path.GetFileName(Request.Files[0].FileName);
@@ -195,14 +186,10 @@ namespace EOCM.Controllers
                  destName = Server.MapPath("~/ProductImages/") + cluster.Cluster_ID + imgExt;
 
                 Request.Files[0].SaveAs(destName);
-                cluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
+                myCluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
              
             }
-            else
-            {
-                Cluster myCluster = db.Clusters.Find(cluster.Cluster_ID);
-                cluster.Cluster_ProductImage = myCluster.Cluster_ProductImage;
-            }
+           
 
             if (cluster.Cluster_ProcessImage != null)
             {
@@ -212,20 +199,15 @@ namespace EOCM.Controllers
                  destName = Server.MapPath("~/ProcessImages/") + cluster.Cluster_ID + imgExt;
 
                 Request.Files[1].SaveAs(destName);
-                cluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
+                myCluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
             }
-            else
-            {
-                Cluster myCluster = db.Clusters.Find(cluster.Cluster_ID);
-                cluster.Cluster_ProcessImage = myCluster.Cluster_ProcessImage;
+           
+
+            db.Entry(myCluster).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
             }
 
-            if (ModelState.IsValid)
-            {
-                db.Entry(cluster).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
             ViewBag.District_ID = new SelectList(db.Districts, "District_ID", "District_Name", cluster.District_ID);
             ViewBag.Field_ID = new SelectList(db.Fields, "Field_ID", "Field_Name", cluster.Field_ID);
             ViewBag.Govt_ID = new SelectList(db.Governorates, "Govt_ID", "Govt_Name", cluster.Govt_ID);
