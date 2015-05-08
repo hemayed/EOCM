@@ -1,6 +1,6 @@
 ﻿
 var map=null, infobox, dataLayer;
-var mapWidth=560;
+var mapWidth=500;
 var mapHeight=460;
 
 function GetMap(myArray) {
@@ -183,22 +183,52 @@ function AddData(myArray) {
     var refSection="";
     var imgSection = "";
 
+   
+
     for (i = 0; i < num; i++) {
 
         var pintxt = String(i + 1);
-        pushpinOptions = { text: pintxt, visible: true };
+        
+        switch (myArray[i].Sector_ID) {
+
+            case 1: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/RedPushPin.png", visible: true };
+                break;
+            case 2: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/GreenPushPin.png", visible: true };
+                break;
+            case 3: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/BluePushPin.png", visible: true };
+                break;
+            case 4: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/PurplePushPin.png", visible: true };
+                break;
+            case 5: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/LavenderPushPin.png", visible: true };
+                break;
+            default: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/TransparentPushPin.png", visible: true };
+                break;
+        }
+
         var location1 = new Microsoft.Maps.Location(myArray[i].Cluster_Lat, myArray[i].Cluster_Long);
         pin[i] = new Microsoft.Maps.Pushpin(location1,pushpinOptions);
         pin[i].Title = myArray[i].Cluster_Name;
+
+       
+      
+
+      
+      
+
         
         pin[i].Description = myArray[i].Cluster_Info1 + "<br>" + myArray[i].Cluster_Info2;
         pin[i].showCloseButton = true;
         //pin[i].titleClickHandler = titleClick(info1[i]);
        
+       
+          
+        //refSection1 = '@Ajax.ActionLink('+myArray[i].Cluster_Name + ', "ClusterDetail", new { id =' + myArray[i].Cluster_ID + '}, new AjaxOptions() { HttpMethod = "Post" }, new { target = "_blank" })';
+        //refSection2 = '';
+
         if (myArray[i].Cluster_DetailPage != null && myArray[i].Cluster_DetailPage != "")
         {
             refSection1 = '<a href="' + myArray[i].Cluster_DetailPage + '" target="_blank">';
-            refSection2='</a>';
+            refSection2 = '</a>';
         }
         else
         {
@@ -225,8 +255,22 @@ function AddData(myArray) {
         // Add handler for the pushpin click event.
         Microsoft.Maps.Events.addHandler(pin[i], 'click', displayInfobox);
 
+     
+
         dataLayer.push(pin[i]);
-        
+
+        //switch (myArray[i].Sector_ID) {
+
+        //    case 1: $('.pin' + pintxt + ' div').css({ 'background-color': 'red' }); break;
+        //    case 2: $('.pin' + pintxt + ' div').css({ 'background-color': 'green' }); break;
+        //    case 3: $('.pin' + pintxt + ' div').css({ 'background-color': 'blue' }); break;
+        //    case 4: $('.pin' + pintxt + ' div').css({ 'background-color': 'yellow' }); break;
+        //    case 5: $('.pin' + pintxt + ' div').css({ 'background-color': 'pink' }); break;
+        //    default: $('.pin' + pintxt + ' div').css({ 'background-color': 'orange' }); 
+
+        //}
+       
+      
 
     }
 }
@@ -245,4 +289,51 @@ function closeInfoBox() {
 
  function titleClick(title) {
             alert("I will open a new page to display detailed info about "+  title);
-        }
+ }
+
+
+ function createCanvasPins(lat, lon, sectorID) {
+     var pin, img;
+
+         //Create a canvas pushpin at a random location
+         pin = new CanvasPushpin(new Microsoft.Maps.Location(lat,lon), function (pin, context) {
+             img = new Image();
+             img.onload = function () {
+                 if (context) {
+                     //Set the dimensions of the canvas
+                     context.width = img.width;
+                     context.height = img.height;
+
+                     //Draw a colored circle behind the pin
+                     context.beginPath();
+                     context.arc(13, 13, 11, 0, 2 * Math.PI, false);
+                     context.fillStyle = pin.Metadata.color;
+                     context.fill();
+
+                     //Draw the pushpin icon
+                     context.drawImage(img, 0, 0);
+                 }
+             };
+
+             img.src = 'Images/TransparentPushPin.png';
+         });
+
+         //Give the pushpin a random color
+         pin.Metadata = {
+             color: generateRandomColor()
+         };
+
+         //Add the pushpin to the Canvas Entity Collection
+         canvasLayer.push(pin);
+ }
+
+ function generateRandomColor(sectorID) {
+     switch (sectorID) {
+         case 1: return rgb(100, 0, 0); break;
+         case 2: return rgb(0, 100, 0); break;
+         case 3: return rgb(0, 0, 100); break;
+         case 4: return rgb(100, 100, 0); break;
+         default: return rgb(100, 0, 100); break;
+
+     }
+ }
