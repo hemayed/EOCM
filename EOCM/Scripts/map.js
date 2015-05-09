@@ -76,39 +76,6 @@ function GetMap(myArray) {
      }
 
 
-    //alert("minlat= " + minlat + "  maxlat= " +  maxlat);
-    //alert("minlon= " + minlon + "  maxlon= " + maxlon);
-   
-    //for (var zlevel=10; zlevel>=6; zlevel--)
-    //{
-    //    var minpix2= (Math.cos(maxlat * Math.PI/180) * 2 *Math.PI * 6378137)/(256 * Math.pow(2,zlevel));
-    //    var maxpix2= (Math.cos(minlat * Math.PI/180) * 2 * Math.PI * 6378137)/(256 * Math.pow(2,zlevel));
-
-    //    var minpix = (Math.cos(maxlon * Math.PI / 180) * 2 * Math.PI * 6378137) / (256 * Math.pow(2, zlevel));
-    //    var maxpix= (Math.cos(minlon * Math.PI / 180) * 2 * Math.PI * 6378137) / (256 * Math.pow(2, zlevel));
-
-    //    alert("minpix= " + minpix + "  maxpix= " + maxpix + "minpix2= " + minpix2 + "  maxpix2= " + maxpix2 + " zoomlevel=" + zlevel);
-
-    //    if (maxpix>minUpperWidth && maxpix<maxUpperWidth && minpix>minLowerWidth && minpix<maxLowerWidth)
-    //        break;
-    //}
-
-    //var zoomLevel = zlevel + 1;
-
-    //alert("minpix= " + minpix + "  maxpix= " + maxpix + " zoomlevel=" + zoomLevel);
-
-    //if (num > 0)
-    //{
-    //    clat = clat / num;
-    //    clon = clon / num;
-    //}
-    //else
-    //{
-    //    clat = 30.1 ;
-    //    clon = 31.26;
-    //    zoomLevel = 7;
-    //}
-    
     if (num == 0) {
         
         cLat = 30.1;
@@ -195,11 +162,11 @@ function AddData(myArray) {
                 break;
             case 2: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/GreenPushPin.png", visible: true };
                 break;
-            case 3: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/BluePushPin.png", visible: true };
+            case 3: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/LightBluePushPin.png", visible: true };
                 break;
-            case 4: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/PurplePushPin.png", visible: true };
+            case 4: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/BlackPushPin.png", visible: true };
                 break;
-            case 5: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/LavenderPushPin.png", visible: true };
+            case 5: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/YellowPushPin.png", visible: true };
                 break;
             default: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/TransparentPushPin.png", visible: true };
                 break;
@@ -225,16 +192,20 @@ function AddData(myArray) {
         //refSection1 = '@Ajax.ActionLink('+myArray[i].Cluster_Name + ', "ClusterDetail", new { id =' + myArray[i].Cluster_ID + '}, new AjaxOptions() { HttpMethod = "Post" }, new { target = "_blank" })';
         //refSection2 = '';
 
-        if (myArray[i].Cluster_DetailPage != null && myArray[i].Cluster_DetailPage != "")
-        {
-            refSection1 = '<a href="' + myArray[i].Cluster_DetailPage + '" target="_blank">';
-            refSection2 = '</a>';
-        }
-        else
-        {
+        //if (myArray[i].Cluster_DetailPage != null && myArray[i].Cluster_DetailPage != "")
+        //{
+        //    refSection1 = '<a href="' + myArray[i].Cluster_DetailPage + '" target="_blank">';
+        //    refSection2 = '</a>';
+        //}
+        //else
+        //{
+        //    refSection1 = '';
+        //    refSection2 = '';
+        //}
+
             refSection1 = '';
             refSection2 = '';
-        }
+
 
         if (myArray[i].Cluster_ProductImage != null && myArray[i].Cluster_ProductImage != "") {
             imgSection = '<img src= "../' + myArray[i].Cluster_ProductImage + '" alt="Product Image" style="position:absolute; top:40px; left:1px; width:40px; height:40px">';

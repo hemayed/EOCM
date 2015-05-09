@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 10px;
     padding-bottom: 10px;
+   
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -26,8 +27,8 @@ textarea {
 
 .mapframe {
     border-style: solid;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
     z-index: 2;
     min-width: 560px;
     min-height: 460px;
@@ -51,6 +52,41 @@ input[type=submit] {
 }
 input[type=submit]:hover {
     background: #898989;
+}
+
+
+.infobox{
+    position:relative;
+    background-color:white;
+    border:1px solid rgb(136, 136, 136);
+    left:0px;
+    top:0px;
+    width:256px;
+}
+
+.infobox_close{
+    cursor:pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border:none;
+}
+
+.infobox_content{
+    margin:5px;
+    font-family: Arial;
+    font-size:11px;
+    line-height:22px;
+}
+
+.infobox_pointer{
+    width:33px;
+    height:38px;
+    overflow:hidden;
+    position:relative;
+    z-index:1;
+    left:20px;
+    top:-1px;
 }
 
 /*
