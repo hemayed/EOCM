@@ -101,7 +101,7 @@ function GetMap(myArray) {
         alert("الخريطة غير متاحة الان - حاول لاحقا");
     }
      
-  
+
 if (num>0 && map !=null)
     {
     dataLayer = new Microsoft.Maps.EntityCollection();
@@ -113,11 +113,13 @@ if (num>0 && map !=null)
     infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, offset: new Microsoft.Maps.Point(0, 20) });
     infoboxLayer.push(infobox);
 
-    
+   
         AddData(myArray);
     }
         
 }
+
+/* Shape Creating functions */
 
 /// <summary>
 /// Calculate the distance in kilometers between two coordinates
@@ -149,7 +151,7 @@ function AddData(myArray) {
     var num = myArray.length;
     var refSection="";
     var imgSection = "";
-
+    var linkSection = "";
    
 
     for (i = 0; i < num; i++) {
@@ -176,21 +178,24 @@ function AddData(myArray) {
         pin[i] = new Microsoft.Maps.Pushpin(location1,pushpinOptions);
         pin[i].Title = myArray[i].Cluster_Name;
 
-       
-      
-
-      
-      
-
-        
         pin[i].Description = myArray[i].Cluster_Info1 + "<br>" + myArray[i].Cluster_Info2;
         pin[i].showCloseButton = true;
         //pin[i].titleClickHandler = titleClick(info1[i]);
        
        
-          
-        //refSection1 = '@Ajax.ActionLink('+myArray[i].Cluster_Name + ', "ClusterDetail", new { id =' + myArray[i].Cluster_ID + '}, new AjaxOptions() { HttpMethod = "Post" }, new { target = "_blank" })';
-        //refSection2 = '';
+        linkSection = '<script> $(document).ready(function () { $(\'#infoboxTitle' + i + '\').click(function () {' +
+             'var dataToSend = {'+
+                 'id:'+ myArray[i].Cluster_ID +'};'+
+            '$.ajax({url: "/Home/ClusterDetail",'+
+            'type: "POST",'+
+            'dataType: \'json\','+
+            'contentType: \'application/json; charset=utf-8\','+
+            'data: JSON.stringify(dataToSend),'+
+            'success: function (results) {'+
+            'ClusterDetail(results);},});});})' +
+            '</script>'
+        
+      
 
         //if (myArray[i].Cluster_DetailPage != null && myArray[i].Cluster_DetailPage != "")
         //{
@@ -217,31 +222,19 @@ function AddData(myArray) {
         
         pin[i].htmlContent = '<div id="' + divID + '" style="direction: rtl; background-color:White; border-style:solid;border-width:medium; border-color:DarkOrange; position:relative; top:-12px; left:-100px; min-height:145px;width:200px; ">' + 
             '<button class="close" style="text-decoration:none; position:absolute; top:1px; left:1px;" onclick="document.getElementById(\'' + divID + '\').style.display =\'none\'">X</button>' +
-            refSection1 +
-            '<b id="infoboxTitle' + i +
+            refSection1 + 
+            '<b id="infoboxTitle' + i + 
             '" style="text-decoration:underline; position:absolute; top:0px; right:1px; width:180px;"> ' + myArray[i].Cluster_Num + '-' + myArray[i].Cluster_Name + refSection2 +
-            '</b> <a id="infoboxDescription' + i + '" style="text-decoration:none; color:#000000; position:relative; top:18px; right:1px; min-height:50; width:198px;">' + myArray[i].Cluster_Info1 + "<br>" + myArray[i].Cluster_Info2 + "<br>" + myArray[i].Cluster_Info3 + "<br>" + myArray[i].Cluster_Info4 + '</a>' + imgSection + '</div>';
+            '</b> <a id="infoboxDescription' + i + '" style="text-decoration:none; color:#000000; position:relative; top:18px; right:1px; min-height:50; width:198px;">' + myArray[i].Cluster_Info1 + "<br>" + myArray[i].Cluster_Info2 + "<br>" + myArray[i].Cluster_Info3 + "<br>" + myArray[i].Cluster_Info4 + '</a>' + imgSection + '</div> ' + linkSection ;
 
       
         // Add handler for the pushpin click event.
         Microsoft.Maps.Events.addHandler(pin[i], 'click', displayInfobox);
-
+         
      
 
         dataLayer.push(pin[i]);
 
-        //switch (myArray[i].Sector_ID) {
-
-        //    case 1: $('.pin' + pintxt + ' div').css({ 'background-color': 'red' }); break;
-        //    case 2: $('.pin' + pintxt + ' div').css({ 'background-color': 'green' }); break;
-        //    case 3: $('.pin' + pintxt + ' div').css({ 'background-color': 'blue' }); break;
-        //    case 4: $('.pin' + pintxt + ' div').css({ 'background-color': 'yellow' }); break;
-        //    case 5: $('.pin' + pintxt + ' div').css({ 'background-color': 'pink' }); break;
-        //    default: $('.pin' + pintxt + ' div').css({ 'background-color': 'orange' }); 
-
-        //}
-       
-      
 
     }
 }

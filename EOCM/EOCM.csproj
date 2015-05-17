@@ -282,6 +282,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\BlackPushPin.png" />
+    <Content Include="Images\govtpin.png" />
+    <Content Include="Images\GreenPushPin.png" />
+    <Content Include="Images\LightBluePushPin.png" />
+    <Content Include="Images\OrangePushPin.png" />
+    <Content Include="Images\RedPushPin.png" />
+    <Content Include="Images\TransparentPushPin.png" />
+    <Content Include="Images\YellowPushPin.png" />
     <Content Include="ProcessImages\01170401100601.jpg" />
     <Content Include="ProcessImages\01201901051201.jpg" />
     <Content Include="ProcessImages\01201901051202.jpg" />
@@ -354,6 +362,7 @@
     <Content Include="Scripts\DataTables-1.10.6\media\js\jquery.dataTables.js" />
     <Content Include="Scripts\DataTables-1.10.6\media\js\jquery.dataTables.min.js" />
     <Content Include="Scripts\DataTables-1.10.6\media\js\jquery.js" />
+    <Content Include="Scripts\DrawCircles.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -366,11 +375,14 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\map.js" />
+    <Content Include="Scripts\mapCluster.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\PushpinFactory.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\UpdateLists.js" />
     <Content Include="Scripts\UpdateMultipartialViews.js" />
+    <Content Include="Scripts\V7ClientSideClustering.js" />
     <Content Include="Scripts\WIP.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\HtmlPage1.html">
@@ -420,7 +432,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

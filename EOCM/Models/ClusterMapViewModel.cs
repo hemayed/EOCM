@@ -16,6 +16,11 @@ namespace EOCM.Models
         public string Cluster_ProductImage { get; set; }  
         public string Cluster_DetailPage { get; set; }
         public int Sector_ID { get; set; }
+        public int Govt_ID { get; set; }
+        public string Govt_Name { get; set; }
+        public string Sector_Name { get; set; }
+
+
         public string Cluster_Info1 { get; set; }
         public string Cluster_Info2 { get; set; }
         public string Cluster_Info3 { get; set; }

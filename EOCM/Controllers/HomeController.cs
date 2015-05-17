@@ -98,6 +98,10 @@ namespace EOCM.Controllers
                     Cluster_DetailPage = cluster.Cluster_DetailPage,
                     Cluster_Name = cluster.Cluster_Name,
                     Sector_ID = Convert.ToInt16(cluster.Sector_ID),
+                    Govt_ID = Convert.ToInt16(cluster.Govt_ID),
+                    Govt_Name = cluster.Governorate.Govt_Name,
+                    Sector_Name=cluster.Sector.Sector_Name,
+
                     Cluster_Info1 =cluster.Governorate.Govt_Name + " - " + cluster.District.District_Name + " - " + cluster.Village.Village_Name,
                     Cluster_Info2 = "عدد العاملين = " + ((int)(cluster.Cluster_EmpNum)).ToString(),
                     Cluster_Info3 = "عدد الورش = " + ((int)(cluster.Cluster_ShopNum)).ToString(),
