@@ -362,7 +362,6 @@
     <Content Include="Scripts\DataTables-1.10.6\media\js\jquery.dataTables.js" />
     <Content Include="Scripts\DataTables-1.10.6\media\js\jquery.dataTables.min.js" />
     <Content Include="Scripts\DataTables-1.10.6\media\js\jquery.js" />
-    <Content Include="Scripts\DrawCircles.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -377,12 +376,10 @@
     <Content Include="Scripts\map.js" />
     <Content Include="Scripts\mapCluster.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\PushpinFactory.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\UpdateLists.js" />
     <Content Include="Scripts\UpdateMultipartialViews.js" />
-    <Content Include="Scripts\V7ClientSideClustering.js" />
     <Content Include="Scripts\WIP.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\HtmlPage1.html">
