@@ -182,15 +182,26 @@
     <Compile Include="Migrations\201504201211552_InitialCreate.Designer.cs">
       <DependentUpon>201504201211552_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505221244270_InitialCreate1.cs" />
+    <Compile Include="Migrations\201505221244270_InitialCreate1.Designer.cs">
+      <DependentUpon>201505221244270_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505221254515_InitialCreate2.cs" />
+    <Compile Include="Migrations\201505221254515_InitialCreate2.Designer.cs">
+      <DependentUpon>201505221254515_InitialCreate2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cluster.cs" />
+    <Compile Include="Models\ClusterData.cs" />
     <Compile Include="Models\ClusterMapViewModel.cs" />
+    <Compile Include="Models\ClusterShortData.cs" />
     <Compile Include="Models\District.cs" />
     <Compile Include="Models\DistrictListModel.cs" />
     <Compile Include="Models\EOCMDB.cs" />
     <Compile Include="Models\Field.cs" />
     <Compile Include="Models\Governorate.cs" />
+    <Compile Include="Models\GovtData.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
@@ -283,10 +294,15 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\BlackPushPin.png" />
+    <Content Include="Images\govtBluepin.png" />
     <Content Include="Images\govtpin.png" />
+    <Content Include="Images\govtpin2.jpg" />
+    <Content Include="Images\govtpin3.png" />
     <Content Include="Images\GreenPushPin.png" />
     <Content Include="Images\LightBluePushPin.png" />
     <Content Include="Images\OrangePushPin.png" />
+    <Content Include="Images\pushpin-flag.jpg" />
+    <Content Include="Images\pushpin.png" />
     <Content Include="Images\RedPushPin.png" />
     <Content Include="Images\TransparentPushPin.png" />
     <Content Include="Images\YellowPushPin.png" />
@@ -382,6 +398,7 @@
     <Content Include="Scripts\UpdateMultipartialViews.js" />
     <Content Include="Scripts\WIP.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Home\InfoBox.html" />
     <Content Include="Views\HtmlPage1.html">
       <BrowseToURL>~/Views/HtmlPage1.html</BrowseToURL>
     </Content>
@@ -426,6 +443,8 @@
     <Content Include="Views\Home\_ClusterList.cshtml" />
     <Content Include="Views\Home\_ClusterMap.cshtml" />
     <Content Include="Views\Home\ClusterDetail.cshtml" />
+    <Content Include="Views\Home\OtherGovtClusters.cshtml" />
+    <Content Include="Views\Home\SimilarClusters.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -440,6 +459,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201504201211552_InitialCreate.resx">
       <DependentUpon>201504201211552_InitialCreate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505221244270_InitialCreate1.resx">
+      <DependentUpon>201505221244270_InitialCreate1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505221254515_InitialCreate2.resx">
+      <DependentUpon>201505221254515_InitialCreate2.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

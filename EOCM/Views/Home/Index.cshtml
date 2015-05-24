@@ -4,92 +4,104 @@
     ViewBag.Title = "التجمعات الطبيعية في محافظات مصر";
 }
 
-    <div class="row" style="direction: rtl;">
+    <div style="direction: rtl">
 
-    <div class="col-md-3">
+        <div class="col-md-2" style="border:1px solid darkblue; border-radius: 25px; background-color:lightblue">
+            <center>
+                <br /> 
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sector_ID, null, htmlAttributes: new { @class = "control-label col-md-3" })
-            <div class="col-md-9">
-                @Html.DropDownList("Sector_ID", null, "كل القطاعات", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Sector_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <br /> <br />
-        <div class="form-group">
-            @Html.LabelFor(model => model.Field_ID, null, htmlAttributes: new { @class = "control-label col-md-3" })
-            <div class="col-md-9">
-                @Html.DropDownList("Field_ID", null, "كل الانشطة", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Field_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <br /> <br />
-        <div class="form-group">
-            @Html.LabelFor(model => model.Product_ID, null, htmlAttributes: new { @class = "control-label col-md-3" })
-            <div class="col-md-9">
-                @Html.DropDownList("Product_ID", null, "كل المنتجات", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Product_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <br /> <br />
-        <div class="form-group">
-            @Html.LabelFor(model => model.Govt_ID, null, htmlAttributes: new { @class = "control-label col-md-3" })
-            <div class="col-md-9">
-                @Html.DropDownList("Govt_ID", null, "كل المحافظات", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Govt_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <br /> <br />
-        <div class="form-group">
-            @Html.LabelFor(model => model.District_ID, null, htmlAttributes: new { @class = "control-label col-md-3" })
-            <div class="col-md-9">
-                @*@Html.DropDownListFor(m => m.District_ID, Enumerable.Empty<SelectListItem>(), htmlAttributes: new { @class = "form-control" })*@
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.Sector_ID, null, htmlAttributes: new { @class = "control-label" })
 
-                @Html.DropDownList("District_ID", null, "كل المراكز", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.District_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <br /> <br />
-        <div class="form-group">
-            <div class="col-md-offset-3 col-md-9 text-center">
-
-                <input id="Submit" type="submit" value="عرض" />
-
-                @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
-
-            </div>
-        </div>
-    </div>
-
-        <div class="form-group">
-
-            <div class="col-md-6">
-
-                <div id="ClusterMapContainer">
-
-
+                        @Html.DropDownList("Sector_ID", null, "كل القطاعات", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Sector_ID, "", new { @class = "text-danger" })
+                    </div>
                 </div>
+             
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.Field_ID, null, htmlAttributes: new { @class = "control-label" })
 
-                <div id="MapLegend" style="position:relative; top:40px; height:40px; width:580px;">
-                    <img src="~/Images/RedPushPin.png" alt="صناعي" />   القطاع الصناعي &nbsp;&nbsp;
-                    <img src="~/Images/GreenPushPin.png" alt="قطاع الانتاج الحيواني" />   قطاع الانتاج الحيواني &nbsp;&nbsp;
-                    <img src="~/Images/LightBluePushPin.png" alt="القطاع الخدمي" />  القطاع الخدمي &nbsp;&nbsp;
-                    <img src="~/Images/BlackPushPin.png" alt="القطاع التجاري" />    القطاع التجاري &nbsp;&nbsp;
-                    <img src="~/Images/YellowPushPin.png" alt="قطاع مهن حرة" />    قطاع مهن حرة
+                        @Html.DropDownList("Field_ID", null, "كل الانشطة", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Field_ID, "", new { @class = "text-danger" })
+                    </div>
                 </div>
                
-               
-            </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.Product_ID, null, htmlAttributes: new { @class = "control-label " })
+
+                        @Html.DropDownList("Product_ID", null, "كل المنتجات", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Product_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+             
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.Govt_ID, null, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.DropDownList("Govt_ID", null, "كل المحافظات", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Govt_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+              
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.District_ID, null, htmlAttributes: new { @class = "control-label" })
+
+                        @*@Html.DropDownListFor(m => m.District_ID, Enumerable.Empty<SelectListItem>(), htmlAttributes: new { @class = "form-control" })*@
+                        @Html.DropDownList("District_ID", null, "كل المراكز", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.District_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+             
+                <div class="form-group">
+                    <div class="col-md-12">
+
+                        <input id="Submit" type="submit" value="عرض" />
+
+                        @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
+
+                    </div>
+                </div>
+            </center>
+        </div>
+
+        <div class="form-group">
            
+                <div class="col-md-7" >-
+                    <center>
+                        <div id="ClusterMapContainer" style="text-align:right; background:lightblue; text-decoration-color:darkblue; ">
+                        </div>
+
+
+
+
+                        <div id="MapLegend" style="position:relative; top:5px; padding-top:5px; height:50px; width:640px; border:1px solid darkblue; border-radius: 25px; background-color:lightblue">
+                            &nbsp;&nbsp;
+                            <img src="~/Images/RedPushPin.png" alt="صناعي" />   القطاع الصناعي &nbsp;&nbsp;
+                            <img src="~/Images/GreenPushPin.png" alt="حرف يدوية" />   حرف يدوية &nbsp;&nbsp;
+                            @*<img src="~/Images/GreenPushPin.png" alt="قطاع الانتاج الحيواني" />   قطاع الانتاج الحيواني &nbsp;&nbsp;
+                <img src="~/Images/LightBluePushPin.png" alt="القطاع الخدمي" />  القطاع الخدمي &nbsp;&nbsp;
+                <img src="~/Images/BlackPushPin.png" alt="القطاع التجاري" />    القطاع التجاري &nbsp;&nbsp;
+                <img src="~/Images/YellowPushPin.png" alt="قطاع مهن حرة" />    قطاع مهن حرة*@
+                        </div>
+
+                    </center>
+            </div>
+
         </div>
 
-            <div class="col-md-3">
+        <div class="col-md-3" style="border:1px solid darkblue; border-radius: 25px; background-color:lightblue">
+           
+            <br/>
 
-                <div id="ClusterListContainer">
+            <div id="ClusterListContainer">
 
 
-                </div>
             </div>
+        </div>
         </div>
 
   

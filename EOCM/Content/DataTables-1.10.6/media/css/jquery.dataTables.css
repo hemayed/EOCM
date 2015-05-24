@@ -318,28 +318,33 @@ table.dataTable td {
 .dataTables_wrapper .dataTables_filter {
   float: right;
   text-align: right;
-  padding-left: 2px;
+  padding-right: 2em;
 }
 .dataTables_wrapper .dataTables_filter input {
   margin-left: 0.5em;
   float:right;
+  padding-right: 0.5em;
    /*width: 150px;*/
    /*width: 65%;*/
 }
 .dataTables_wrapper .dataTables_info {
   clear: both;
-  float: left;
-  padding-top: 0.755em;
+  float: right;
+  direction: rtl;
+  padding-top: 0.5em;
+  padding-right: 1em;
+
 }
 .dataTables_wrapper .dataTables_paginate {
-  /*float: right;
-  text-align: right;*/
+  float: left;
+  text-align: left;
   margin-left:auto;
   margin-right:auto;
-  float: none;
+  /*float: none;
   text-align:center;
-  align-content:center;
-  padding-top: 0.1em;
+  align-content:center;*/
+  padding-top: 0.5em;
+  padding-left: 1em;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button {
   box-sizing: border-box;

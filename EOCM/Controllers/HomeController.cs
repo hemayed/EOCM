@@ -10,6 +10,7 @@ using System.Net;
 using System.Text;
 using System.IO;
 using Pulzonic.Multipartial;
+using Newtonsoft.Json;
 
 namespace EOCM.Controllers
 {
@@ -41,18 +42,90 @@ namespace EOCM.Controllers
         public ActionResult _ClusterMap(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
         {
             
-            List<ClusterMapViewModel> listClusterMapViewModel = new List<ClusterMapViewModel>();
-            listClusterMapViewModel = GetClusters(Govt_ID, District_ID, Sector_ID, Field_ID, Product_ID);
+            ClusterMapViewModel clusterMapViewModel = new ClusterMapViewModel();
+            clusterMapViewModel = GetClusters(Govt_ID, District_ID, Sector_ID, Field_ID, Product_ID);
 
             MultipartialResult result = new MultipartialResult(this);
+                                   
+            var myArray = Json(clusterMapViewModel, JsonRequestBehavior.AllowGet);
 
-            var myArray = Json(listClusterMapViewModel, JsonRequestBehavior.AllowGet);
-
-            result.AddView("_ClusterList", "ClusterListContainer", listClusterMapViewModel);
-            result.AddView("_ClusterMap", "ClusterMapContainer", myArray.Data);
+            result.AddView("_ClusterList", "ClusterListContainer", clusterMapViewModel.ClusterData);
+            result.AddView("_ClusterMap", "ClusterMapContainer", myArray.Data); 
 
          
             return (result);
+
+        }
+
+        public ActionResult OtherGovtClusters(string id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+             var clusters = (from d in db.Clusters orderby d.Cluster_Name ascending where d.Govt_ID == id select d).ToList();
+
+             if (clusters == null)
+            {
+                return HttpNotFound();
+            }
+
+           
+            List<ClusterShortData> listClusterShortData = new List<ClusterShortData>();
+
+            
+            foreach (Cluster c in clusters)
+            {
+               ClusterShortData clusterShortData = new ClusterShortData();
+               clusterShortData.Cluster_ID = c.Cluster_ID;
+               clusterShortData.Cluster_Name = c.Cluster_Name;
+               clusterShortData.Govt_ID = c.Govt_ID;
+               clusterShortData.Govt_Name = c.Governorate.Govt_Name;
+               clusterShortData.Products = c.Products;
+               clusterShortData.Sector_Name = c.Sector.Sector_Name;
+               clusterShortData.Field_Name = c.Field.Field_Name;
+               clusterShortData.Product_Name = c.Product.Product_Name;
+               listClusterShortData.Add(clusterShortData);
+            }
+
+            return View("OtherGovtClusters", listClusterShortData); 
+
+        }
+
+        public ActionResult SimilarClusters(string id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var clusters = (from d in db.Clusters orderby d.Cluster_Name ascending where d.Field_ID == id select d).ToList();
+
+            if (clusters == null)
+            {
+                return HttpNotFound();
+            }
+
+
+            List<ClusterShortData> listClusterShortData = new List<ClusterShortData>();
+
+
+            foreach (Cluster c in clusters)
+            {
+                ClusterShortData clusterShortData = new ClusterShortData();
+                clusterShortData.Cluster_ID = c.Cluster_ID;
+                clusterShortData.Cluster_Name = c.Cluster_Name;
+                clusterShortData.Govt_ID = c.Govt_ID;
+                clusterShortData.Govt_Name = c.Governorate.Govt_Name;
+                clusterShortData.Products = c.Products;
+                clusterShortData.Sector_Name = c.Sector.Sector_Name;
+                clusterShortData.Field_Name = c.Field.Field_Name;
+                clusterShortData.Product_Name = c.Product.Product_Name;
+                listClusterShortData.Add(clusterShortData);
+            }
+
+            return View("SimilarClusters", listClusterShortData);
 
         }
 
@@ -68,11 +141,11 @@ namespace EOCM.Controllers
             {
                 return HttpNotFound();
             }
-            return View("ClusterDetail", cluster); ;
+            return View("ClusterDetail", cluster); 
 
         }
        
-        private List<ClusterMapViewModel> GetClusters(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
+        private ClusterMapViewModel GetClusters(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
         {
             var clusters = (from d in db.Clusters orderby d.Cluster_Name ascending select d).ToList();
 
@@ -82,35 +155,83 @@ namespace EOCM.Controllers
             if (Field_ID != "0" && Field_ID != "") { clusters = (from d in clusters orderby d.Cluster_Name ascending where d.Field_ID == Field_ID select d).ToList(); }
             if (Product_ID != "0" && Product_ID != "") { clusters = (from d in clusters orderby d.Cluster_Name ascending where d.Product_ID == Product_ID select d).ToList(); }
 
-            List<ClusterMapViewModel> listClusterMapViewModel = new List<ClusterMapViewModel>();
-            
-            var i = 1;
-            foreach (Cluster cluster in clusters)
-            {
+            //List<ClusterMapViewModel> listClusterMapViewModel = new List<ClusterMapViewModel>();
+            List<GovtData> listGovtData=new List<GovtData>();
+            List<ClusterData> listClusterData = new List<ClusterData>();
 
-                ClusterMapViewModel clusterMapViewModel = new ClusterMapViewModel()
+           for (Int16 govtID=1;govtID<=27;govtID++){
+                GovtData govtData = new GovtData();
+                govtData.Cluster_Num = 0;
+                govtData.Sector_Num = new int[6];
+                for (int i = 0; i < 6; i++)
                 {
-                    Cluster_ID=cluster.Cluster_ID,
-                    Cluster_Num = i,
-                    Cluster_Lat = cluster.Cluster_Lat,
-                    Cluster_Long = cluster.Cluster_Long,
-                    Cluster_ProductImage = cluster.Cluster_ProductImage,
-                    Cluster_DetailPage = cluster.Cluster_DetailPage,
-                    Cluster_Name = cluster.Cluster_Name,
-                    Sector_ID = Convert.ToInt16(cluster.Sector_ID),
-                    Govt_ID = Convert.ToInt16(cluster.Govt_ID),
-                    Govt_Name = cluster.Governorate.Govt_Name,
-                    Sector_Name=cluster.Sector.Sector_Name,
+                    govtData.Sector_Num[i] = 0;
+                }
+                   Governorate govt = db.Governorates.Find(govtID.ToString("00"));
+                   govtData.Govt_ID = govt.Govt_ID;
+                   govtData.Govt_Name = govt.Govt_Name;
+                   govtData.Govt_Lat = govt.Govt_Lat;
+                   govtData.Govt_Long = govt.Govt_Long;
+                  
+                   listGovtData.Add(govtData);
+             }
 
-                    Cluster_Info1 =cluster.Governorate.Govt_Name + " - " + cluster.District.District_Name + " - " + cluster.Village.Village_Name,
-                    Cluster_Info2 = "عدد العاملين = " + ((int)(cluster.Cluster_EmpNum)).ToString(),
-                    Cluster_Info3 = "عدد الورش = " + ((int)(cluster.Cluster_ShopNum)).ToString(),
-                    Cluster_Info4 = "المنتج: " + cluster.Product.Product_Name,
-                };
-                i++;
-                listClusterMapViewModel.Add(clusterMapViewModel);
-            }
-            return (listClusterMapViewModel);
+           foreach (Cluster c in clusters)
+           {
+               var govtIndex = Convert.ToInt16(c.Govt_ID) - 1;
+               var sectorIndex = Convert.ToInt16(c.Sector_ID) - 1;
+
+               ClusterData clusterData = new ClusterData();
+               listGovtData[govtIndex].Cluster_Num++;
+               listGovtData[govtIndex].Sector_Num[sectorIndex]++;
+               clusterData.Cluster_ID=c.Cluster_ID;
+               clusterData.Cluster_Name = c.Cluster_Name;
+               clusterData.Cluster_Lat = c.Cluster_Lat;
+               clusterData.Cluster_Long = c.Cluster_Long;
+               clusterData.Sector_ID = Convert.ToInt16(c.Sector_ID);
+               clusterData.Govt_ID = Convert.ToInt16(c.Govt_ID);
+               clusterData.Govt_Name = c.Governorate.Govt_Name;
+               clusterData.District_Name = c.District.District_Name;
+               clusterData.Village_Name = c.Village.Village_Name;
+
+               clusterData.Cluster_ProcessImage = c.Cluster_ProcessImage;
+               clusterData.Cluster_ProductImage = c.Cluster_ProductImage;
+               clusterData.Cluster_Info1 =c.Governorate.Govt_Name + " - " + c.District.District_Name + " - " + c.Village.Village_Name;
+              clusterData.Cluster_Info2 = "عدد العاملين = " + ((int)(c.Cluster_EmpNum)).ToString();
+              clusterData.Cluster_Info3 = "عدد الورش = " + ((int)(c.Cluster_ShopNum)).ToString();
+              clusterData.Cluster_Info4 = "المنتجات: " + c.Products;
+
+               listClusterData.Add(clusterData);
+           }
+
+            ClusterMapViewModel clusterMapViewModel=new ClusterMapViewModel();
+            clusterMapViewModel.GovtData = listGovtData;
+            clusterMapViewModel.ClusterData = listClusterData;
+
+                  
+                
+               
+                   
+            //{
+            //        Cluster_ID=cluster.Cluster_ID,
+            //        Cluster_Num = i,
+            //        Cluster_Lat = cluster.Cluster_Lat,
+            //        Cluster_Long = cluster.Cluster_Long,
+            //        Cluster_ProductImage = cluster.Cluster_ProductImage,
+            //        Cluster_DetailPage = cluster.Cluster_DetailPage,
+            //        Cluster_Name = cluster.Cluster_Name,
+            //        Sector_ID = Convert.ToInt16(cluster.Sector_ID),
+            //        Govt_ID = Convert.ToInt16(cluster.Govt_ID),
+            //        Govt_Name = cluster.Governorate.Govt_Name,
+            //        Sector_Name=cluster.Sector.Sector_Name,
+
+            //        Cluster_Info1 =cluster.Governorate.Govt_Name + " - " + cluster.District.District_Name + " - " + cluster.Village.Village_Name,
+            //        Cluster_Info2 = "عدد العاملين = " + ((int)(cluster.Cluster_EmpNum)).ToString(),
+            //        Cluster_Info3 = "عدد الورش = " + ((int)(cluster.Cluster_ShopNum)).ToString(),
+            //        Cluster_Info4 = "المنتج: " + cluster.Product.Product_Name,
+            //    };
+                
+            return (clusterMapViewModel);
 
         }
 

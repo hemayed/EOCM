@@ -30,6 +30,10 @@ namespace EOCM.Models
         [ForeignKey("Village_ID")]
         public virtual Village Village { get; set; }
 
+        [StringLength(255)]
+        [Display(Name = "العنوان")]
+        public string Address { get; set; }
+        
         [Display(Name = "القطاع")]
         public string Sector_ID { get; set; }
         [ForeignKey("Sector_ID")]
@@ -44,15 +48,47 @@ namespace EOCM.Models
         public string Product_ID { get; set; }
         [ForeignKey("Product_ID")]
         public virtual Product Product { get; set; }
+
+        [StringLength(1024)]
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "أهم منتجات التجمع")]
+        public string Products { get; set; }
         
+
         [Display(Name = "خط الطول")]
         public decimal Cluster_Lat { get; set; }
         [Display(Name = "خط العرض")]
         public decimal Cluster_Long { get; set; }
         [Display(Name = "عدد العمال")]
-        public Nullable<decimal> Cluster_EmpNum { get; set; }
+        public Nullable<int> Cluster_EmpNum { get; set; }
         [Display(Name = "عدد الورش")]
-        public Nullable<decimal> Cluster_ShopNum { get; set; }
+        public Nullable<int> Cluster_ShopNum { get; set; }
+
+        [Display(Name = "نسبة المشاريع الرسمية في التجمع")]
+        public int OfficalProjects { get; set; }
+
+        [Display(Name = "نسبة المشاريع الغير رسمية في التجمع")]
+        public int NonOfficalProjects { get; set; }
+
+         [StringLength(1024)]
+         [DataType(DataType.MultilineText)]
+        [Display(Name = "(طبيعة هذا التجمع ( تكامل رأسى  / تكامل أفقى / مركزى")]
+        public string ClusterNature { get; set; }
+
+         [StringLength(1024)]
+         [DataType(DataType.MultilineText)]
+        [Display(Name = "(نوع التجمع (استهداف نفس السوق / استخدام نفس الموارد / وجود نفس البنية الأساسية والمرافق")]
+        public string ClusterType { get; set; }
+
+         [StringLength(1024)]
+         [DataType(DataType.MultilineText)]
+        [Display(Name = "الشركات / الهيئات / الجهات الداعمة للتجمع")]
+        public string SupportingOrg { get; set; }
+
+         [StringLength(1024)]
+         [DataType(DataType.MultilineText)]
+        [Display(Name = "أهم التحديات التي يواجهها التجمع")]
+        public string Challenges { get; set; }
 
         [DataType(DataType.Upload)]
         [Display(Name = "صورة المنتج")]

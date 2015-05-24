@@ -1,13 +1,13 @@
 ﻿body {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
    
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -26,15 +26,11 @@ textarea {
 }
 
 .mapframe {
-    border-style: solid;
-    padding-left: 3px;
-    padding-right: 3px;
-    z-index: 2;
-    min-width: 560px;
-    min-height: 460px;
-    /*top: 125px;
-    left: 215px;
-    position: absolute;*/
+    align-content: center;
+    /*padding-left: 10px;
+    padding-right: 10px;*/
+    z-index: 0;
+    
 }
 
 .banner {
@@ -88,6 +84,28 @@ input[type=submit]:hover {
     left:20px;
     top:-1px;
 }
+
+#ProfileTable {border:solid 1px blue; border-spacing:0px; border-collapse:separate; direction:rtl; font-size:x-large; word-wrap: break-word}
+#ProfileTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
+#ProfileTable .c1 {background-color:lightblue;}
+#ProfileTable .c2 {background-color:white;}
+#ProfileTable td, #ProfileTable th {border:solid 1px blue; padding:4px;}
+
+#GovtClustersTable {border:solid 1px blue; border-spacing:0px; border-collapse:separate; direction:rtl; font-size:x-large; word-wrap: break-word}
+#GovtClustersTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
+#GovtClustersTable .c1 {background-color:white;}
+#GovtClustersTable .c2 {background-color:white;}
+#GovtClustersTable td, #ProfileTable th {border:solid 1px blue; padding:4px;}
+
+#SimilarClustersTable {border:solid 1px blue; border-spacing:0px; border-collapse:separate; direction:rtl; font-size:x-large; word-wrap: break-word}
+#SimilarClustersTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
+#SimilarClustersTable td, #ProfileTable th {border:solid 1px blue; padding:4px;}
+
+#ClusterTable {border:solid 1px blue; border-spacing:0px; border-collapse:separate; direction:rtl; font-size:x-large; word-wrap: break-word}
+#ClusterTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
+#ClusterTable td, #ProfileTable th {border:solid 1px blue; padding:4px;}
+
+
 
 /*
 * DataTables RTL support

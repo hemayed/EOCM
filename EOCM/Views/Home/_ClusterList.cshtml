@@ -1,16 +1,17 @@
-﻿@model IEnumerable<EOCM.Models.ClusterMapViewModel>
+﻿@model IEnumerable<EOCM.Models.ClusterData>
 
 @{
     ViewBag.Title = "Index";
+    int cnum = 1;
+   
+    
 }
-<div style="font-family:Arial">
+<div>
 
     <table id="clusterTable" class="display compact" cellspacing="0" width="250">
         <thead>
             <tr>
-                <td>
-                    مسلسل
-                </td>
+                <td></td>
                 <td>
                     اسم التجمع
                 </td>
@@ -22,44 +23,47 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelitem => item.Cluster_Num)
+                        @*@Html.DisplayFor(modelitem => item.Cluster_Num)*@
+                        @cnum
                     </td>
                     <td>
-
                         @Html.ActionLink(item.Cluster_Name, "ClusterDetail", new { id = item.Cluster_ID }, new { target = "_blank" })
-
                     </td>
                 </tr>
-
+                cnum = cnum + 1;
+                Console.WriteLine("cnum =" + cnum);
             }
+
+
 
         </tbody>
     </table>
+
 </div>
 
 <script>
 
     $(document).ready(function () {
         $('#clusterTable').DataTable({
-            "sdom": '<"row"lf><t><"center"p>',
-            "columns": [{ "width": "20%" }, null],
-            "sPaginationType": "full_numbers",
+            "sdom": '<"centered"ft><"floatright"i><"floatleft"p>',
+            "columns": [{ "width": "15%" }, null],
+            "bLengthChange": false,
+            "sPaginationType": "full",
             "oLanguage": {
                 "sSearch": "بحث",
                 "sEmptyTable": "لايوجد تجمعات",
                 "sInfoEmpty": "",
                 "sZeroRecords": "لايوجد تجمعات",
-                //"sInfo": "_TOTAL_ من _END_ الى _START_",
-                "sInfo": "",
+                "sInfo": "_END_-_START_ من _TOTAL_",
                 "sInfoFiltered": "",
-                "sLengthMenu": ' <select>' +
-                '<option value="10">10</option>' +
-                '<option value="15">15</option>' +
-                '<option value="20">20</option>' +
-                '<option value="25">25</option>' +
+                //"sLengthMenu": ' <select>' +
+                //'<option value="10">10</option>' +
+                //'<option value="15">15</option>' +
+                //'<option value="20">20</option>' +
+                //'<option value="25">25</option>' +
                 //'<option value="50">50</option>' +
                 //'<option value="-1">الكل</option>' +
-                '</select>عرض',
+                //'</select>عرض',
                 "oPaginate": {
                     "sFirst": "<<",
                     "sPrevious": "<",
@@ -70,8 +74,6 @@
         });
 
 
-
-        // document.getElementById("btnsave").addEventListener("UpdateDetailView(item.Cluster_ID)", false);
 
 
 

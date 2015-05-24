@@ -8,114 +8,122 @@
     <h2>@Html.DisplayFor(model => model.Cluster_Name)</h2>
  </div>
 <hr />
-    <div id="ClusterDetailContainer">
+    <div id="ClusterDetailContainer" >
 
         
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Governorate.Govt_Name)
-            </dd>
-            
-            <dt>
-                @Html.DisplayNameFor(model => model.District.District_Name)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.District.District_Name)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Village.Village_Name)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Village.Village_Name)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Sector.Sector_Name)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Sector.Sector_Name)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Field.Field_Name)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Field.Field_Name)
-            </dd>
+        <table id="ProfileTable" align="center">
+            <colgroup>
+                <col class="c1" style="width: 50%;">
+                <col class="c2" style="width: 50%;">
+            </colgroup>
 
            
+            <tr>
+                <th>البند</th>
+                <th>البيان</th>
+            </tr>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Product.Product_Name)
-            </dt>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Governorate.Govt_Name)</td>
+                <td>@Html.DisplayFor(model => model.Governorate.Govt_Name)</td>
+            </tr>
 
-            <dd>
-                @Html.DisplayFor(model => model.Product.Product_Name)
-            </dd>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.District.District_Name)</td>
+                <td>@Html.DisplayFor(model => model.District.District_Name)</td>
+            </tr>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Cluster_Lat)
-            </dt>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Village.Village_Name)</td>
+                <td>@Html.DisplayFor(model => model.Village.Village_Name)</td>
+            </tr>
 
-            <dd>
-                @Html.DisplayFor(model => model.Cluster_Lat)
-            </dd>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Address)</td>
+                <td>@Html.DisplayFor(model => model.Address)</td>
+            </tr>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Cluster_Long)
-            </dt>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Sector.Sector_Name)</td>
+                <td>@Html.DisplayFor(model => model.Sector.Sector_Name)</td>
+            </tr>
 
-            <dd>
-                @Html.DisplayFor(model => model.Cluster_Long)
-            </dd>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Field.Field_Name)</td>
+                <td>@Html.DisplayFor(model => model.Field.Field_Name)</td>
+            </tr>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Cluster_EmpNum)
-            </dt>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Product.Product_Name)</td>
+                <td>@Html.DisplayFor(model => model.Product.Product_Name)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Products)</td>
+                <td>@Html.DisplayFor(model => model.Products)</td>
+            </tr>
+            
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Cluster_ShopNum)</td>
+                <td>@Html.DisplayFor(model => model.Cluster_ShopNum)</td>
+            </tr>
 
-            <dd>
-                @Html.DisplayFor(model => model.Cluster_EmpNum)
-            </dd>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Cluster_EmpNum)</td>
+                <td>@Html.DisplayFor(model => model.Cluster_EmpNum)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.OfficalProjects)</td>
+                <td>@Html.DisplayFor(model => model.OfficalProjects)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.NonOfficalProjects)</td>
+                <td>@Html.DisplayFor(model => model.NonOfficalProjects)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.ClusterNature)</td>
+                <td>@Html.DisplayFor(model => model.ClusterNature)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.ClusterType)</td>
+                <td>@Html.DisplayFor(model => model.ClusterType)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.SupportingOrg)</td>
+                <td>@Html.DisplayFor(model => model.SupportingOrg)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Challenges)</td>
+                <td>@Html.DisplayFor(model => model.Challenges)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Cluster_DetailPage)</td>
+                <td><a target="_blank" href="#">@Html.DisplayFor(model => model.Cluster_DetailPage)</a>  </td>
+          
+            </tr>
+         
+            <tr>
+                <td>روابط اخرى</td>
+                <td>
+                   
+                    @Html.ActionLink("تجمعات اخرى في نفس المحافظة", "OtherGovtClusters", new { id = @Model.Govt_ID }, new { target = "_blank" })
+                    <br />
+                    @Html.ActionLink("تجمعات مشابهة في كل المحافظات", "SimilarClusters", new { id = @Model.Field_ID }, new { target = "_blank" })
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Cluster_ShopNum)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Cluster_ShopNum)
-            </dd>
+                </td>
+            </tr>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Cluster_ProductImage)
-            </dt>
 
-            <dd>
-                <img src="~/@Html.DisplayFor(model => model.Cluster_ProductImage)" alt="صورة المنتج" style="width:65px; height:65px">
-            </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Cluster_ProcessImage)
-            </dt>
+        </table>
 
-            <dd>
-                <img src="~/@Html.DisplayFor(model => model.Cluster_ProcessImage)" alt="صورة عملية الانتاج" style="width:65px; height:65px">
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Cluster_DetailPage)
-            </dt>
-
-            <dd>
-                <a target="_blank" href="#">@Html.DisplayFor(model => model.Cluster_DetailPage)</a>
-               
-            </dd>
-
-        </dl>
+       
     </div>
   
+@*<dt>
+        @Html.DisplayNameFor(model => model.Cluster_ProcessImage)
+    </dt>
+
+    <dd>
+        <img src="~/@Html.DisplayFor(model => model.Cluster_ProcessImage)" alt="صورة عملية الانتاج" style="width:65px; height:65px">
+    </dd>*@

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EOCM.Models.ClusterShortData>
+
+@{
+    ViewBag.Title = "التجمعات الطبيعية لنشاط " + Model.First().Field_Name;
+}
+
+<div style="font-family:Arial; text-align: center; direction: rtl;">
+    <h2> @ViewBag.Title  </h2>
+ </div>
+
+<hr />
+    <div id="SimilarClusters" >
+
+        <table id="SimilarClustersTable" align="center">
+           
+            <tr>
+                <th>اسم التجمع</th>
+                <th>المحافظة</th>
+                <th>المنتجات</th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.Cluster_Name, "ClusterDetail", new { id = item.Cluster_ID }, new { target = "_blank" })
+                    </td>
+                    <td>@Html.DisplayFor(modelitem => item.Govt_Name)</td>
+                    <td>@Html.DisplayFor(modelitem => item.Products)</td>
+
+                </tr>
+            }
+
+        </table>
+
+    </div>
+  
