@@ -1,8 +1,8 @@
 ﻿
 var map = null, govtTooltip, clusterTooltip, clusterInfobox, clusterLayer, govtLayer;
 
-var mapWidth = 600;
-var mapHeight = 500;
+var mapWidth = 760;
+var mapHeight = 560;
 var govtLocations = [],
     maxValue = 50;
 var clat = new Array(27);
@@ -23,6 +23,9 @@ var govtData;
 var Zoom = {
     MAX: 10,
     MIN: 4
+}
+
+function GetMap1(myArray) {
 }
 
 function GetMap(myArray) {
@@ -51,8 +54,8 @@ function GetMap(myArray) {
                            mapTypeId: Microsoft.Maps.MapTypeId.road,
                            zoom: zoomLevel,
                            customizeOverlays: true,
-                           width: 650,
-                           height:540
+                           width: mapWidth,
+                           height:mapHeight
                        });
             }
 }
@@ -75,7 +78,7 @@ function GetMap(myArray) {
         var govtTooltipLayer = new Microsoft.Maps.EntityCollection();
         map.entities.push(govtTooltipLayer);
 
-        govtTooltip = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, width:150, offset: new Microsoft.Maps.Point(-75, 15) });
+        govtTooltip = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, width:150, height:100, offset: new Microsoft.Maps.Point(-75, 35) });
 
         govtTooltipLayer.push(govtTooltip);
         AddGovtLocations();
@@ -86,11 +89,11 @@ function GetMap(myArray) {
         var clusterInfoBoxLayer = new Microsoft.Maps.EntityCollection();
         map.entities.push(clusterInfoBoxLayer);
 
-        clusterTooltip = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, width: 150, offset: new Microsoft.Maps.Point(-75, 15) });
+        clusterTooltip = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, width: 200, height:150, offset: new Microsoft.Maps.Point(-100, 35) });
         clusterInfoBoxLayer.push(clusterTooltip);
 
-        clusterInfobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, width: 200, offset: new Microsoft.Maps.Point(-100, 15) });
-        clusterInfoBoxLayer.push(clusterInfobox);
+        //clusterInfobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, width: 200, offset: new Microsoft.Maps.Point(-100, 15) });
+        //clusterInfoBoxLayer.push(clusterInfobox);
         
         CreateGovtLayer();
 
@@ -119,7 +122,7 @@ function showGovtLayer() {
     }
     for (i = 0; i < num; i++) {
         clusterpin[i].setOptions({ visible: false });
-        clusterInfobox.setOptions({ visible: false });
+       // clusterInfobox.setOptions({ visible: false });
         clusterTooltip.setOptions({ visible: false });
     }
 }
@@ -205,7 +208,7 @@ function computeMapCenterZoom(govtID)
     var meanDistanceX = HaversineDistance(mapclat, minLon, mapclat, maxLon);
 
     //want to calculate the distance in km along the center longitude between the two latitudes
-    var meanDistanceY = HaversineDistance(maxLat, mapclon, minLat, mapclon); // * 2
+    var meanDistanceY = HaversineDistance(maxLat, mapclon, minLat, mapclon)*2; // * 2
 
     //calculates the x and y scales
     var meanScaleValueX = meanDistanceX / mapWidth;
@@ -284,7 +287,7 @@ function CreateGovtLayer() {
         if (govtData[i].Cluster_Num != 0) {
             var pintxt = String(i + 1);
             var divID = "govt" + pintxt;
-            pushpinOptions = { visible: false, typeName: 'govt' + pintxt, visible: true, icon:"Images/star3.png", width:40, height: 40, textOffset: new Microsoft.Maps.Point(0, 0)};  
+            pushpinOptions = { visible: false, typeName: 'govt' + pintxt, visible: true, icon:"/Images/star3.png", width:40, height: 40, textOffset: new Microsoft.Maps.Point(0, 0)};  
             govtpin[i] = new Microsoft.Maps.Pushpin(govtLocations[i], pushpinOptions);
 
             govtpin[i].Title = " محافظة " + govtData[i].Govt_Name;
@@ -298,8 +301,8 @@ function CreateGovtLayer() {
             // '<b style="text-decoration:none; text-align:right"> ' + govtpin[i].Description
            
             govtpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:medium; border-color:blue; width:150; min-height:100">'+
-            '<div id="infoboxTitle1" style="position:center; text-align:center; font-size:large">' + govtpin[i].Title + '</div> '+
-        '<div id="infoboxDescription1" style="position:center;  text-align:right" >' +  govtpin[i].Description + '</div> </div>'
+            '<div id="infoboxTitle" style="position:center; text-align:center; font-size:large">' + govtpin[i].Title + '</div> '+
+        '<div id="infoboxDescription" style="position:center;  text-align:right" >' +  govtpin[i].Description + '</div> </div>'
 
             //position:relative; top:-12px; left:-75px; min-height:100px;width:150px;
 
@@ -384,19 +387,19 @@ function createClusterLayer(e) {
 
             switch (clusterData[i].Sector_ID) {
 
-                case 1: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/RedPushPin.png", visible: false };
+                case 1: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "/Images/RedPushPin.png", visible: false };
                     break;
-                case 2: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/GreenPushPin.png", visible: false };
+                case 2: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "/Images/GreenPushPin.png", visible: false };
                     break;
-                case 3: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/LightBluePushPin.png", visible: false };
+                case 3: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "/Images/LightBluePushPin.png", visible: false };
                     break;
-                case 4: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/BlackPushPin.png", visible: false };
+                case 4: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "/Images/BlackPushPin.png", visible: false };
                     break;
-                case 5: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/YellowPushPin.png", visible: false };
+                case 5: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "/Images/YellowPushPin.png", visible: false };
                     break;
-                case 6: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/GreenPushPin.png", visible: false };
+                case 6: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "/Images/GreenPushPin.png", visible: false };
                     break;
-                default: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/TransparentPushPin.png", visible: false };
+                default: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "/Images/TransparentPushPin.png", visible: false };
                     break;
             }
 
@@ -423,7 +426,7 @@ function createClusterLayer(e) {
             //clusterpin[i].htmlContent = '<div id="' + divID + '" style="direction: rtl; background-color:White; border-style:solid;border-width:medium; border-color:blue; position:relative; top:0px; left:0px; min-height:25px;width:105px; ">' + '<center> <b id="infoboxTitle' + i +
             //'" style="text-decoration:none; position:absolute; top:0px; right:2px; width:100px;">' + clusterData[i].Cluster_Name + ' </center> </div> ';
 
-            clusterpin[i].htmlContent = '<div id="div1" style="background-color:White; border-style:solid;border-width:medium; border-color:blue;">' +
+            clusterpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:medium;  width:200; min-height:150; border-color:blue; ">' +
             '<div id="infoboxTitle1" style="position:center; text-align:center; font-size:large">' + clusterData[i].Cluster_Name +   '</div>'+
             '<div id="infoboxDescription1" style="position:center;  text-align:right" >' + clusterpin[i].Description + '</div> </div>'
           
@@ -484,17 +487,17 @@ function AddData(myArray) {
 
         switch (clusterData[i].Sector_ID) {
 
-            case 1: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/RedPushPin.png", visible: true };
+            case 1: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "/Images/RedPushPin.png", visible: true };
                 break;
-            case 2: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/GreenPushPin.png", visible: true };
+            case 2: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "/Images/GreenPushPin.png", visible: true };
                 break;
-            case 3: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/LightBluePushPin.png", visible: true };
+            case 3: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "/Images/LightBluePushPin.png", visible: true };
                 break;
-            case 4: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/BlackPushPin.png", visible: true };
+            case 4: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "/Images/BlackPushPin.png", visible: true };
                 break;
-            case 5: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/YellowPushPin.png", visible: true };
+            case 5: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "/Images/YellowPushPin.png", visible: true };
                 break;
-            default: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "Images/TransparentPushPin.png", visible: true };
+            default: pushpinOptions = { typeName: 'pin' + pintxt, text: pintxt, icon: "/Images/TransparentPushPin.png", visible: true };
                 break;
         }
 
@@ -597,35 +600,11 @@ function displayInfobox(e) {
         //clusterInfobox.setOptions({ visible: true, htmlContent: e.target.htmlContent });
         var index = parseInt(e.target.getText())-1;
      
-        var url = Url.Action("ClusterDetail", "Home", new { id : clusterData[index].Cluster_ID  });
-        //// do something with the url client side variable, for example redirect
-        window.location.href = url;
-
-
-        //display cluster profile
-       // $.get('Home/ClusterDetail', { id: clusterData[index].Cluster_ID });
-
-        
-       // Html.ActionLink(item.Cluster_Name, "ClusterDetail", new { id : clusterData[index].Cluster_ID  }, new { target : "_blank" })
-
-        //$.get('Home/ClusterDetail', { id: clusterData[index].Cluster_ID }, function (data) {
-        //    $('#ClusterDetailContainer').html(data);
-        //});
-
-    //    var dataToSend = {
-    //        id: clusterData[index].Cluster_ID
-    //    };
-    //    $.ajax({
-    //        url: "/Home/ClusterDetail",
-    //        type: "POST",
-    //        dataType: 'json',
-    //        contentType: 'application/json; charset=utf-8',
-    //        data: JSON.stringify(dataToSend),
-    //        success: function (result) {
-    //            window.location.href=result;
-    //        },
-    //    });
-        //
+    var url = "/Home/ClusterDetail/" + clusterData[index].Cluster_ID;
+    var win = window.open(url, '_blank');
+   
+     
+       
     }
 }
 

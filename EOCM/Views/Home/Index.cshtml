@@ -6,79 +6,53 @@
 
     <div style="direction: rtl">
 
-        <div class="col-md-2" style="border:1px solid darkblue; border-radius: 25px; background-color:lightblue">
+        <div class="col-md-2" >
             <center>
-                <br /> 
-
-                <div class="form-group">
-                    <div class="col-md-12">
+               
+                <div class="filters">
+                   
                         @Html.LabelFor(model => model.Sector_ID, null, htmlAttributes: new { @class = "control-label" })
 
                         @Html.DropDownList("Sector_ID", null, "كل القطاعات", htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Sector_ID, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-             
-                <div class="form-group">
-                    <div class="col-md-12">
+
                         @Html.LabelFor(model => model.Field_ID, null, htmlAttributes: new { @class = "control-label" })
 
                         @Html.DropDownList("Field_ID", null, "كل الانشطة", htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Field_ID, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-               
-                <div class="form-group">
-                    <div class="col-md-12">
+
                         @Html.LabelFor(model => model.Product_ID, null, htmlAttributes: new { @class = "control-label " })
 
                         @Html.DropDownList("Product_ID", null, "كل المنتجات", htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Product_ID, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-             
-                <div class="form-group">
-                    <div class="col-md-12">
+
                         @Html.LabelFor(model => model.Govt_ID, null, htmlAttributes: new { @class = "control-label" })
 
                         @Html.DropDownList("Govt_ID", null, "كل المحافظات", htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Govt_ID, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-              
-                <div class="form-group">
-                    <div class="col-md-12">
+
                         @Html.LabelFor(model => model.District_ID, null, htmlAttributes: new { @class = "control-label" })
 
-                        @*@Html.DropDownListFor(m => m.District_ID, Enumerable.Empty<SelectListItem>(), htmlAttributes: new { @class = "form-control" })*@
                         @Html.DropDownList("District_ID", null, "كل المراكز", htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.District_ID, "", new { @class = "text-danger" })
-                    </div>
+                        <br/>
                 </div>
-             
+                <br />
                 <div class="form-group">
-                    <div class="col-md-12">
-
+                  
                         <input id="Submit" type="submit" value="عرض" />
 
                         @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
-
-                    </div>
+                 
                 </div>
+
             </center>
         </div>
 
         <div class="form-group">
            
-                <div class="col-md-7" >-
+                <div class="col-md-7" >
                     <center>
-                        <div id="ClusterMapContainer" style="text-align:right; background:lightblue; text-decoration-color:darkblue; ">
-                        </div>
-
-
-
-
-                        <div id="MapLegend" style="position:relative; top:5px; padding-top:5px; height:50px; width:640px; border:1px solid darkblue; border-radius: 25px; background-color:lightblue">
+                      
+                            <div id="ClusterMapContainer">
+                            </div>
+                       
+                        <div id="MapLegend" class="mapLegend">
                             &nbsp;&nbsp;
                             <img src="~/Images/RedPushPin.png" alt="صناعي" />   القطاع الصناعي &nbsp;&nbsp;
                             <img src="~/Images/GreenPushPin.png" alt="حرف يدوية" />   حرف يدوية &nbsp;&nbsp;
@@ -93,11 +67,10 @@
 
         </div>
 
-        <div class="col-md-3" style="border:1px solid darkblue; border-radius: 25px; background-color:lightblue">
+        <div class="col-md-3" >
            
-            <br/>
 
-            <div id="ClusterListContainer">
+            <div id="ClusterListContainer" class="clusterList">
 
 
             </div>

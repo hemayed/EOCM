@@ -1,13 +1,13 @@
 ﻿body {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
    
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -19,18 +19,20 @@
 
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
 .mapframe {
+    border:1px solid;
     align-content: center;
-    /*padding-left: 10px;
-    padding-right: 10px;*/
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left:0px;
+    margin-right:0px;
     z-index: 0;
-    
 }
 
 .banner {
@@ -39,17 +41,67 @@ textarea {
 }
 
 input[type=submit] {
-    border: 1px solid #0c0c0c;
-    color: #0c0c0c;
-    background: #ebe8e8;
+    border: 1px solid blue;
+    border-radius: 10px;
+    color: white;
+    background: blue;
     padding: 5px 10px;
-    border-radius: 1px;
-   
+    font-size:large;
+   width:100%;
 }
 input[type=submit]:hover {
-    background: #898989;
+    background: lightblue;
+    color:black;
 }
 
+
+.filters{
+    padding-left:0px; 
+    padding-right:0px; 
+    background-color:#d5eaee; 
+    color:black; 
+    border-radius:10px;
+    font-size:medium;
+}
+
+.control-label{
+    padding-left:0px; 
+    padding-right:0px; 
+    background-color:#d5eaee; 
+    color:black; 
+    border-radius:10px;
+    border-color:blue;
+}
+
+.mapLegend{
+   position:relative; 
+   top:5px; 
+   padding-top:5px; 
+   height:50px; 
+   /*width:760px;*/ 
+   border:1px solid blue; 
+   border-radius: 10px; 
+   background-color:#d5eaee;
+   color:black;
+   font-size:medium;
+}
+
+.clusterList{
+    padding-left:0px; 
+    padding-right:0px; 
+    background-color:#d5eaee; 
+    color:black; 
+    border-radius:10px;
+    font-size:medium;
+}
+
+.form-control{
+    padding-left:1px; 
+    padding-right:1px; 
+    border-radius:10px;
+     border-color:blue;
+    text-wrap:normal;
+}
 
 .infobox{
     position:relative;

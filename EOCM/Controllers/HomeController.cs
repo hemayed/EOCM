@@ -144,16 +144,17 @@ namespace EOCM.Controllers
             return View("ClusterDetail", cluster); 
 
         }
-       
+
+        
         private ClusterMapViewModel GetClusters(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
         {
-            var clusters = (from d in db.Clusters orderby d.Cluster_Name ascending select d).ToList();
+            var clusters = (from d in db.Clusters orderby d.Govt_ID, d.Cluster_Name ascending select d).ToList();
 
-            if (Govt_ID != "") { clusters = (from d in clusters orderby d.Cluster_Name ascending where d.Govt_ID == Govt_ID select d).ToList(); }
-            if (District_ID != "0" && District_ID != "") { clusters = (from d in clusters orderby d.Cluster_Name ascending where d.District_ID == District_ID select d).ToList(); }
-            if (Sector_ID != "") { clusters = (from d in clusters orderby d.Cluster_Name ascending where d.Sector_ID == Sector_ID select d).ToList(); }
-            if (Field_ID != "0" && Field_ID != "") { clusters = (from d in clusters orderby d.Cluster_Name ascending where d.Field_ID == Field_ID select d).ToList(); }
-            if (Product_ID != "0" && Product_ID != "") { clusters = (from d in clusters orderby d.Cluster_Name ascending where d.Product_ID == Product_ID select d).ToList(); }
+            if (Govt_ID != "") { clusters = (from d in clusters orderby d.Govt_ID, d.Cluster_Name ascending where d.Govt_ID == Govt_ID select d).ToList(); }
+            if (District_ID != "0" && District_ID != "") { clusters = (from d in clusters orderby d.Govt_ID, d.Cluster_Name ascending where d.District_ID == District_ID select d).ToList(); }
+            if (Sector_ID != "") { clusters = (from d in clusters orderby d.Govt_ID, d.Cluster_Name ascending where d.Sector_ID == Sector_ID select d).ToList(); }
+            if (Field_ID != "0" && Field_ID != "") { clusters = (from d in clusters orderby d.Govt_ID, d.Cluster_Name ascending where d.Field_ID == Field_ID select d).ToList(); }
+            if (Product_ID != "0" && Product_ID != "") { clusters = (from d in clusters orderby d.Govt_ID, d.Cluster_Name ascending where d.Product_ID == Product_ID select d).ToList(); }
 
             //List<ClusterMapViewModel> listClusterMapViewModel = new List<ClusterMapViewModel>();
             List<GovtData> listGovtData=new List<GovtData>();
@@ -208,29 +209,7 @@ namespace EOCM.Controllers
             clusterMapViewModel.GovtData = listGovtData;
             clusterMapViewModel.ClusterData = listClusterData;
 
-                  
-                
-               
-                   
-            //{
-            //        Cluster_ID=cluster.Cluster_ID,
-            //        Cluster_Num = i,
-            //        Cluster_Lat = cluster.Cluster_Lat,
-            //        Cluster_Long = cluster.Cluster_Long,
-            //        Cluster_ProductImage = cluster.Cluster_ProductImage,
-            //        Cluster_DetailPage = cluster.Cluster_DetailPage,
-            //        Cluster_Name = cluster.Cluster_Name,
-            //        Sector_ID = Convert.ToInt16(cluster.Sector_ID),
-            //        Govt_ID = Convert.ToInt16(cluster.Govt_ID),
-            //        Govt_Name = cluster.Governorate.Govt_Name,
-            //        Sector_Name=cluster.Sector.Sector_Name,
-
-            //        Cluster_Info1 =cluster.Governorate.Govt_Name + " - " + cluster.District.District_Name + " - " + cluster.Village.Village_Name,
-            //        Cluster_Info2 = "عدد العاملين = " + ((int)(cluster.Cluster_EmpNum)).ToString(),
-            //        Cluster_Info3 = "عدد الورش = " + ((int)(cluster.Cluster_ShopNum)).ToString(),
-            //        Cluster_Info4 = "المنتج: " + cluster.Product.Product_Name,
-            //    };
-                
+                           
             return (clusterMapViewModel);
 
         }

@@ -69,7 +69,7 @@ namespace EOCM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage")] Cluster cluster)
+        public ActionResult Create([Bind(Include = "Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage,ClusterNature,ClusterType,NonOfficalProjects,OfficalProjects,Products,Address,Challenges,SupportingOrg")] Cluster cluster)
         {
             if (ModelState.IsValid)
             {
@@ -155,7 +155,7 @@ namespace EOCM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Cluster_ID,Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage")] Cluster cluster)
+        public ActionResult Edit([Bind(Include = "Cluster_ID,Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage,ClusterNature,ClusterType,NonOfficalProjects,OfficalProjects,Products,Address,Challenges,SupportingOrg")] Cluster cluster)
         {
 
             string sourceName;
@@ -176,6 +176,15 @@ namespace EOCM.Controllers
                 myCluster.Sector_ID = cluster.Sector_ID;
                 myCluster.Field_ID = cluster.Field_ID;
                 myCluster.Product_ID = cluster.Product_ID;
+                myCluster.Address = cluster.Address;
+                myCluster.Challenges = cluster.Challenges;
+                myCluster.ClusterNature = cluster.ClusterNature;
+                myCluster.ClusterType = cluster.ClusterType;
+                myCluster.NonOfficalProjects = cluster.NonOfficalProjects;
+                myCluster.OfficalProjects = cluster.OfficalProjects;
+                myCluster.Products = cluster.Products;
+                myCluster.SupportingOrg = cluster.SupportingOrg;
+                
                 
 
             if (cluster.Cluster_ProductImage != null)

@@ -1,23 +1,24 @@
 ﻿@model EOCM.Models.Cluster
+<div id="ClusterDetails">
 
-@{
-    ViewBag.Title =  @Html.DisplayFor(model => model.Cluster_Name);
-}
+    @{
+        ViewBag.Title = @Html.DisplayFor(model => model.Cluster_Name);
+    }
 
-<div style="font-family:Arial; text-align: center; direction: rtl;">
-    <h2>@Html.DisplayFor(model => model.Cluster_Name)</h2>
- </div>
-<hr />
-    <div id="ClusterDetailContainer" >
+    <div style="text-align: center; direction: rtl;">
+        <h2>@Html.DisplayFor(model => model.Cluster_Name)</h2>
+    </div>
+    <hr />
+    <div id="ClusterDetailContainer">
 
-        
+
         <table id="ProfileTable" align="center">
             <colgroup>
                 <col class="c1" style="width: 50%;">
                 <col class="c2" style="width: 50%;">
             </colgroup>
 
-           
+
             <tr>
                 <th>البند</th>
                 <th>البيان</th>
@@ -61,7 +62,7 @@
                 <td>@Html.DisplayNameFor(model => model.Products)</td>
                 <td>@Html.DisplayFor(model => model.Products)</td>
             </tr>
-            
+
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Cluster_ShopNum)</td>
                 <td>@Html.DisplayFor(model => model.Cluster_ShopNum)</td>
@@ -98,13 +99,13 @@
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Cluster_DetailPage)</td>
                 <td><a target="_blank" href="#">@Html.DisplayFor(model => model.Cluster_DetailPage)</a>  </td>
-          
+
             </tr>
-         
+
             <tr>
                 <td>روابط اخرى</td>
                 <td>
-                   
+
                     @Html.ActionLink("تجمعات اخرى في نفس المحافظة", "OtherGovtClusters", new { id = @Model.Govt_ID }, new { target = "_blank" })
                     <br />
                     @Html.ActionLink("تجمعات مشابهة في كل المحافظات", "SimilarClusters", new { id = @Model.Field_ID }, new { target = "_blank" })
@@ -117,9 +118,9 @@
 
         </table>
 
-       
+
     </div>
-  
+</div>
 @*<dt>
         @Html.DisplayNameFor(model => model.Cluster_ProcessImage)
     </dt>
