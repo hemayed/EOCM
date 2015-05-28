@@ -18,42 +18,34 @@
                 <col class="c2" style="width: 50%;">
             </colgroup>
 
-
             <tr>
                 <th>البند</th>
                 <th>البيان</th>
             </tr>
-
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Governorate.Govt_Name)</td>
                 <td>@Html.DisplayFor(model => model.Governorate.Govt_Name)</td>
             </tr>
-
             <tr>
                 <td>@Html.DisplayNameFor(model => model.District.District_Name)</td>
                 <td>@Html.DisplayFor(model => model.District.District_Name)</td>
             </tr>
-
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Village.Village_Name)</td>
                 <td>@Html.DisplayFor(model => model.Village.Village_Name)</td>
             </tr>
-
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Address)</td>
                 <td>@Html.DisplayFor(model => model.Address)</td>
             </tr>
-
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Sector.Sector_Name)</td>
                 <td>@Html.DisplayFor(model => model.Sector.Sector_Name)</td>
             </tr>
-
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Field.Field_Name)</td>
                 <td>@Html.DisplayFor(model => model.Field.Field_Name)</td>
             </tr>
-
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Product.Product_Name)</td>
                 <td>@Html.DisplayFor(model => model.Product.Product_Name)</td>
@@ -62,12 +54,10 @@
                 <td>@Html.DisplayNameFor(model => model.Products)</td>
                 <td>@Html.DisplayFor(model => model.Products)</td>
             </tr>
-
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Cluster_ShopNum)</td>
                 <td>@Html.DisplayFor(model => model.Cluster_ShopNum)</td>
             </tr>
-
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Cluster_EmpNum)</td>
                 <td>@Html.DisplayFor(model => model.Cluster_EmpNum)</td>
@@ -96,30 +86,33 @@
                 <td>@Html.DisplayNameFor(model => model.Challenges)</td>
                 <td>@Html.DisplayFor(model => model.Challenges)</td>
             </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.Cluster_DetailPage)</td>
-                <td><a target="_blank" href="#">@Html.DisplayFor(model => model.Cluster_DetailPage)</a>  </td>
+        </table>
 
-            </tr>
+       
 
+        <table id="FooterTable" align="center">
+            <colgroup>
+                <col class="c1" style="width: 30%;">
+                <col class="c2" style="width: 70%;">
+            </colgroup>
             <tr>
-                <td>روابط اخرى</td>
+                <td>روابط لصفحات خارجية ذات صلة:</td>
                 <td>
-
+                    <br />
                     @Html.ActionLink("تجمعات اخرى في نفس المحافظة", "OtherGovtClusters", new { id = @Model.Govt_ID }, new { target = "_blank" })
                     <br />
                     @Html.ActionLink("تجمعات مشابهة في كل المحافظات", "SimilarClusters", new { id = @Model.Field_ID }, new { target = "_blank" })
 
+                    <br />
+                    <a target="_blank" href="#">@Html.DisplayFor(model => model.Cluster_DetailPage)</a>
 
                 </td>
             </tr>
 
+         </table>
 
 
-        </table>
-
-
-    </div>
+</div>
 </div>
 @*<dt>
         @Html.DisplayNameFor(model => model.Cluster_ProcessImage)

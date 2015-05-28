@@ -26,13 +26,16 @@ textarea {
 }*/
 
 .mapframe {
-    border:1px solid;
+    
     align-content: center;
     padding-left: 0px;
     padding-right: 0px;
     margin-left:0px;
     margin-right:0px;
     z-index: 0;
+    width:760px;
+    height:560px;
+    /*border:1px solid;*/
 }
 
 .banner {
@@ -54,6 +57,31 @@ input[type=submit]:hover {
     color:black;
 }
 
+.leftPart{
+    width:200px;
+    float:left;
+    margin-left:1em;
+    margin-right:1em;
+    text-align:center;
+}
+
+.middlePart{
+    width:760px;
+    float:left;
+    text-align:center;
+    position:relative;
+    left:2px;
+}
+
+.rightPart{
+    width:280px;
+    float:left;
+    text-align:right;
+    position:relative;
+    left:2px;
+    margin-left:1em;
+   
+}
 
 .filters{
     padding-left:0px; 
@@ -74,11 +102,11 @@ input[type=submit]:hover {
 }
 
 .mapLegend{
-   position:relative; 
+   position:center; 
    top:5px; 
    padding-top:5px; 
    height:50px; 
-   /*width:760px;*/ 
+   width:760px;
    border:1px solid blue; 
    border-radius: 10px; 
    background-color:#d5eaee;
@@ -137,19 +165,25 @@ input[type=submit]:hover {
     top:-1px;
 }
 
-#ProfileTable {border:solid 1px blue; border-spacing:0px; border-collapse:separate; direction:rtl; font-size:x-large; word-wrap: break-word}
+/*border:solid 1px blue; border-spacing:0px; border-collapse:separate;*/ 
+
+#ProfileTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:80%}
 #ProfileTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
 #ProfileTable .c1 {background-color:lightblue;}
 #ProfileTable .c2 {background-color:white;}
 #ProfileTable td, #ProfileTable th {border:solid 1px blue; padding:4px;}
 
-#GovtClustersTable {border:solid 1px blue; border-spacing:0px; border-collapse:separate; direction:rtl; font-size:x-large; word-wrap: break-word}
+#FooterTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:80%}
+#FooterTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
+/*#ProfileTable td, #ProfileTable th {border:solid 1px blue; padding:4px;}*/
+
+#GovtClustersTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:80%}
 #GovtClustersTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
 #GovtClustersTable .c1 {background-color:white;}
 #GovtClustersTable .c2 {background-color:white;}
 #GovtClustersTable td, #ProfileTable th {border:solid 1px blue; padding:4px;}
 
-#SimilarClustersTable {border:solid 1px blue; border-spacing:0px; border-collapse:separate; direction:rtl; font-size:x-large; word-wrap: break-word}
+#SimilarClustersTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:80%}
 #SimilarClustersTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
 #SimilarClustersTable td, #ProfileTable th {border:solid 1px blue; padding:4px;}
 

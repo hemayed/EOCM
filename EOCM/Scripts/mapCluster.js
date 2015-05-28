@@ -287,13 +287,14 @@ function CreateGovtLayer() {
         if (govtData[i].Cluster_Num != 0) {
             var pintxt = String(i + 1);
             var divID = "govt" + pintxt;
-            pushpinOptions = { visible: false, typeName: 'govt' + pintxt, visible: true, icon:"/Images/star3.png", width:40, height: 40, textOffset: new Microsoft.Maps.Point(0, 0)};  
+            pushpinOptions = { visible: false, typeName: 'govt' + pintxt, visible: true, icon:"/Images/blueflag.png", width:50, height: 50, textOffset: new Microsoft.Maps.Point(0, 0)};  
             govtpin[i] = new Microsoft.Maps.Pushpin(govtLocations[i], pushpinOptions);
 
             govtpin[i].Title = " محافظة " + govtData[i].Govt_Name;
 
             govtpin[i].Description = sname[0] + " " + govtData[i].Sector_Num[0] + "<br>" + sname[5] + " " + govtData[i].Sector_Num[5];
 
+            imgsection = '<img src= "/Images/' + govtData[i].Govt_ID + '.png' + '" alt="محافظة' + govtData[i].Govt_ID + '" style="position:left; top:1px; left:1px; width:50px; height:50px">';
          
             //govtpin[i].htmlContent = '<div id="' + divID + '" style="direction: rtl; background-color:white; border-style:solid;border-width:2px; border-color:blue;  ">' +   
             //'<b id="govtTootip' + i +
@@ -301,22 +302,8 @@ function CreateGovtLayer() {
             // '<b style="text-decoration:none; text-align:right"> ' + govtpin[i].Description
            
             govtpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:medium; border-color:blue; width:150; min-height:100">'+
-            '<div id="infoboxTitle" style="position:center; text-align:center; font-size:large">' + govtpin[i].Title + '</div> '+
+            '<div id="infoboxTitle" style="position:right; text-align:center; font-size:medium">' + govtpin[i].Title + '</div> '+ imgsection +
         '<div id="infoboxDescription" style="position:center;  text-align:right" >' +  govtpin[i].Description + '</div> </div>'
-
-            //position:relative; top:-12px; left:-75px; min-height:100px;width:150px;
-
-            //var radius = 20;
-            //var options;
-
-            //govtpin[i] = new Microsoft.Maps.Pushpin(govtLocations[i], {
-            //    anchor: new Microsoft.Maps.Point(radius, radius),
-            //    title: gname[i],
-            //    description:sname[0] + " " + snum[i][0] + "<br>" + sname[1] + " " + snum[i][1] + "<br>" + sname[2] + " " + snum[i][2] + "<br>" + sname[3] + " " + snum[i][3] + "<br>" + sname[4] + " " + snum[i][4],
-            //    height: radius * 2,
-            //    width: radius * 2,
-            //    htmlContent: createCircleHTML(radius, options)
-            //});
 
            
             Microsoft.Maps.Events.addHandler(govtpin[i], 'mouseover', displayGovtTooltip);
@@ -427,7 +414,7 @@ function createClusterLayer(e) {
             //'" style="text-decoration:none; position:absolute; top:0px; right:2px; width:100px;">' + clusterData[i].Cluster_Name + ' </center> </div> ';
 
             clusterpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:medium;  width:200; min-height:150; border-color:blue; ">' +
-            '<div id="infoboxTitle1" style="position:center; text-align:center; font-size:large">' + clusterData[i].Cluster_Name +   '</div>'+
+            '<div id="infoboxTitle1" style="position:center; text-align:center; font-size:medium">' + clusterData[i].Cluster_Name +   '</div>'+
             '<div id="infoboxDescription1" style="position:center;  text-align:right" >' + clusterpin[i].Description + '</div> </div>'
           
             // Add handler for the pushpin click event.
