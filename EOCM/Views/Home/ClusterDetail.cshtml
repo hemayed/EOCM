@@ -97,15 +97,17 @@
             </colgroup>
             <tr>
                 <td>روابط لصفحات خارجية ذات صلة:</td>
+                <td><a target="_blank" href="#">@Html.DisplayFor(model => model.Cluster_DetailPage)</a> </td>
+            </tr>
+                    
+            <tr>
                 <td>
-                    <br />
                     @Html.ActionLink("تجمعات اخرى في نفس المحافظة", "OtherGovtClusters", new { id = @Model.Govt_ID }, new { target = "_blank" })
                     <br />
                     @Html.ActionLink("تجمعات مشابهة في كل المحافظات", "SimilarClusters", new { id = @Model.Field_ID }, new { target = "_blank" })
-
                     <br />
-                    <a target="_blank" href="#">@Html.DisplayFor(model => model.Cluster_DetailPage)</a>
-
+                    <br />
+                    <br />
                 </td>
             </tr>
 

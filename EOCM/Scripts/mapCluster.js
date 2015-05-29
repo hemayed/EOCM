@@ -43,13 +43,13 @@ function GetMap(myArray) {
     computeMapCenterZoom(0);
 
     try {
-        Microsoft.Maps.loadModule('Microsoft.Maps.Themes.BingTheme', {
-            callback: function () {
+        //Microsoft.Maps.loadModule('Microsoft.Maps.Themes.BingTheme', {
+        //    callback: function () {
 
                 map = new Microsoft.Maps.Map(document.getElementById("myMap"),
                        {
                            credentials: "ApsJjM2R2v3U-bnatAF3H0IY4cbas9KnKtIwKzOsLVICG3kqmJaDUZEh_8J-RzR7",
-                           theme: new Microsoft.Maps.Themes.BingTheme(),
+                           //theme: new Microsoft.Maps.Themes.BingTheme(),
                            center: new Microsoft.Maps.Location(mapclat, mapclon),
                            mapTypeId: Microsoft.Maps.MapTypeId.road,
                            zoom: zoomLevel,
@@ -58,8 +58,8 @@ function GetMap(myArray) {
                            height:mapHeight
                        });
             }
-}
-        )}
+//}
+ //       )}
 
     catch (e) {
         alert("الخريطة غير متاحة الان - حاول لاحقا");
@@ -294,16 +294,11 @@ function CreateGovtLayer() {
 
             govtpin[i].Description = sname[0] + " " + govtData[i].Sector_Num[0] + "<br>" + sname[5] + " " + govtData[i].Sector_Num[5];
 
-            imgsection = '<img src= "/Images/' + govtData[i].Govt_ID + '.png' + '" alt="محافظة' + govtData[i].Govt_ID + '" style="position:left; top:1px; left:1px; width:50px; height:50px">';
-         
-            //govtpin[i].htmlContent = '<div id="' + divID + '" style="direction: rtl; background-color:white; border-style:solid;border-width:2px; border-color:blue;  ">' +   
-            //'<b id="govtTootip' + i +
-            //'" style="text-decoration:underline; position:absolute; top:0px; right:1px; text-align:center"> ' + govtpin[i].Title +
-            // '<b style="text-decoration:none; text-align:right"> ' + govtpin[i].Description
-           
-            govtpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:medium; border-color:blue; width:150; min-height:100">'+
-            '<div id="infoboxTitle" style="position:right; text-align:center; font-size:medium">' + govtpin[i].Title + '</div> '+ imgsection +
-        '<div id="infoboxDescription" style="position:center;  text-align:right" >' +  govtpin[i].Description + '</div> </div>'
+            imgsection = '<img src= "/Images/' + govtData[i].Govt_ID + '.png' + '" alt="محافظة' + govtData[i].Govt_ID + '" style="width:50px; height:50px">';
+
+            govtpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:thin; border-color:blue; width:150px; height:120px">'+
+            '<div id="infoboxTitle" style="text-decoration:underline; text-align:center; font-size:medium; margin-right: 1em; margin-left: 1em;">' + govtpin[i].Title + '</div> ' + imgsection +
+        '<div id="infoboxDescription" style="text-decoration:none; text-align:right; margin-right: 1em; margin-left: 1em;" >' + govtpin[i].Description + '</div> </div>'
 
            
             Microsoft.Maps.Events.addHandler(govtpin[i], 'mouseover', displayGovtTooltip);
@@ -413,9 +408,9 @@ function createClusterLayer(e) {
             //clusterpin[i].htmlContent = '<div id="' + divID + '" style="direction: rtl; background-color:White; border-style:solid;border-width:medium; border-color:blue; position:relative; top:0px; left:0px; min-height:25px;width:105px; ">' + '<center> <b id="infoboxTitle' + i +
             //'" style="text-decoration:none; position:absolute; top:0px; right:2px; width:100px;">' + clusterData[i].Cluster_Name + ' </center> </div> ';
 
-            clusterpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:medium;  width:200; min-height:150; border-color:blue; ">' +
-            '<div id="infoboxTitle1" style="position:center; text-align:center; font-size:medium">' + clusterData[i].Cluster_Name +   '</div>'+
-            '<div id="infoboxDescription1" style="position:center;  text-align:right" >' + clusterpin[i].Description + '</div> </div>'
+            clusterpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:thin;  width:200px; min-height:150px; border-color:blue; ">' +
+            '<div id="infoboxTitle1" style="text-decoration:underline;position:center; text-align:center; font-size:medium; margin-right: 1em; margin-left: 1em">' + clusterData[i].Cluster_Name + '</div>' +
+            '<div id="infoboxDescription1" style="text-decoration:none;position:center;  text-align:right; margin-right: 1em; margin-left: 1em" >' + clusterpin[i].Description + '</div> </div>'
           
             // Add handler for the pushpin click event.
             Microsoft.Maps.Events.addHandler(clusterpin[i], 'click', displayInfobox);
