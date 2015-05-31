@@ -208,7 +208,7 @@ namespace EOCM.Controllers
                clusterData.Cluster_Info1 = c.Governorate.Govt_Name;
 
                if (c.District!= null)
-                   clusterData.Cluster_Info1 = clusterData.Cluster_Info1 + c.District.District_Name + " - ";
+                   clusterData.Cluster_Info1 = clusterData.Cluster_Info1+ " - " + c.District.District_Name ;
                
                if (c.Village != null)
                     clusterData.Cluster_Info1 = clusterData.Cluster_Info1 + " - " + c.Village.Village_Name;

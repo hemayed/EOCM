@@ -36,7 +36,6 @@ function GetMap(myArray) {
     clusterData = myArray.ClusterData;
     num = clusterData.length;
 
-    alert(num);
     govtData = myArray.GovtData;
 
   
