@@ -69,22 +69,22 @@ namespace EOCM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage,ClusterNature,ClusterType,NonOfficalProjects,OfficalProjects,Products,Address,Challenges,SupportingOrg")] Cluster cluster)
+        public ActionResult Create([Bind(Include = "Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage1,,Cluster_DetailPage2,,Cluster_DetailPage3,ClusterNature,ClusterType,NonOfficalProjects,OfficalProjects,Products,Address,Challenges,SupportingOrg")] Cluster cluster)
         {
             if (ModelState.IsValid)
             {
-            var id = (from d in db.Clusters orderby d.Cluster_ID descending where (d.Village_ID.Equals(cluster.Village_ID) && d.Product_ID.Equals(cluster.Product_ID)) select d.Cluster_ID).ToList();
+            var id = (from d in db.Clusters orderby d.Cluster_ID descending where (d.Govt_ID.Equals(cluster.Govt_ID) && d.Product_ID.Equals(cluster.Product_ID)) select d.Cluster_ID).ToList();
 
             if (id.Count() == 0)
             {
-                cluster.Cluster_ID = cluster.Village_ID + cluster.Product_ID + "01";
+                cluster.Cluster_ID = cluster.Govt_ID + cluster.Product_ID + "01";
             }
             else
             {
-                string str = id[0].Substring(12, 2);
+                string str = id[0].Substring(8, 2);
 
                 var clusterCode = Convert.ToInt32(str)+1;
-                cluster.Cluster_ID = cluster.Village_ID + cluster.Product_ID + clusterCode.ToString("00");
+                cluster.Cluster_ID = cluster.Govt_ID + cluster.Product_ID + clusterCode.ToString("00");
             }
 
             string sourceName;
@@ -155,7 +155,7 @@ namespace EOCM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Cluster_ID,Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage,ClusterNature,ClusterType,NonOfficalProjects,OfficalProjects,Products,Address,Challenges,SupportingOrg")] Cluster cluster)
+        public ActionResult Edit([Bind(Include = "Cluster_ID,Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNum,Cluster_ShopNum,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage1,Cluster_DetailPage2,Cluster_DetailPage3,ClusterNature,ClusterType,NonOfficalProjects,OfficalProjects,Products,Address,Challenges,SupportingOrg")] Cluster cluster)
         {
 
             string sourceName;
@@ -170,7 +170,9 @@ namespace EOCM.Controllers
                 myCluster.Cluster_Name = cluster.Cluster_Name;
                 myCluster.Cluster_ShopNum = cluster.Cluster_ShopNum;
                 myCluster.Cluster_EmpNum = cluster.Cluster_EmpNum;
-                myCluster.Cluster_DetailPage = cluster.Cluster_DetailPage;
+                myCluster.Cluster_DetailPage1 = cluster.Cluster_DetailPage1;
+                myCluster.Cluster_DetailPage2 = cluster.Cluster_DetailPage2;
+                myCluster.Cluster_DetailPage3 = cluster.Cluster_DetailPage3;
                 myCluster.Govt_ID = cluster.Govt_ID;
                 myCluster.District_ID = cluster.District_ID;
                 myCluster.Sector_ID = cluster.Sector_ID;

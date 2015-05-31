@@ -36,6 +36,7 @@ function GetMap(myArray) {
     clusterData = myArray.ClusterData;
     num = clusterData.length;
 
+    alert(num);
     govtData = myArray.GovtData;
 
   
@@ -249,25 +250,6 @@ function computeMapCenterZoom(govtID)
 }
 
 function AddGovtLocations() {
-
-    //for (i = 0; i < 27; i++) {
-    //    clat[i] = 0;
-    //    clon[i] = 0;
-    //    gnum[i] = 0;
-    //    snum[i] = new Array(6);
-    //    for (j = 0; j < 6; j++)
-    //        snum[i][j] = 0;
-    //}
-
-    //for (i = 0; i < myArray.length; i++) {
-    //    gindex = myArray[i].Govt_ID - 1;
-    //    gname[gindex] = myArray[i].Govt_Name;
-    //    clat[gindex] = clat[gindex] + myArray[i].Cluster_Lat;
-    //    clon[gindex] = clon[gindex] + myArray[i].Cluster_Long;
-    //    gnum[gindex]++;
-    //    sindex = myArray[i].Sector_ID - 1;
-    //    snum[gindex][sindex]++;
-    //}
 
     for (var i = 0; i < 27; i++) {
         if (govtData[i].Cluster_Num != 0)
@@ -504,19 +486,6 @@ function AddData(myArray) {
             'ClusterDetail(results);},});});})' +
             '</script>'
 
-        //refSection1 = '@Ajax.ActionLink('+myArray[i].Cluster_Name + ', "ClusterDetail", new { id =' + myArray[i].Cluster_ID + '}, new AjaxOptions() { HttpMethod = "Post" }, new { target = "_blank" })';
-        //refSection2 = '';
-
-        //if (myArray[i].Cluster_DetailPage != null && myArray[i].Cluster_DetailPage != "")
-        //{
-        //    refSection1 = '<a href="' + myArray[i].Cluster_DetailPage + '" target="_blank">';
-        //    refSection2 = '</a>';
-        //}
-        //else
-        //{
-        //    refSection1 = '';
-        //    refSection2 = '';
-        //}
 
         refSection1 = '';
         refSection2 = '';

@@ -11,14 +11,18 @@ namespace EOCM.Models
     {
         [Key]
         [StringLength(255)]
+        
         [Display(Name = "القرية")]
         public string Village_ID { get; set; }
+        [Required]
         [Display(Name = "القرية")]
         public string Village_Name { get; set; }
+        [Required]
+        [Display(Name = "المحافظة")]
         public string Govt_ID { get; set; }
         [ForeignKey("Govt_ID")]
         public virtual Governorate Governorate { get; set; }
-
+        [Required]
          [Display(Name = "المركز")]
         public string District_ID { get; set; }
         [ForeignKey("District_ID")]

@@ -12,9 +12,12 @@ namespace EOCM.Models
         [Key]
         [StringLength(255)]
         public string Cluster_ID { get; set; }
+
+        [Required]
         [Display(Name = "اسم التجمع")]
         public string Cluster_Name { get; set; }
 
+        [Required]
         [Display(Name = "المحافظة")]
         public string Govt_ID { get; set; }
         [ForeignKey("Govt_ID")]
@@ -22,28 +25,29 @@ namespace EOCM.Models
 
         [Display(Name = "المركز")]
         public string District_ID { get; set; }
-        [ForeignKey("District_ID")]
         public virtual District District { get; set; }
 
         [Display(Name = "القرية")]
         public string Village_ID { get; set; }
-        [ForeignKey("Village_ID")]
         public virtual Village Village { get; set; }
 
         [StringLength(255)]
         [Display(Name = "العنوان")]
         public string Address { get; set; }
-        
+
+        [Required]
         [Display(Name = "القطاع")]
         public string Sector_ID { get; set; }
         [ForeignKey("Sector_ID")]
         public virtual Sector Sector { get; set; }
 
+        [Required]
         [Display(Name = "النشاط")]
         public string Field_ID { get; set; }
         [ForeignKey("Field_ID")]
         public virtual Field Field { get; set; }
 
+        [Required]
         [Display(Name = "المنتج")]
         public string Product_ID { get; set; }
         [ForeignKey("Product_ID")]
@@ -53,22 +57,30 @@ namespace EOCM.Models
         [DataType(DataType.MultilineText)]
         [Display(Name = "أهم منتجات التجمع")]
         public string Products { get; set; }
-        
 
+        [Required]
         [Display(Name = "خط الطول")]
         public decimal Cluster_Lat { get; set; }
+
+        [Required]
         [Display(Name = "خط العرض")]
         public decimal Cluster_Long { get; set; }
+
+         [StringLength(255)]
         [Display(Name = "عدد العمال")]
-        public Nullable<int> Cluster_EmpNum { get; set; }
-        [Display(Name = "عدد الورش")]
-        public Nullable<int> Cluster_ShopNum { get; set; }
+        public string Cluster_EmpNum { get; set; }
 
+         [StringLength(255)]
+        [Display(Name = "عدد شركات /ورش /وحدات انتاجية")]
+        public string Cluster_ShopNum { get; set; }
+
+         [StringLength(255)]
         [Display(Name = "نسبة المشاريع الرسمية في التجمع")]
-        public int OfficalProjects { get; set; }
+        public string OfficalProjects { get; set; }
 
+         [StringLength(255)]
         [Display(Name = "نسبة المشاريع الغير رسمية في التجمع")]
-        public int NonOfficalProjects { get; set; }
+        public string NonOfficalProjects { get; set; }
 
          [StringLength(1024)]
          [DataType(DataType.MultilineText)]
@@ -99,9 +111,16 @@ namespace EOCM.Models
         public string Cluster_ProcessImage { get; set; }
         
         [DataType(DataType.Url)]
-        [Display(Name = "رابط صفحة التفاصيل")]
-        public string Cluster_DetailPage { get; set; }
+        [Display(Name = " روابط لصفحات خارجية ذات صلة")]
+        public string Cluster_DetailPage1 { get; set; }
 
-        
+        [Display(Name = " رابط 2")]
+        [DataType(DataType.Url)]
+        public string Cluster_DetailPage2 { get; set; }
+        [Display(Name = " رابط 3")]
+        [DataType(DataType.Url)]
+        public string Cluster_DetailPage3 { get; set; }
+
+
     }
 }

@@ -9,7 +9,8 @@ namespace EOCM.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "EOCM.Models.EOCMDB";
         }
 

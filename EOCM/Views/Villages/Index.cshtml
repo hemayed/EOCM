@@ -1,0 +1,88 @@
+﻿@model IEnumerable<EOCM.Models.Village>
+
+@{
+    ViewBag.Title = "قائمة القرى";
+}
+
+<div style="font-family:Arial; text-align: center; direction: rtl;">
+    <h2>قائمة القرى</h2>
+
+    <p>
+        <h3> @Html.ActionLink("اضافة قرية جديدة", "Create") </h3>
+</p>
+    </div>
+
+<div style="font-family:Arial; direction: rtl; align-content:center">
+    <table id="villageTable"  class="display compact" cellspacing="0">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Village_Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.District.District_Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Village_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Governorate.Govt_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.District.District_Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("تعديل", "Edit", new { id = item.Village_ID }) |
+                        @Html.ActionLink("تفاصيل", "Details", new { id = item.Village_ID }) |
+                        @Html.ActionLink("حذف", "Delete", new { id = item.Village_ID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $('#villageTable').DataTable({
+            "sdom": '<ftip>',
+            //"bLengthChange": false,
+            "sPaginationType": "full",
+            "oLanguage": {
+                "sSearch": "بحث",
+                "sEmptyTable": "لاتوجد قرى",
+                "sInfoEmpty": "",
+                "sZeroRecords": "لاتوجد قرى",
+                "sInfo": "_END_-_START_ من _TOTAL_",
+                "sInfoFiltered": "",
+                "sLengthMenu": ' <select>' +
+                '<option value="10">10</option>' +
+                '<option value="15">15</option>' +
+                '<option value="20">20</option>' +
+                '<option value="25">25</option>' +
+                '<option value="50">50</option>' +
+                '<option value="-1">الكل</option>' +
+                '</select>عرض',
+                "oPaginate": {
+                    "sFirst": "<<",
+                    "sPrevious": "<",
+                    "sNext": ">",
+                    "sLast": ">>"
+                }
+            }
+        });
+
+
+    })
+</script>

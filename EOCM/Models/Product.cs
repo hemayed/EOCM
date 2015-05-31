@@ -12,14 +12,18 @@ namespace EOCM.Models
         [Key]
         [StringLength(255)]
         public string Product_ID { get; set; }  
+        [Required]
         [Display(Name = "المنتج")]
         public string Product_Name { get; set; }
 
+        [Required]
         [Display(Name = "القطاع")]
         public string Sector_ID { get; set; }
+        [Required]
         [ForeignKey("Sector_ID")]
         public virtual Sector Sector { get; set; }
 
+        [Required]
         [Display(Name = "النشاط")]
         public string Field_ID { get; set; }
         [ForeignKey("Field_ID")]

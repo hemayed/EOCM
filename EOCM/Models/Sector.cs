@@ -12,6 +12,7 @@ namespace EOCM.Models
         [StringLength(255)]
         [Display(Name = "القطاع")]
         public string Sector_ID{ get; set; }
+        [Required]
         [Display(Name = "القطاع")]
         public string Sector_Name { get; set; }
 

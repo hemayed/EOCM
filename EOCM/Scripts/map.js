@@ -194,19 +194,7 @@ function AddData(myArray) {
             'success: function (results) {'+
             'ClusterDetail(results);},});});})' +
             '</script>'
-        
-      
-
-        //if (myArray[i].Cluster_DetailPage != null && myArray[i].Cluster_DetailPage != "")
-        //{
-        //    refSection1 = '<a href="' + myArray[i].Cluster_DetailPage + '" target="_blank">';
-        //    refSection2 = '</a>';
-        //}
-        //else
-        //{
-        //    refSection1 = '';
-        //    refSection2 = '';
-        //}
+ 
 
             refSection1 = '';
             refSection2 = '';

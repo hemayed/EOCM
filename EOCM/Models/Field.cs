@@ -13,9 +13,11 @@ namespace EOCM.Models
         [StringLength(255)]
         [Display(Name = "النشاط")]
         public string Field_ID { get; set; }
+        [Required]
         [Display(Name = "النشاط")]
         public string Field_Name { get; set; }
 
+        [Required]
         [Display(Name = "القطاع")]
         public string Sector_ID { get; set; }
         [ForeignKey("Sector_ID")]

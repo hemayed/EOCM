@@ -13,11 +13,14 @@ namespace EOCM.Models
         [Display(Name = "المحافظة")]
         public string Govt_ID { get; set; }
 
+        [Required]
         [Display(Name = "المحافظة")]
         public string Govt_Name { get; set; }
 
+        [Required]
         [Display(Name = "خط الطول")]
         public decimal Govt_Lat { get; set; }
+        [Required]
         [Display(Name = "خط العرض")]
         public decimal Govt_Long { get; set; }
 

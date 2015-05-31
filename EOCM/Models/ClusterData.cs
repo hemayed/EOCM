@@ -37,10 +37,10 @@ namespace EOCM.Models
         public string Cluster_Info4 { get; set; }
 
      
-        public int OfficalProjects { get; set; }
+        public string OfficalProjects { get; set; }
 
        
-        public int NonOfficalProjects { get; set; }
+        public string NonOfficalProjects { get; set; }
 
        
         public string ClusterNature { get; set; }
@@ -61,7 +61,9 @@ namespace EOCM.Models
         public string Cluster_ProcessImage { get; set; }
 
        
-        public string Cluster_DetailPage { get; set; }
+        public string Cluster_DetailPage1 { get; set; }
+        public string Cluster_DetailPage2 { get; set; }
+        public string Cluster_DetailPage3 { get; set; }
 
     }
 }

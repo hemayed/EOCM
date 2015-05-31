@@ -175,6 +175,7 @@
     <Compile Include="Controllers\CustomJsonResult.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\VillagesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -473,6 +474,11 @@
     <Content Include="Views\Home\ClusterDetail.cshtml" />
     <Content Include="Views\Home\OtherGovtClusters.cshtml" />
     <Content Include="Views\Home\SimilarClusters.cshtml" />
+    <Content Include="Views\Villages\Create.cshtml" />
+    <Content Include="Views\Villages\Delete.cshtml" />
+    <Content Include="Views\Villages\Details.cshtml" />
+    <Content Include="Views\Villages\Edit.cshtml" />
+    <Content Include="Views\Villages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

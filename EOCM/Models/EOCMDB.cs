@@ -1,5 +1,6 @@
 namespace EOCM.Models
 {
+    using EOCM.Migrations;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.ModelConfiguration.Conventions;
@@ -17,7 +18,8 @@ namespace EOCM.Models
             : base("name=EOCMDB")
         {
             //Database.Log = s => Debug.WriteLine(s);
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<EOCMDB>());
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<EOCMDB>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<EOCMDB, Configuration>());
         }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
@@ -30,6 +32,8 @@ namespace EOCM.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+        
+
         }
 
         public System.Data.Entity.DbSet<EOCM.Models.Cluster> Clusters { get; set; }

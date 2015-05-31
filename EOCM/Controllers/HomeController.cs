@@ -192,15 +192,39 @@ namespace EOCM.Controllers
                clusterData.Sector_ID = Convert.ToInt16(c.Sector_ID);
                clusterData.Govt_ID = Convert.ToInt16(c.Govt_ID);
                clusterData.Govt_Name = c.Governorate.Govt_Name;
-               clusterData.District_Name = c.District.District_Name;
-               clusterData.Village_Name = c.Village.Village_Name;
+
+               if (c.District != null)
+                   clusterData.District_Name = c.District.District_Name;
+               else
+                   clusterData.District_Name = "";
+
+               if (c.Village != null)
+                   clusterData.Village_Name = c.Village.Village_Name;
+               else
+                   clusterData.Village_Name = "";
 
                clusterData.Cluster_ProcessImage = c.Cluster_ProcessImage;
                clusterData.Cluster_ProductImage = c.Cluster_ProductImage;
-               clusterData.Cluster_Info1 =c.Governorate.Govt_Name + " - " + c.District.District_Name + " - " + c.Village.Village_Name;
-              clusterData.Cluster_Info2 = "عدد العاملين = " + ((int)(c.Cluster_EmpNum)).ToString();
-              clusterData.Cluster_Info3 = "عدد الورش = " + ((int)(c.Cluster_ShopNum)).ToString();
-              clusterData.Cluster_Info4 = "المنتجات: " + c.Products;
+               clusterData.Cluster_Info1 = c.Governorate.Govt_Name;
+
+               if (c.District!= null)
+                   clusterData.Cluster_Info1 = clusterData.Cluster_Info1 + c.District.District_Name + " - ";
+               
+               if (c.Village != null)
+                    clusterData.Cluster_Info1 = clusterData.Cluster_Info1 + " - " + c.Village.Village_Name;
+
+
+               clusterData.Cluster_Info2 = "عدد العاملين = ";
+               if (c.Cluster_EmpNum != null)
+                   clusterData.Cluster_Info2=clusterData.Cluster_Info2+c.Cluster_EmpNum;
+
+               clusterData.Cluster_Info3 = "عدد الورش = ";
+               if (c.Cluster_ShopNum != null)
+                   clusterData.Cluster_Info3=clusterData.Cluster_Info3+c.Cluster_ShopNum;
+
+               clusterData.Cluster_Info4 = "المنتجات: ";
+               if (c.Products != null)
+                   clusterData.Cluster_Info4 = clusterData.Cluster_Info4+c.Products;
 
                listClusterData.Add(clusterData);
            }
