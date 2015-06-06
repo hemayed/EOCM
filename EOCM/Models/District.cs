@@ -11,7 +11,7 @@ namespace EOCM.Models
     {
         [Key]
         [StringLength(255)]
-        [Display(Name = "المركز")]
+        [Display(Name = "المركز/المدينة")]
         public string District_ID { get; set; }
         [Required]
          [Display(Name = "المركز")]

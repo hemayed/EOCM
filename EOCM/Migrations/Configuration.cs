@@ -1,20 +1,21 @@
 namespace EOCM.Migrations
 {
+    using EOCM.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<EOCM.Models.EOCMDB>
+    internal sealed class Configuration : DbMigrationsConfiguration<EOCMDB>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
-            ContextKey = "EOCM.Models.EOCMDB";
+            ContextKey = "EOCMDB";
         }
 
-        protected override void Seed(EOCM.Models.EOCMDB context)
+        protected override void Seed(EOCMDB context)
         {
             //  This method will be called after migrating to the latest version.
 

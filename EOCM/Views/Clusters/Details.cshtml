@@ -10,6 +10,19 @@
 
    
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cluster_Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cluster_Name)
+        </dd>
+
+        <dt>
+    @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
+</dt>
+<dd>
+    @Html.DisplayFor(model => model.Governorate.Govt_Name)
+</dd>
         <dt >
             @Html.DisplayNameFor(model => model.District.District_Name)
         </dt>
@@ -19,21 +32,27 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Village.Village_Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Village.Village_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sector.Sector_Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sector.Sector_Name)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Field.Field_Name)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Field.Field_Name)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Governorate.Govt_Name)
-        </dd>
-
+       
         <dt>
             @Html.DisplayNameFor(model => model.Product.Product_Name)
         </dt>
@@ -42,29 +61,11 @@
             @Html.DisplayFor(model => model.Product.Product_Name)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sector.Sector_Name)
-        </dt>
+       
 
-        <dd>
-            @Html.DisplayFor(model => model.Sector.Sector_Name)
-        </dd>
+        
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Village.Village_Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Village.Village_Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_Name)
-        </dd>
+       
 
         <dt>
             @Html.DisplayNameFor(model => model.Cluster_Lat)
@@ -88,6 +89,13 @@
 
         <dd>
             @Html.DisplayFor(model => model.Cluster_EmpNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cluster_EmpFemale)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cluster_EmpFemale)
         </dd>
 
         <dt>

@@ -32,7 +32,14 @@ namespace EOCM.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-        
+
+            modelBuilder.Entity<Governorate >().Property(x => x.Govt_Lat).HasPrecision(10, 6);
+            modelBuilder.Entity<Governorate>().Property(x => x.Govt_Long).HasPrecision(10, 6);
+
+            modelBuilder.Entity<Cluster>().Property(x => x.Cluster_Lat).HasPrecision(10, 6);
+            modelBuilder.Entity<Cluster>().Property(x => x.Cluster_Long).HasPrecision(10, 6);
+
+
 
         }
 

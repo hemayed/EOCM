@@ -99,14 +99,14 @@ function GetMap(myArray) {
 
         createClusterLayer(0);
 
-        if (zoomLevel < 8) {
+        if (zoomLevel > 6.5) {
 
-            showGovtLayer();
+            showClusterLayer();
 
         }
         else {
            
-            showClusterLayer();
+            showGovtLayer();
            
         }
     
@@ -152,7 +152,7 @@ function viewChanged(e) {
     //    map.setView({ zoom: Zoom.MIN });
     //}
 
-    if (targetZoom > 8)
+    if (targetZoom > 6.5)
         showClusterLayer();
     else 
         showGovtLayer();
@@ -208,11 +208,11 @@ function computeMapCenterZoom(govtID)
     var meanDistanceX = HaversineDistance(mapclat, minLon, mapclat, maxLon);
 
     //want to calculate the distance in km along the center longitude between the two latitudes
-    var meanDistanceY = HaversineDistance(maxLat, mapclon, minLat, mapclon)*2; // * 2
+    var meanDistanceY = HaversineDistance(maxLat, mapclon, minLat, mapclon); // * 2
 
     //calculates the x and y scales
-    var meanScaleValueX = meanDistanceX / mapWidth;
-    var meanScaleValueY = meanDistanceY / mapHeight;
+    var meanScaleValueX = meanDistanceX / (mapWidth-50);
+    var meanScaleValueY = meanDistanceY / (mapHeight-50);
 
     var meanScale;
 
@@ -233,7 +233,7 @@ function computeMapCenterZoom(govtID)
         }
     }
 
-
+    
     if (n == 0) {
 
         mapcLat = 30.1;

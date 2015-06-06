@@ -179,18 +179,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201504201211552_InitialCreate.cs" />
-    <Compile Include="Migrations\201504201211552_InitialCreate.Designer.cs">
-      <DependentUpon>201504201211552_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505221244270_InitialCreate1.cs" />
-    <Compile Include="Migrations\201505221244270_InitialCreate1.Designer.cs">
-      <DependentUpon>201505221244270_InitialCreate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505221254515_InitialCreate2.cs" />
-    <Compile Include="Migrations\201505221254515_InitialCreate2.Designer.cs">
-      <DependentUpon>201505221254515_InitialCreate2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cluster.cs" />
@@ -489,20 +477,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504201211552_InitialCreate.resx">
-      <DependentUpon>201504201211552_InitialCreate.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505221244270_InitialCreate1.resx">
-      <DependentUpon>201505221244270_InitialCreate1.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505221254515_InitialCreate2.resx">
-      <DependentUpon>201505221254515_InitialCreate2.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

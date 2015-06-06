@@ -117,6 +117,14 @@
                 </div>
               
                 <div class="form-group">
+                    @Html.LabelFor(model => model.Cluster_EmpFemale, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.Cluster_EmpFemale, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Cluster_EmpFemale, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
                     @Html.LabelFor(model => model.OfficalProjects, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
                     <div class="col-md-3">
                         @Html.EditorFor(model => model.OfficalProjects, new { htmlAttributes = new { @class = "form-control" } })
@@ -129,6 +137,14 @@
                     <div class="col-md-3">
                         @Html.EditorFor(model => model.NonOfficalProjects, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.NonOfficalProjects, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CompanyPercent, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.CompanyPercent, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CompanyPercent, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -148,6 +164,38 @@
                     </div>
                 </div>
           
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Market, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.Market, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Market, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductSeason, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.ProductSeason, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProductSeason, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ExportVolume, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.ExportVolume, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ExportVolume, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Income, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.Income, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Income, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
                 <div class="form-group">
                     @Html.LabelFor(model => model.SupportingOrg, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
                     <div class="col-md-3">

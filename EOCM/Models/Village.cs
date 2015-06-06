@@ -23,7 +23,7 @@ namespace EOCM.Models
         [ForeignKey("Govt_ID")]
         public virtual Governorate Governorate { get; set; }
         [Required]
-         [Display(Name = "المركز")]
+        [Display(Name = "المركز/المدينة")]
         public string District_ID { get; set; }
         [ForeignKey("District_ID")]
         public virtual District District { get; set; }
