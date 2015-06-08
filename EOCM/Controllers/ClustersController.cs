@@ -103,7 +103,7 @@ namespace EOCM.Controllers
                         //destName = Server.MapPath("~/StudyFiles/") + cluster.Cluster_ID + imgExt;
                         destName = Server.MapPath("~/StudyFiles/") + sourceName ;
                         Request.Files[0].SaveAs(destName);
-                        cluster.Cluster_StudyFile1 = "../../StudyFiles/" + sourceName;
+                        cluster.Cluster_StudyFile1 =  sourceName;
 
                     }   
 
@@ -114,7 +114,7 @@ namespace EOCM.Controllers
                         //destName = Server.MapPath("~/StudyFiles/") + cluster.Cluster_ID + "_2" + imgExt;
                         destName = Server.MapPath("~/StudyFiles/") + sourceName;
                         Request.Files[1].SaveAs(destName);
-                        cluster.Cluster_StudyFile2 = "../../StudyFiles/" + sourceName;
+                        cluster.Cluster_StudyFile2 =  sourceName;
 
                     }
                     if (cluster.Cluster_ProductImage != null)
@@ -125,7 +125,7 @@ namespace EOCM.Controllers
                         destName = Server.MapPath("~/ProductImages/") + cluster.Cluster_ID + imgExt;
 
                         Request.Files[2].SaveAs(destName);
-                        cluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
+                        cluster.Cluster_ProductImage = cluster.Cluster_ID + imgExt;
                     }
 
 
@@ -137,7 +137,7 @@ namespace EOCM.Controllers
                         destName = Server.MapPath("~/ProcessImages/") + cluster.Cluster_ID + imgExt;
 
                         Request.Files[3].SaveAs(destName);
-                        cluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
+                        cluster.Cluster_ProcessImage =  cluster.Cluster_ID + imgExt;
                     }
 
 
@@ -239,7 +239,7 @@ namespace EOCM.Controllers
                        //destName = Server.MapPath("~/StudyFiles/") + cluster.Cluster_ID + "_1" + imgExt;
                         destName = Server.MapPath("~/StudyFiles/") + sourceName;
                         Request.Files[0].SaveAs(destName);
-                        myCluster.Cluster_StudyFile1 = "../../StudyFiles/" + sourceName;
+                        myCluster.Cluster_StudyFile1 = sourceName;
 
                     }
 
@@ -250,7 +250,7 @@ namespace EOCM.Controllers
                         destName = Server.MapPath("~/StudyFiles/") + sourceName;
 
                         Request.Files[1].SaveAs(destName);
-                        myCluster.Cluster_StudyFile2 = "../../StudyFiles/" + sourceName;
+                        myCluster.Cluster_StudyFile2 = sourceName;
 
                     }
 
@@ -262,7 +262,7 @@ namespace EOCM.Controllers
                      destName = Server.MapPath("~/ProductImages/") + cluster.Cluster_ID + imgExt;
 
                     Request.Files[2].SaveAs(destName);
-                    myCluster.Cluster_ProductImage = "ProductImages/" + cluster.Cluster_ID + imgExt;
+                    myCluster.Cluster_ProductImage = cluster.Cluster_ID + imgExt;
              
                 }
            
@@ -275,7 +275,7 @@ namespace EOCM.Controllers
                      destName = Server.MapPath("~/ProcessImages/") + cluster.Cluster_ID + imgExt;
 
                     Request.Files[3].SaveAs(destName);
-                    myCluster.Cluster_ProcessImage = "ProcessImages/" + cluster.Cluster_ID + imgExt;
+                    myCluster.Cluster_ProcessImage = cluster.Cluster_ID + imgExt;
                 }
            
 
