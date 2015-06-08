@@ -52,19 +52,20 @@
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Products)</td>
-                <td>@Html.DisplayFor(model => model.Products)  </td>
+                <td>@Html.DisplayFor(model => model.Products) 
+                @if (@Model.MoreProducts != null)
+                {
+                    <br />
+                    <a href="#" onclick="$('#hiddenText').show(); return false;"> معلومات اكثر</a> 
+                    
+                    <a href="#" onclick="$('#hiddenText').hide(); return false;">&nbsp  معلومات اقل &nbsp </a>
+                    <div style="display: none;" id="hiddenText">@Html.DisplayFor(model => model.MoreProducts) </div>
+                    
+                }
+                 </td>
             </tr>
             
-    @if (@Model.MoreProducts !=null)
-            {
-            <tr>
-                @*<td><button id="createInput">@Html.DisplayNameFor(model => model.MoreProducts)</button></td>
-                <td> <div id="textarea">@Html.DisplayFor(model => model.MoreProducts)</div> </td>*@
-                <td>@Html.DisplayNameFor(model => model.MoreProducts)</td>
-                <td>@Html.DisplayFor(model => model.MoreProducts)  </td>
-
-        </tr>
-    }
+   
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Cluster_ShopNum)</td>
                 <td>@Html.DisplayFor(model => model.Cluster_ShopNum)</td>
@@ -126,39 +127,48 @@
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Challenges)</td>
-                <td>@Html.DisplayFor(model => model.Challenges) </td>
+                <td>@Html.DisplayFor(model => model.Challenges) 
+                    @if (@Model.MoreChallenges != null)
+                    {
+                        <br />
+                        <a href="#" onclick="$('#hiddenText2').show(); return false;"> معلومات اكثر</a>
+
+                        <a href="#" onclick="$('#hiddenText2').hide(); return false;">&nbsp  معلومات اقل &nbsp </a>
+                        <div style="display: none;" id="hiddenText2">@Html.DisplayFor(model => model.MoreChallenges) </div>
+
+                    }
+                </td>
             </tr>
 
-            @if (@Model.MoreChallenges !=null)
-            { 
-             
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.MoreChallenges)</td>
-                <td>@Html.DisplayFor(model => model.MoreChallenges) </td>
-            </tr>
-            }
+          
            
         </table>
 
        
-
+        <br /><br />
         <table id="FooterTable" align="center">
             <colgroup>
                 <col class="c1" style="width: 30%;">
                 <col class="c2" style="width: 70%;">
             </colgroup>
+            @if (@Model.Cluster_StudyFile1 != null | @Model.Cluster_StudyFile2 != null)
+            {
+                
 
             <tr>
-                <td>@Html.DisplayNameFor(model => model.Cluster_StudyFile1)</td>
+               
+                @*<td>@Html.DisplayNameFor(model => model.Cluster_StudyFile1)</td>*@
+                <td>دراسة عن التجمع:</td>
                 <td>
-                    <a target="_blank" href="@Html.Raw(Model.Cluster_StudyFile1)"> @Html.DisplayFor(model => model.Cluster_StudyFile1) </a>
+                    <a target="_blank" style="text-align: left" href="@Html.Raw(Model.Cluster_StudyFile1)"> @Html.DisplayFor(model => model.Cluster_StudyFile1) </a>
                     <br />
 
-                    <a target="_blank" href="@Html.Raw(Model.Cluster_StudyFile2)">@Html.DisplayFor(model => model.Cluster_StudyFile2)</a>
+                    <a target="_blank" style="text-align: left" href="@Html.Raw(Model.Cluster_StudyFile2)">@Html.DisplayFor(model => model.Cluster_StudyFile2)</a>
 
 
                 </td>
             </tr>
+            }
 
             <tr>
                 <td>روابط لصفحات خارجية ذات صلة:</td>
