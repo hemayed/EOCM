@@ -1,4 +1,4 @@
-﻿@model EOCM.Models.Village
+﻿@model EOCM.Models.District
 
 @{
     ViewBag.Title = "Details";
@@ -7,17 +7,9 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Village</h4>
+    <h4>District</h4>
     <hr />
     <dl class="dl-horizontal" style=" direction:rtl ">
-        <dt>
-            @Html.DisplayNameFor(model => model.District.District_Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.District.District_Name)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
         </dt>
@@ -27,16 +19,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Village_Name)
+            @Html.DisplayNameFor(model => model.District_Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Village_Name)
+            @Html.DisplayFor(model => model.District_Name)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Village_ID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.District_ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

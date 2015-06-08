@@ -65,10 +65,12 @@ namespace EOCM.Models
 
         [Required]
         [Display(Name = "خط العرض")]
+        [Range(22, 32, ErrorMessage = "يجب ان يكون خط العرض بين 22 و 32")]
         public decimal Cluster_Lat { get; set; }
 
         [Required]
         [Display(Name = "خط الطول")]
+        [Range(24, 37, ErrorMessage = "يجب ان يكون خط الطول بين 24 و 37")]
         public decimal Cluster_Long { get; set; }
 
          [StringLength(255)]
@@ -97,12 +99,12 @@ namespace EOCM.Models
 
          [StringLength(1024)]
          [DataType(DataType.MultilineText)]
-        [Display(Name = " (طبيعة هذا التجمع ( تكامل رأسى  / تكامل أفقى / مركزى")]
+        [Display(Name = "طبيعة هذا التجمع (تكامل رأسي / تكامل افقي / مركزي)")]
         public string ClusterNature { get; set; }
 
          [StringLength(1024)]
          [DataType(DataType.MultilineText)]
-        [Display(Name = " (نوع التجمع (استهداف نفس السوق / استخدام نفس الموارد / وجود نفس البنية الأساسية والمرافق")]
+        [Display(Name = " نوع التجمع (استهداف نفس السوق / استخدام نفس الموارد / وجود نفس البنية الأساسية والمرافق)")]
         public string ClusterType { get; set; }
 
          [StringLength(1024)]

@@ -52,8 +52,19 @@
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Products)</td>
-                <td>@Html.DisplayFor(model => model.Products)</td>
+                <td>@Html.DisplayFor(model => model.Products)  </td>
             </tr>
+            
+    @if (@Model.MoreProducts !=null)
+            {
+            <tr>
+                @*<td><button id="createInput">@Html.DisplayNameFor(model => model.MoreProducts)</button></td>
+                <td> <div id="textarea">@Html.DisplayFor(model => model.MoreProducts)</div> </td>*@
+                <td>@Html.DisplayNameFor(model => model.MoreProducts)</td>
+                <td>@Html.DisplayFor(model => model.MoreProducts)  </td>
+
+        </tr>
+    }
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Cluster_ShopNum)</td>
                 <td>@Html.DisplayFor(model => model.Cluster_ShopNum)</td>
@@ -115,8 +126,18 @@
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Challenges)</td>
-                <td>@Html.DisplayFor(model => model.Challenges)</td>
+                <td>@Html.DisplayFor(model => model.Challenges) </td>
             </tr>
+
+            @if (@Model.MoreChallenges !=null)
+            { 
+             
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.MoreChallenges)</td>
+                <td>@Html.DisplayFor(model => model.MoreChallenges) </td>
+            </tr>
+            }
+           
         </table>
 
        
@@ -126,20 +147,33 @@
                 <col class="c1" style="width: 30%;">
                 <col class="c2" style="width: 70%;">
             </colgroup>
+
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Cluster_StudyFile1)</td>
+                <td>
+                    <a target="_blank" href="@Html.Raw(Model.Cluster_StudyFile1)"> @Html.DisplayFor(model => model.Cluster_StudyFile1) </a>
+                    <br />
+
+                    <a target="_blank" href="@Html.Raw(Model.Cluster_StudyFile2)">@Html.DisplayFor(model => model.Cluster_StudyFile2)</a>
+
+
+                </td>
+            </tr>
+
             <tr>
                 <td>روابط لصفحات خارجية ذات صلة:</td>
                 <td>
-                    <a target="_blank" href="#">@Html.DisplayFor(model => model.Cluster_DetailPage1)</a>
+                    <a href="@Html.Raw(Model.Cluster_DetailPage1)" onclick="return popup(this, 'notes')">@Html.DisplayFor(model => model.Cluster_DetailPage1)</a>
                     <br />
                 
-                    <a target="_blank" href="#">@Html.DisplayFor(model => model.Cluster_DetailPage2)</a>
+                    <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage2)">@Html.DisplayFor(model => model.Cluster_DetailPage2)</a>
                     <br />
-               
-                    <a target="_blank" href="#">@Html.DisplayFor(model => model.Cluster_DetailPage3)</a>
-               
+
+                    <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage3)">@Html.DisplayFor(model => model.Cluster_DetailPage3)</a>
+
                 </td>
             </tr>
-                    
+
             <tr>
                 <td>
                     @Html.ActionLink("تجمعات اخرى في نفس المحافظة", "OtherGovtClusters", new { id = @Model.Govt_ID }, new { target = "_blank" })
@@ -163,3 +197,25 @@
     <dd>
         <img src="~/@Html.DisplayFor(model => model.Cluster_ProcessImage)" alt="صورة عملية الانتاج" style="width:65px; height:65px">
     </dd>*@
+
+<script type="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+   href=mylink;
+else
+   href=mylink.href;
+window.open(href, windowname, 'width=400,height=200,scrollbars=yes');
+return false;
+}
+
+$('#createInput').click(function () {
+    $('#textarea').html('<input type="text" />');
+    return false;
+});
+
+//-->
+</script>

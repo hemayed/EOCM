@@ -13,7 +13,7 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
+        <div class="form-horizontal" style="direction:rtl;">
            
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -86,19 +86,25 @@
                     @Html.ValidationMessageFor(model => model.Products, "", new { @class = "text-danger" })
                 </div>
             </div>
-
+            <div class="form-group">
+                @Html.LabelFor(model => model.MoreProducts, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.MoreProducts, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MoreProducts, "", new { @class = "text-danger" })
+                </div>
+            </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Cluster_Lat, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
                 <div class="col-md-3">
                     @Html.EditorFor(model => model.Cluster_Lat, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Cluster_Lat, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Cluster_Lat, (string)ViewBag.ValidationSummary, new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Cluster_Long, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
                 <div class="col-md-3">
                     @Html.EditorFor(model => model.Cluster_Long, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Cluster_Long, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Cluster_Long, (string)ViewBag.ValidationSummary, new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -114,6 +120,14 @@
                 <div class="col-md-3">
                     @Html.EditorFor(model => model.Cluster_EmpNum, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Cluster_EmpNum, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cluster_EmpFemale, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.Cluster_EmpFemale, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Cluster_EmpFemale, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -134,6 +148,14 @@
             </div>
 
             <div class="form-group">
+                @Html.LabelFor(model => model.CompanyPercent, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.CompanyPercent, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CompanyPercent, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
                 @Html.LabelFor(model => model.ClusterNature, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
                 <div class="col-md-3">
                     @Html.EditorFor(model => model.ClusterNature, new { htmlAttributes = new { @class = "form-control" } })
@@ -150,6 +172,35 @@
             </div>
 
             <div class="form-group">
+                @Html.LabelFor(model => model.Market, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.Market, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Market, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProductSeason, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ProductSeason, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProductSeason, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ExportVolume, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ExportVolume, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ExportVolume, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Income, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.Income, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Income, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
                 @Html.LabelFor(model => model.SupportingOrg, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
                 <div class="col-md-3">
                     @Html.EditorFor(model => model.SupportingOrg, new { htmlAttributes = new { @class = "form-control" } })
@@ -162,6 +213,13 @@
                 <div class="col-md-3">
                     @Html.EditorFor(model => model.Challenges, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Challenges, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.MoreChallenges, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.MoreChallenges, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MoreChallenges, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
@@ -185,6 +243,22 @@
                 <div class="col-md-3">
                     @Html.EditorFor(model => model.Cluster_DetailPage3, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Cluster_DetailPage3, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cluster_StudyFile1, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.Cluster_StudyFile1, new { type = "file" })
+                    @Html.ValidationMessageFor(model => model.Cluster_StudyFile1)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cluster_StudyFile2, htmlAttributes: new { @class = "control-label col-md-offset-3 col-md-2" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.Cluster_StudyFile2, new { type = "file" })
+                    @Html.ValidationMessageFor(model => model.Cluster_StudyFile2)
                 </div>
             </div>
 

@@ -19,7 +19,6 @@ namespace EOCM.Models
         [Required]
         [Display(Name = "القطاع")]
         public string Sector_ID { get; set; }
-        [Required]
         [ForeignKey("Sector_ID")]
         public virtual Sector Sector { get; set; }
 

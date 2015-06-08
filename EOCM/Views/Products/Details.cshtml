@@ -1,0 +1,42 @@
+﻿@model EOCM.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal" style=" direction:rtl ">
+        <dt>
+            @Html.DisplayNameFor(model => model.Field.Field_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Field.Field_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sector.Sector_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sector.Sector_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Product_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

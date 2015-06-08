@@ -1,0 +1,40 @@
+﻿@model IEnumerable<EOCM.Models.Field>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style=" direction:rtl ">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sector.Sector_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Field_Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sector.Sector_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Field_Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Field_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Field_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Field_ID })
+            </td>
+        </tr>
+    }
+
+</table>

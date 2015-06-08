@@ -14,7 +14,7 @@ namespace EOCM.Models
         [Display(Name = "المركز/المدينة")]
         public string District_ID { get; set; }
         [Required]
-         [Display(Name = "المركز")]
+        [Display(Name = "المركز/المدينة")]
         public string District_Name { get; set; }
 
         [Required]

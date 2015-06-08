@@ -173,8 +173,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClustersController.cs" />
     <Compile Include="Controllers\CustomJsonResult.cs" />
+    <Compile Include="Controllers\DistrictsController.cs" />
+    <Compile Include="Controllers\FieldsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\VillagesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -467,9 +470,25 @@
     <Content Include="Views\Villages\Details.cshtml" />
     <Content Include="Views\Villages\Edit.cshtml" />
     <Content Include="Views\Villages\Index.cshtml" />
+    <Content Include="Views\Fields\Create.cshtml" />
+    <Content Include="Views\Fields\Delete.cshtml" />
+    <Content Include="Views\Fields\Details.cshtml" />
+    <Content Include="Views\Fields\Edit.cshtml" />
+    <Content Include="Views\Fields\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Districts\Create.cshtml" />
+    <Content Include="Views\Districts\Delete.cshtml" />
+    <Content Include="Views\Districts\Details.cshtml" />
+    <Content Include="Views\Districts\Edit.cshtml" />
+    <Content Include="Views\Districts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="StudyFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
