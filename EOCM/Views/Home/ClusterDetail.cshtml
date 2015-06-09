@@ -51,17 +51,20 @@
                 <td>@Html.DisplayFor(model => model.Product.Product_Name)</td>
             </tr>
             <tr>
-                <td>@Html.DisplayNameFor(model => model.Products)</td>
+                <td>@Html.DisplayNameFor(model => model.Products)
+                    @if (@Model.MoreProducts != null)
+                    {
+                        <br />
+                        <a href="#" onclick="$('#hiddenText').show(); return false;"> معلومات اكثر</a>
+
+                        <a href="#" onclick="$('#hiddenText').hide(); return false;">&nbsp  معلومات اقل &nbsp </a>
+                       
+                    }
+                </td>
                 <td>@Html.DisplayFor(model => model.Products) 
-                @if (@Model.MoreProducts != null)
-                {
-                    <br />
-                    <a href="#" onclick="$('#hiddenText').show(); return false;"> معلومات اكثر</a> 
+                 <div style="display: none;" id="hiddenText">@Html.DisplayFor(model => model.MoreProducts) </div>
                     
-                    <a href="#" onclick="$('#hiddenText').hide(); return false;">&nbsp  معلومات اقل &nbsp </a>
-                    <div style="display: none;" id="hiddenText">@Html.DisplayFor(model => model.MoreProducts) </div>
-                    
-                }
+               
                  </td>
             </tr>
             
@@ -126,17 +129,20 @@
                 <td>@Html.DisplayFor(model => model.SupportingOrg)</td>
             </tr>
             <tr>
-                <td>@Html.DisplayNameFor(model => model.Challenges)</td>
-                <td>@Html.DisplayFor(model => model.Challenges) 
+                <td>@Html.DisplayNameFor(model => model.Challenges)
                     @if (@Model.MoreChallenges != null)
                     {
                         <br />
                         <a href="#" onclick="$('#hiddenText2').show(); return false;"> معلومات اكثر</a>
 
                         <a href="#" onclick="$('#hiddenText2').hide(); return false;">&nbsp  معلومات اقل &nbsp </a>
+                    }
+                </td>
+                <td>@Html.DisplayFor(model => model.Challenges) 
+            
                         <div style="display: none;" id="hiddenText2">@Html.DisplayFor(model => model.MoreChallenges) </div>
 
-                    }
+                   
                 </td>
             </tr>
 

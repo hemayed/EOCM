@@ -268,7 +268,7 @@ function CreateGovtLayer() {
         if (govtData[i].Cluster_Num != 0) {
             var pintxt = String(i + 1);
             var divID = "govt" + pintxt;
-            pushpinOptions = { visible: false, typeName: 'govt' + pintxt, visible: true, icon:"/Images/blueflag.png", width:50, height: 50, textOffset: new Microsoft.Maps.Point(0, 0)};  
+            pushpinOptions = { visible: false, typeName: 'govt' + pintxt, visible: true, icon:"/Images/blueflag.png", width:40, height: 40, textOffset: new Microsoft.Maps.Point(0, 0)};  
             govtpin[i] = new Microsoft.Maps.Pushpin(govtLocations[i], pushpinOptions);
 
             govtpin[i].Title = " محافظة " + govtData[i].Govt_Name;
