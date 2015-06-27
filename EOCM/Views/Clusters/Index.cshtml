@@ -37,10 +37,10 @@
                         @Html.DisplayNameFor(model => model.Cluster_Long)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(model => model.Cluster_EmpNum)
+                        @Html.DisplayNameFor(model => model.Cluster_EmpNumMin)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(model => model.Cluster_ShopNum)
+                        @Html.DisplayNameFor(model => model.Cluster_ShopNumMin)
                     </td>
                    
 
@@ -74,10 +74,10 @@
                             @Html.DisplayFor(modelItem => item.Cluster_Long)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Cluster_EmpNum)
+                            @Html.DisplayFor(modelItem => item.Cluster_EmpNumMin) : @Html.DisplayFor(modelItem => item.Cluster_EmpNumMax)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Cluster_ShopNum)
+                            @Html.DisplayFor(modelItem => item.Cluster_ShopNumMin) : @Html.DisplayFor(modelItem => item.Cluster_ShopNumMax)
                         </td>
 
                         

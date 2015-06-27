@@ -84,25 +84,25 @@ namespace EOCM.Models
         [Required]
         [DefaultValue(0)]
         [Range(0, int.MaxValue, ErrorMessage = "يجب ان يكون العدد اكبر من 0")]
-        [Display(Name = "عدد العمال -الحد الادنى")]
+        [Display(Name = "عدد العاملين")]
         public int  Cluster_EmpNumMin { get; set; }
 
         [Required]
         [DefaultValue(0)]
         [Range(0, int.MaxValue, ErrorMessage = "يجب ان يكون العدد اكبر من 0")]
-         [Display(Name = "  عدد العمال -الحد الاعلى")]
+        [Display(Name = "  عدد العاملين -الحد الاعلى")]
         public int Cluster_EmpNumMax { get; set; }
 
         [DefaultValue(0)]
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
-        [RegularExpression(@"[0-9])?$", ErrorMessage = " ادخل نسبة مئوية")]
+        [RegularExpression("^[1-9][0-9]?$|^100$", ErrorMessage = " ادخل نسبة مئوية")]
          [Display(Name = "نسبة عمالة المرأة ")]
         public int? Cluster_EmpFemale { get; set; }
 
         [Required]
         [DefaultValue(0)]
         [Range(0, int.MaxValue, ErrorMessage = "يجب ان يكون العدد اكبر من 0")]
-        [Display(Name = "عدد الوحدات الانتاجية - الحد الادنى")]
+        [Display(Name = "عدد الوحدات الانتاجية")]
         public int Cluster_ShopNumMin { get; set; }
 
         [Required]
@@ -120,22 +120,22 @@ namespace EOCM.Models
         public string NonOfficalProjects { get; set; }
 
          [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
-         [RegularExpression(@"[0-9])?$", ErrorMessage = " ادخل نسبة مئوية")]
+         [RegularExpression("^[1-9][0-9]?$|^100$", ErrorMessage = " ادخل نسبة مئوية")]
          [Display(Name = "نسبة الشركات المتناهية الصغر (أى عدد العمالة من 1 إلى 4)  ")]
          public int? CompanyPercent1 { get; set; }
 
          [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
-         [RegularExpression(@"[0-9])?$", ErrorMessage = " ادخل نسبة مئوية")]
+         [RegularExpression("^[1-9][0-9]?$|^100$", ErrorMessage = " ادخل نسبة مئوية")]
          [Display(Name = "نسبة الشركات الصغيرة (أى عدد العمالة من 5 إلى 49)  ")]
          public int? CompanyPercent2 { get; set; }
 
          [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
-         [RegularExpression(@"[0-9])?$", ErrorMessage = " ادخل نسبة مئوية")]
+         [RegularExpression("^[1-9][0-9]?$|^100$", ErrorMessage = " ادخل نسبة مئوية")]
          [Display(Name = "نسبة الشركات المتوسطة (أى عدد العمالة من 50 إلى 99)  ")]
          public int? CompanyPercent3 { get; set; }
 
          [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
-         [RegularExpression(@"[0-9])?$", ErrorMessage = " ادخل نسبة مئوية")]
+         [RegularExpression("^[1-9][0-9]?$|^100$", ErrorMessage = " ادخل نسبة مئوية")]
          [Display(Name = "نسبة الشركات الكبيرة (أى عدد العمالة أكثر من 100) ")]
          public int? CompanyPercent4 { get; set; }
 
@@ -220,16 +220,18 @@ namespace EOCM.Models
         public string ProductSeasonDetail { get; set; }
 
 
-        [UIHint("YesNo")]
+        [StringLength(10)]
         [Display(Name = " هل يقوم التجمع بالتصدير ")]
-        public Nullable<bool> ExportFlag { get; set; }
+        public string ExportFlag_ID { get; set; }
+        [ForeignKey("ExportFlag_ID")]
+        public virtual FlagType FlagType { get; set; }
 
         [StringLength(255)]
         [Display(Name = " نسبة التصدير ")]
         public string ExportVolume { get; set; }
 
         [StringLength(255)]
-        [Display(Name = " متوسط مستوى الدخل  ")]
+        [Display(Name = " متوسط مستوى الدخل للورشة / الشركة / الوحدة الإنتاجية فى التجمع  ")]
         public string Income { get; set; }
 
         [StringLength(1024)]

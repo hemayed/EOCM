@@ -13,6 +13,10 @@ namespace EOCM.Models
             public decimal Govt_Lat { get; set; }
             public decimal Govt_Long { get; set; }
             public int Cluster_Num { get; set; }
-            public  int[] Sector_Num {get; set;}
+            public int ShopNumMin { get; set; }
+            public int ShopNumMax { get; set; }
+            public int EmpNumMin { get; set; }
+            public int EmpNumMax { get; set; }
+            public int ExportNum { get; set; }
     }
 }

@@ -78,7 +78,7 @@ function GetMap(myArray) {
         var govtTooltipLayer = new Microsoft.Maps.EntityCollection();
         map.entities.push(govtTooltipLayer);
 
-        govtTooltip = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, width:150, height:100, offset: new Microsoft.Maps.Point(-75, 35) });
+        govtTooltip = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, width:200, height:140, offset: new Microsoft.Maps.Point(-100, 35) });
 
         govtTooltipLayer.push(govtTooltip);
         AddGovtLocations();
@@ -273,11 +273,11 @@ function CreateGovtLayer() {
 
             govtpin[i].Title = " محافظة " + govtData[i].Govt_Name;
 
-            govtpin[i].Description = sname[0] + " " + govtData[i].Sector_Num[0] + "<br>" + sname[5] + " " + govtData[i].Sector_Num[5];
+            govtpin[i].Description = " عدد الوحدات الانتاجية " + ":&nbsp" + govtData[i].ShopNumMin + " - " + govtData[i].ShopNumMax + "<br>" + " عدد العاملين " + ":&nbsp" + govtData[i].EmpNumMin + " - " + govtData[i].EmpNumMax + "<br>" + " عدد التجمعات المصدرة " + ":&nbsp" + govtData[i].ExportNum;
 
             imgsection = '<img src= "/Images/' + govtData[i].Govt_ID + '.png' + '" alt="محافظة' + govtData[i].Govt_ID + '" style="width:50px; height:50px">';
 
-            govtpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:thin; border-color:blue; width:150px; height:120px">'+
+            govtpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:thin; border-color:blue; width:200px; height:140px">'+
             '<div id="infoboxTitle" style="text-decoration:underline; text-align:center; font-size:medium; margin-right: 1em; margin-left: 1em;">' + govtpin[i].Title + '</div> ' + imgsection +
         '<div id="infoboxDescription" style="text-decoration:none; text-align:right; margin-right: 1em; margin-left: 1em;" >' + govtpin[i].Description + '</div> </div>'
 

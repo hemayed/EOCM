@@ -163,11 +163,12 @@ namespace EOCM.Controllers
            for (Int16 govtID=1;govtID<=27;govtID++){
                 GovtData govtData = new GovtData();
                 govtData.Cluster_Num = 0;
-                govtData.Sector_Num = new int[6];
-                for (int i = 0; i < 6; i++)
-                {
-                    govtData.Sector_Num[i] = 0;
-                }
+                govtData.ShopNumMin= 0;
+                govtData.ShopNumMax = 0;
+            govtData.EmpNumMin = 0;
+           govtData.EmpNumMax = 0;
+           govtData.ExportNum = 0;
+
                    Governorate govt = db.Governorates.Find(govtID.ToString("00"));
                    govtData.Govt_ID = govt.Govt_ID;
                    govtData.Govt_Name = govt.Govt_Name;
@@ -184,7 +185,13 @@ namespace EOCM.Controllers
 
                ClusterData clusterData = new ClusterData();
                listGovtData[govtIndex].Cluster_Num++;
-               listGovtData[govtIndex].Sector_Num[sectorIndex]++;
+               listGovtData[govtIndex].ShopNumMin = listGovtData[govtIndex].ShopNumMin + c.Cluster_ShopNumMin;
+               listGovtData[govtIndex].ShopNumMax = listGovtData[govtIndex].ShopNumMax + c.Cluster_ShopNumMax;
+               listGovtData[govtIndex].EmpNumMin = listGovtData[govtIndex].EmpNumMin + c.Cluster_EmpNumMin;
+               listGovtData[govtIndex].EmpNumMax = listGovtData[govtIndex].EmpNumMax + c.Cluster_EmpNumMax;
+               if (c.ExportFlag_ID == "01")
+                   listGovtData[govtIndex].ExportNum++;
+
                clusterData.Cluster_ID=c.Cluster_ID;
                clusterData.Cluster_Name = c.Cluster_Name;
                clusterData.Cluster_Lat = c.Cluster_Lat;
@@ -214,17 +221,17 @@ namespace EOCM.Controllers
                     clusterData.Cluster_Info1 = clusterData.Cluster_Info1 + " - " + c.Village.Village_Name;
 
 
-               clusterData.Cluster_Info2 = "عدد العاملين = من ";
+               clusterData.Cluster_Info2 = " عدد العاملين " + ":&nbsp" ;
                if (c.Cluster_EmpNumMin != 0)
-                   clusterData.Cluster_Info2=clusterData.Cluster_Info2+c.Cluster_EmpNumMin + " الى ";
+                   clusterData.Cluster_Info2=clusterData.Cluster_Info2+c.Cluster_EmpNumMin + " - ";
 
                if (c.Cluster_EmpNumMax != 0)
                    clusterData.Cluster_Info2 = clusterData.Cluster_Info2 + c.Cluster_EmpNumMax;
 
 
-               clusterData.Cluster_Info3 = "عدد الورش = من ";
+               clusterData.Cluster_Info3 = " عدد الوحدات الانتاجية " + ":&nbsp";
                if (c.Cluster_ShopNumMin != 0)
-                   clusterData.Cluster_Info3=clusterData.Cluster_Info3+c.Cluster_ShopNumMin + " الى ";
+                   clusterData.Cluster_Info3=clusterData.Cluster_Info3+c.Cluster_ShopNumMin + " - ";
 
                 if (c.Cluster_ShopNumMax != 0)
                    clusterData.Cluster_Info3=clusterData.Cluster_Info3+c.Cluster_ShopNumMax;
