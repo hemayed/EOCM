@@ -204,8 +204,11 @@ namespace EOCM.Controllers
                     myCluster.Cluster_Lat = cluster.Cluster_Lat;
                     myCluster.Cluster_Long = cluster.Cluster_Long;
                     myCluster.Cluster_Name = cluster.Cluster_Name;
-                    myCluster.Cluster_ShopNum = cluster.Cluster_ShopNum;
-                    myCluster.Cluster_EmpNum = cluster.Cluster_EmpNum;
+                    myCluster.Cluster_ShopNumMin = cluster.Cluster_ShopNumMin;
+                    myCluster.Cluster_EmpNumMin = cluster.Cluster_EmpNumMin;
+                    myCluster.Cluster_ShopNumMax = cluster.Cluster_ShopNumMax;
+                    myCluster.Cluster_EmpNumMax = cluster.Cluster_EmpNumMax;
+                    
                     myCluster.Cluster_DetailPage1 = cluster.Cluster_DetailPage1;
                     myCluster.Cluster_DetailPage2 = cluster.Cluster_DetailPage2;
                     myCluster.Cluster_DetailPage3 = cluster.Cluster_DetailPage3;
@@ -224,10 +227,15 @@ namespace EOCM.Controllers
                     myCluster.SupportingOrg = cluster.SupportingOrg;
                     myCluster.Cluster_EmpFemale = cluster.Cluster_EmpFemale;
                 
-                    myCluster.CompanyPercent = cluster.CompanyPercent;
+                    myCluster.CompanyPercent1 = cluster.CompanyPercent1;
+                    myCluster.CompanyPercent2 = cluster.CompanyPercent2;
+                    myCluster.CompanyPercent3 = cluster.CompanyPercent3;
+                    myCluster.CompanyPercent4 = cluster.CompanyPercent4;
+
                     myCluster.ExportVolume = cluster.ExportVolume;
                     myCluster.Income = cluster.Income;
-                    myCluster.Market = cluster.Market;
+                    myCluster.MarketType_ID = cluster.MarketType_ID;
+
                     myCluster.MoreChallenges = cluster.MoreChallenges;
                     myCluster.MoreProducts = cluster.MoreProducts;
                     myCluster.ProductSeason = cluster.ProductSeason;

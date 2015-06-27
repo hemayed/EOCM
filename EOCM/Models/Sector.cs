@@ -9,10 +9,11 @@ namespace EOCM.Models
     public class Sector
     {
         [Key]
-        [StringLength(255)]
+        [StringLength(10)]
         [Display(Name = "القطاع")]
         public string Sector_ID{ get; set; }
         [Required]
+        [StringLength(255)]
         [Display(Name = "القطاع")]
         public string Sector_Name { get; set; }
 

@@ -10,14 +10,16 @@ namespace EOCM.Models
     public class District
     {
         [Key]
-        [StringLength(255)]
+        [StringLength(10)]
         [Display(Name = "المركز/المدينة")]
         public string District_ID { get; set; }
         [Required]
+        [StringLength(255)]
         [Display(Name = "المركز/المدينة")]
         public string District_Name { get; set; }
 
         [Required]
+        [StringLength(10)]
         [Display(Name = "المحافظة")]
         public string Govt_ID { get; set; }
         [ForeignKey("Govt_ID")]

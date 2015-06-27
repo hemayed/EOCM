@@ -214,13 +214,21 @@ namespace EOCM.Controllers
                     clusterData.Cluster_Info1 = clusterData.Cluster_Info1 + " - " + c.Village.Village_Name;
 
 
-               clusterData.Cluster_Info2 = "عدد العاملين = ";
-               if (c.Cluster_EmpNum != null)
-                   clusterData.Cluster_Info2=clusterData.Cluster_Info2+c.Cluster_EmpNum;
+               clusterData.Cluster_Info2 = "عدد العاملين = من ";
+               if (c.Cluster_EmpNumMin != 0)
+                   clusterData.Cluster_Info2=clusterData.Cluster_Info2+c.Cluster_EmpNumMin + " الى ";
 
-               clusterData.Cluster_Info3 = "عدد الورش = ";
-               if (c.Cluster_ShopNum != null)
-                   clusterData.Cluster_Info3=clusterData.Cluster_Info3+c.Cluster_ShopNum;
+               if (c.Cluster_EmpNumMax != 0)
+                   clusterData.Cluster_Info2 = clusterData.Cluster_Info2 + c.Cluster_EmpNumMax;
+
+
+               clusterData.Cluster_Info3 = "عدد الورش = من ";
+               if (c.Cluster_ShopNumMin != 0)
+                   clusterData.Cluster_Info3=clusterData.Cluster_Info3+c.Cluster_ShopNumMin + " الى ";
+
+                if (c.Cluster_ShopNumMax != 0)
+                   clusterData.Cluster_Info3=clusterData.Cluster_Info3+c.Cluster_ShopNumMax;
+
 
                clusterData.Cluster_Info4 = "المنتجات: ";
                if (c.Products != null)

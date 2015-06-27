@@ -187,7 +187,9 @@
     <Compile Include="Models\Cluster.cs" />
     <Compile Include="Models\ClusterData.cs" />
     <Compile Include="Models\ClusterMapViewModel.cs" />
+    <Compile Include="Models\ClusterNature.cs" />
     <Compile Include="Models\ClusterShortData.cs" />
+    <Compile Include="Models\ClusterType.cs" />
     <Compile Include="Models\District.cs" />
     <Compile Include="Models\DistrictListModel.cs" />
     <Compile Include="Models\EOCMDB.cs" />
@@ -196,7 +198,9 @@
     <Compile Include="Models\GovtData.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MarketType.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductSeason.cs" />
     <Compile Include="Models\Sector.cs" />
     <Compile Include="Models\Village.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

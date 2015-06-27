@@ -53,8 +53,14 @@ namespace EOCM.Models
         public System.Data.Entity.DbSet<EOCM.Models.Field> Fields { get; set; }
 
         public System.Data.Entity.DbSet<EOCM.Models.Product> Products { get; set; }
-
         public System.Data.Entity.DbSet<EOCM.Models.Sector> Sectors { get; set; }
+
+        public System.Data.Entity.DbSet<EOCM.Models.ClusterNature> ClusterNature { get; set; }
+        public System.Data.Entity.DbSet<EOCM.Models.ClusterType> ClusterType { get; set; }
+        public System.Data.Entity.DbSet<EOCM.Models.MarketType> MarketType { get; set; }
+        public System.Data.Entity.DbSet<EOCM.Models.ProductSeason> ProductSeason { get; set; }
+        
+
 
     }
 
