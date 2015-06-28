@@ -93,9 +93,8 @@ namespace EOCM.Models
         [Display(Name = "  عدد العاملين -الحد الاعلى")]
         public int Cluster_EmpNumMax { get; set; }
 
-        [DefaultValue(0)]
-        [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
-        [RegularExpression("^[1-9][0-9]?$|^100$", ErrorMessage = " ادخل نسبة مئوية")]
+
+        [Range(0, 100, ErrorMessage = "  يجب ان تكون النسبة بين 0 و 100")]
          [Display(Name = "نسبة عمالة المرأة ")]
         public int? Cluster_EmpFemale { get; set; }
 
@@ -119,35 +118,33 @@ namespace EOCM.Models
         [Display(Name = "نسبة المشاريع الغير رسمية في التجمع")]
         public string NonOfficalProjects { get; set; }
 
-         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
-         [RegularExpression("^[1-9][0-9]?$|^100$", ErrorMessage = " ادخل نسبة مئوية")]
+        
+         [Range(0, 100, ErrorMessage = "  يجب ان يكون الرقم بين لاشئ و 100")]
          [Display(Name = "نسبة الشركات المتناهية الصغر (أى عدد العمالة من 1 إلى 4)  ")]
          public int? CompanyPercent1 { get; set; }
 
-         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
-         [RegularExpression("^[1-9][0-9]?$|^100$", ErrorMessage = " ادخل نسبة مئوية")]
+        
+         [Range(0, 100, ErrorMessage = "  يجب ان تكون النسبة بين 0 و 100")]
          [Display(Name = "نسبة الشركات الصغيرة (أى عدد العمالة من 5 إلى 49)  ")]
          public int? CompanyPercent2 { get; set; }
 
-         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
-         [RegularExpression("^[1-9][0-9]?$|^100$", ErrorMessage = " ادخل نسبة مئوية")]
+         [Range(0, 100, ErrorMessage = "  يجب ان تكون النسبة بين 0 و 100")]
          [Display(Name = "نسبة الشركات المتوسطة (أى عدد العمالة من 50 إلى 99)  ")]
          public int? CompanyPercent3 { get; set; }
 
-         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
-         [RegularExpression("^[1-9][0-9]?$|^100$", ErrorMessage = " ادخل نسبة مئوية")]
+          [Range(0, 100, ErrorMessage = "  يجب ان تكون النسبة بين 0 و 100")]
          [Display(Name = "نسبة الشركات الكبيرة (أى عدد العمالة أكثر من 100) ")]
          public int? CompanyPercent4 { get; set; }
 
        
          [StringLength(10)]
-        [Display(Name = "طبيعة هذا التجمع (تكامل رأسي / تكامل افقي / مركزي)")]
+        [Display(Name = "طبيعة هذا التجمع ")]
          public string ClusterNature_ID { get; set; }
          [ForeignKey("ClusterNature_ID")]
          public virtual ClusterNature ClusterNature { get; set; }
 
          [StringLength(10)]
-         [Display(Name = " سبب تواجد التجمع (استهداف نفس السوق / استخدام نفس الموارد / وجود نفس البنية الأساسية والمرافق)")]
+         [Display(Name = " سبب تواجد التجمع ")]
          public string ClusterType_ID { get; set; }
          [ForeignKey("ClusterType_ID")]
          public virtual ClusterType ClusterType { get; set; }
