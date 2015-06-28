@@ -1,167 +1,258 @@
 ﻿@model EOCM.Models.Cluster
 
-@{
-    ViewBag.Title = "تفاصيل بيانات التجمع";
-}
-<div style="font-family:Arial; text-align: center; direction: rtl;">
-    <h2>تفاصيل بيانات التجمع</h2>
-</div>
+<div id="ClusterDetails">
+
+    @{
+        ViewBag.Title = @Html.DisplayFor(model => model.Cluster_Name);
+    }
+
+    <div style="text-align: center; direction: rtl;">
+        <h2>@Html.DisplayFor(model => model.Cluster_Name)</h2>
+    </div>
     <hr />
+    <div id="ClusterDetailContainer">
 
-   
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_Name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_Name)
-        </dd>
 
-        <dt>
-    @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
-</dt>
-<dd>
-    @Html.DisplayFor(model => model.Governorate.Govt_Name)
-</dd>
-        <dt >
-            @Html.DisplayNameFor(model => model.District.District_Name)
-        </dt>
+        <table id="ProfileTable" align="center">
+            <colgroup>
+                <col class="c1" style="width: 50%;">
+                <col class="c2" style="width: 50%;">
+            </colgroup>
 
-        <dd>
-            @Html.DisplayFor(model => model.District.District_Name)
-        </dd>
+            <tr>
+                <th>البند</th>
+                <th>البيان</th>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Governorate.Govt_Name)</td>
+                <td>@Html.DisplayFor(model => model.Governorate.Govt_Name)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.District.District_Name)</td>
+                <td>@Html.DisplayFor(model => model.District.District_Name)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Village.Village_Name)</td>
+                <td>@Html.DisplayFor(model => model.Village.Village_Name)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Address)</td>
+                <td>@Html.DisplayFor(model => model.Address)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Cluster_Lat)</td>
+                <td>@Html.DisplayFor(model => model.Cluster_Lat)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Cluster_Long)</td>
+                <td>@Html.DisplayFor(model => model.Cluster_Long)</td>
+            </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Village.Village_Name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Village.Village_Name)
-        </dd>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Sector.Sector_Name)</td>
+                <td>@Html.DisplayFor(model => model.Sector.Sector_Name)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Field.Field_Name)</td>
+                <td>@Html.DisplayFor(model => model.Field.Field_Name)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Product.Product_Name)</td>
+                <td>@Html.DisplayFor(model => model.Product.Product_Name)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Products)
+                @if (@Model.MoreProducts != null)
+                {
+                    <br />
+                    <a href="#" onclick="$('#hiddenText').show(); return false;"> معلومات اكثر</a>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+                    <a href="#" onclick="$('#hiddenText').hide(); return false;">&nbsp  معلومات اقل &nbsp </a>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sector.Sector_Name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Sector.Sector_Name)
-        </dd>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Products)
+            <div style="display: none;" id="hiddenText">@Html.DisplayFor(model => model.MoreProducts) </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Field.Field_Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Field.Field_Name)
-        </dd>
-       
-        <dt>
-            @Html.DisplayNameFor(model => model.Product.Product_Name)
-        </dt>
+        </td>
+    </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Product.Product_Name)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Products)
-        </dt>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.Cluster_ShopNumMin)</td>
+        <td>@Html.DisplayFor(model => model.Cluster_ShopNumMin) :  @Html.DisplayFor(model => model.Cluster_ShopNumMax) </td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.Cluster_EmpNumMin)</td>
+        <td>@Html.DisplayFor(model => model.Cluster_EmpNumMin) : @Html.DisplayFor(model => model.Cluster_EmpNumMax)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.Cluster_EmpFemale)</td>
+        <td>@Html.DisplayFor(model => model.Cluster_EmpFemale)</td>
+    </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Products)
-        </dd>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.OfficalProjects)</td>
+        <td>@Html.DisplayFor(model => model.OfficalProjects)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.NonOfficalProjects)</td>
+        <td>@Html.DisplayFor(model => model.NonOfficalProjects)</td>
+    </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MoreProducts)
-        </dt>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.CompanyPercent1)</td>
+        <td>@Html.DisplayFor(model => model.CompanyPercent1)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.CompanyPercent2)</td>
+        <td>@Html.DisplayFor(model => model.CompanyPercent2)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.CompanyPercent3)</td>
+        <td>@Html.DisplayFor(model => model.CompanyPercent3)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.CompanyPercent4)</td>
+        <td>@Html.DisplayFor(model => model.CompanyPercent4)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.ClusterNature_ID)</td>
+        <td>@Html.DisplayFor(model => model.ClusterNature.ClusterNature_Name)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.ClusterType_ID)</td>
+        <td>@Html.DisplayFor(model => model.ClusterType.ClusterType_Name)</td>
+    </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.MoreProducts)
-        </dd>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.MarketType_ID)</td>
+        <td>@Html.DisplayFor(model => model.MarketType.MarketType_Name)</td>
+    </tr>
 
-       
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.ProductSeason_ID)</td>
+        <td>@Html.DisplayFor(model => model.ProductSeason.ProductSeason_Name)</td>
+    </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_Lat)
-        </dt>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.ProductSeasonDetail)</td>
+        <td>@Html.DisplayFor(model => model.ProductSeasonDetail)</td>
+    </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_Lat)
-        </dd>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.ExportVolume)</td>
+        <td>@Html.DisplayFor(model => model.ExportVolume)</td>
+    </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_Long)
-        </dt>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.Income)</td>
+        <td>@Html.DisplayFor(model => model.Income)</td>
+    </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_Long)
-        </dd>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.SupportingOrg)</td>
+        <td>@Html.DisplayFor(model => model.SupportingOrg)</td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Challenges)
+        @if (@Model.MoreChallenges != null)
+        {
+            <br />
+            <a href="#" onclick="$('#hiddenText2').show(); return false;"> معلومات اكثر</a>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_EmpNum)
-        </dt>
+            <a href="#" onclick="$('#hiddenText2').hide(); return false;">&nbsp  معلومات اقل &nbsp </a>
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.Challenges)
 
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_EmpNum)
-        </dd>
+    <div style="display: none;" id="hiddenText2">@Html.DisplayFor(model => model.MoreChallenges) </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_EmpFemale)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_EmpFemale)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_ShopNum)
-        </dt>
+</td>
+</tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_ShopNum)
-        </dd>
+<tr>
+    <td>@Html.DisplayNameFor(model => model.AdditionalInfo)</td>
+    <td>@Html.DisplayFor(model => model.AdditionalInfo)</td>
+</tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_ProductImage)
-        </dt>
+</table>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_ProductImage)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_ProcessImage)
-        </dt>
+<br /><br />
+<table id="FooterTable" align="center">
+    <colgroup>
+        <col class="c1" style="width: 30%;">
+        <col class="c2" style="width: 70%;">
+    </colgroup>
+    @if (@Model.Cluster_StudyFile1 != null | @Model.Cluster_StudyFile2 != null)
+    {
 
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_ProcessImage)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cluster_DetailPage1)
-        </dt>
+        <tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_DetailPage1)
-        </dd>
+            @*<td>@Html.DisplayNameFor(model => model.Cluster_StudyFile1)</td>*@
+            <td>دراسة عن التجمع:</td>
+            <td>
+                <a target="_blank" href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile1)"> @Html.DisplayFor(model => model.Cluster_StudyFile1) </a>
+                <br />
 
-        <dt>
-            @*@Html.DisplayNameFor(model => model.Cluster_DetailPage2)*@
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_DetailPage2)
-        </dd>
-        <dt>
-            @*@Html.DisplayNameFor(model => model.Cluster_DetailPage3)*@
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Cluster_DetailPage3)
-        </dd>
-    </dl>
+                <a target="_blank" href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile2)">@Html.DisplayFor(model => model.Cluster_StudyFile2)</a>
+
+
+            </td>
+        </tr>
+    }
+
+    <tr>
+
+        <td>روابط لصفحات خارجية ذات صلة:</td>
+        <td>
+            <br />
+            <a href="@Html.Raw(Model.Cluster_DetailPage1)" onclick="return popup(this, 'notes')">@Html.DisplayFor(model => model.Cluster_DetailPage1)</a>
+            <br />
+
+            <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage2)">@Html.DisplayFor(model => model.Cluster_DetailPage2)</a>
+            <br />
+
+            <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage3)">@Html.DisplayFor(model => model.Cluster_DetailPage3)</a>
+
+        </td>
+    </tr>
+
+</table>
+
+
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+   href=mylink;
+else
+   href=mylink.href;
+window.open(href, windowname, 'width=400,height=200,scrollbars=yes');
+return false;
+}
+
+$('#createInput').click(function () {
+    $('#textarea').html('<input type="text" />');
+    return false;
+});
+
+//-->
+</script>
 
     <p>
         @Html.ActionLink("تعديل", "Edit", new { id = Model.Cluster_ID }) |
