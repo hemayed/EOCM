@@ -100,7 +100,7 @@ namespace EOCM.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var clusters = (from d in db.Clusters orderby d.Cluster_Name ascending where d.Field_ID == id select d).ToList();
+            var clusters = (from d in db.Clusters orderby d.Cluster_Name ascending where d.Product_ID  == id select d).ToList();
 
             if (clusters == null)
             {
@@ -236,11 +236,13 @@ namespace EOCM.Controllers
                 if (c.Cluster_ShopNumMax != 0)
                    clusterData.Cluster_Info3=clusterData.Cluster_Info3+c.Cluster_ShopNumMax;
 
-
-               clusterData.Cluster_Info4 = "المنتجات: ";
+               clusterData.Cluster_Info4 = "نسبة التصدير: ";
                if (c.Products != null)
-                   clusterData.Cluster_Info4 = clusterData.Cluster_Info4+c.Products;
+                   clusterData.Cluster_Info4 = clusterData.Cluster_Info4+c.ExportVolume;
 
+            clusterData.Cluster_Info5 = "المنتجات: ";
+                if (c.Products != null)
+                    clusterData.Cluster_Info5= clusterData.Cluster_Info5 + c.Products;
                listClusterData.Add(clusterData);
            }
 

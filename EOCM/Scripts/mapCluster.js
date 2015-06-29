@@ -370,7 +370,7 @@ function createClusterLayer(e) {
             clusterpin[i] = new Microsoft.Maps.Pushpin(location1, pushpinOptions);
             clusterpin[i].Title = pintxt + '-' + clusterData[i].Cluster_Name;
 
-           clusterpin[i].Description = clusterData[i].Cluster_Info1 + "<br>" + clusterData[i].Cluster_Info2 + "<br>" + clusterData[i].Cluster_Info3 + "<br>" + clusterData[i].Cluster_Info4;
+            clusterpin[i].Description = clusterData[i].Cluster_Info1 + "<br>" + clusterData[i].Cluster_Info2 + "<br>" + clusterData[i].Cluster_Info3 + "<br>" + clusterData[i].Cluster_Info4 + "<br>" + clusterData[i].Cluster_Info5;
             clusterpin[i].showCloseButton = true;
            //clusterpin[i].titleClickHandler = titleClick(info1[i]);
 

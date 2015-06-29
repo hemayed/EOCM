@@ -414,6 +414,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jqueryshorten.js" />
     <Content Include="Scripts\map.js" />
     <Content Include="Scripts\mapCluster.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />

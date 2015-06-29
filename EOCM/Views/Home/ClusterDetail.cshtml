@@ -51,31 +51,39 @@
                 <td>@Html.DisplayFor(model => model.Product.Product_Name)</td>
             </tr>
             <tr>
-                <td>@Html.DisplayNameFor(model => model.Products)
-                    @if (@Model.MoreProducts != null)
-                    {
-                        <br />
-                        <a href="#" onclick="$('#hiddenText').show(); return false;"> معلومات اكثر</a>
+                <td>
+                    @Html.DisplayNameFor(model => model.Products)
 
-                        <a href="#" onclick="$('#hiddenText').hide(); return false;">&nbsp  معلومات اقل &nbsp </a>
-                       
-                    }
-                </td>
-                <td>@Html.DisplayFor(model => model.Products) 
-                 <div style="display: none;" id="hiddenText">@Html.DisplayFor(model => model.MoreProducts) </div>
-                    
-               
-                 </td>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Products)
+
+            @if (@Model.MoreProducts != null)
+            {
+
+                <a href="#" id="moreinfo" onclick="$('#hiddenText2').show(); $('#moreinfo').hide(); $('#lessinfo').show(); return false;"><small>&nbsp  معلومات اكثر &nbsp</small></a>
+
+            }
+            <div style="display: none;" id="hiddenText2">
+                @Html.DisplayFor(model => model.MoreProducts)
+
+                @if (@Model.MoreProducts != null)
+                {
+                    <a href="#" id="lessinfo" onclick="$('#hiddenText2').hide(); $('#lessinfo').hide(); $('#moreinfo').show(); return false;"><small>&nbsp  معلومات اقل &nbsp </small></a>
+                }
+            </div>
+            </td>
+
             </tr>
             
    
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Cluster_ShopNumMin)</td>
-                <td>@Html.DisplayFor(model => model.Cluster_ShopNumMin) :  @Html.DisplayFor(model => model.Cluster_ShopNumMax) </td>
+                <td>@Html.DisplayFor(model => model.Cluster_ShopNumMin) - @Html.DisplayFor(model => model.Cluster_ShopNumMax) </td>
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Cluster_EmpNumMin)</td>
-                <td>@Html.DisplayFor(model => model.Cluster_EmpNumMin) : @Html.DisplayFor(model => model.Cluster_EmpNumMax)</td>
+                <td>@Html.DisplayFor(model => model.Cluster_EmpNumMin) - @Html.DisplayFor(model => model.Cluster_EmpNumMax)</td>
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Cluster_EmpFemale)</td>
@@ -92,27 +100,31 @@
             </tr>
 
             <tr>
-                <td>@Html.DisplayNameFor(model => model.CompanyPercent1)</td>
-                <td>@Html.DisplayFor(model => model.CompanyPercent1)</td>
+                <td>@Html.DisplayNameFor(model => model.CompanyPercent1) <br />
+                @Html.DisplayNameFor(model => model.CompanyPercent2)<br />
+                    @Html.DisplayNameFor(model => model.CompanyPercent3)<br />
+                    @Html.DisplayNameFor(model => model.CompanyPercent4)
+
+
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.CompanyPercent1) <br />
+                @Html.DisplayFor(model => model.CompanyPercent2)<br />
+                @Html.DisplayFor(model => model.CompanyPercent3)<br />
+                @Html.DisplayFor(model => model.CompanyPercent4)
+            </td>
             </tr>
+           
+           
             <tr>
-                <td>@Html.DisplayNameFor(model => model.CompanyPercent2)</td>
-                <td>@Html.DisplayFor(model => model.CompanyPercent2)</td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.CompanyPercent3)</td>
-                <td>@Html.DisplayFor(model => model.CompanyPercent3)</td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.CompanyPercent4)</td>
-                <td>@Html.DisplayFor(model => model.CompanyPercent4)</td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.ClusterNature_ID)</td>
+                <td>@Html.DisplayNameFor(model => model.ClusterNature_ID) (تكامل أفقى - أى تنتج كل الشركات نفس المنتجات)
+أم  (تكامل رأسى- أى تنتج الشركات منتجات تكمل بعضها فى سلسلة الإنتاج) أم (تكامل مركزى - أى معتمد بشكل كبير على الشركات الكبيرة به)
+</td>
                 <td>@Html.DisplayFor(model => model.ClusterNature.ClusterNature_Name)</td>
             </tr>
             <tr>
-                <td>@Html.DisplayNameFor(model => model.ClusterType_ID)</td>
+                <td>@Html.DisplayNameFor(model => model.ClusterType_ID) (استهداف نفس السوق / استخدام نفس الموارد / وجود نفس البنية الأساسية والمرافق)</td>
                 <td>@Html.DisplayFor(model => model.ClusterType.ClusterType_Name)</td>
             </tr>
 
@@ -147,19 +159,24 @@
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Challenges)
-                    @if (@Model.MoreChallenges != null)
-                    {
-                        <br />
-                        <a href="#" onclick="$('#hiddenText2').show(); return false;"> معلومات اكثر</a>
-
-                        <a href="#" onclick="$('#hiddenText2').hide(); return false;">&nbsp  معلومات اقل &nbsp </a>
-                    }
+                   
                 </td>
                 <td>@Html.DisplayFor(model => model.Challenges) 
             
-                        <div style="display: none;" id="hiddenText2">@Html.DisplayFor(model => model.MoreChallenges) </div>
+                    @if (@Model.MoreChallenges != null)
+                    {
+                       
+                        <a href="#" id="moreinfo" onclick="$('#hiddenText2').show(); $('#moreinfo').hide(); $('#lessinfo').show(); return false;"><small>&nbsp  معلومات اكثر &nbsp</small></a>
 
-                   
+                    }
+                    <div style="display: none;" id="hiddenText2">
+                        @Html.DisplayFor(model => model.MoreChallenges)
+
+                    @if (@Model.MoreChallenges != null)
+                    {
+                        <a href="#" id="lessinfo" onclick="$('#hiddenText2').hide(); $('#lessinfo').hide(); $('#moreinfo').show(); return false;"><small>&nbsp  معلومات اقل &nbsp </small></a>
+                    }
+                </div>
                 </td>
             </tr>
 
@@ -217,7 +234,7 @@
                     <br />
                     @Html.ActionLink("تجمعات اخرى في نفس المحافظة", "OtherGovtClusters", new { id = @Model.Govt_ID }, new { target = "_blank" })
                     <br />
-                    @Html.ActionLink("تجمعات مشابهة في كل المحافظات", "SimilarClusters", new { id = @Model.Field_ID }, new { target = "_blank" })
+                    @Html.ActionLink("تجمعات مشابهة في كل المحافظات", "SimilarClusters", new { id = @Model.Product_ID }, new { target = "_blank" })
                     <br />
                     <br />
                     <br />
