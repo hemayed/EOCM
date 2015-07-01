@@ -224,7 +224,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ExportFlag_ID, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
             <div class="col-md-5">
-                @Html.DropDownList("FlagType_ID", null, "", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("ExportFlag_ID", null, "", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ExportFlag_ID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -235,6 +235,15 @@
                 @Html.ValidationMessageFor(model => model.ExportVolume, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IncomeLevel_ID, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
+            <div class="col-md-5">
+                @Html.DropDownList("IncomeLevel_ID", null, "", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IncomeLevel_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.Income, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
             <div class="col-md-5">

@@ -35,6 +35,12 @@ namespace EOCM.Controllers
             ViewBag.Govt_ID = new SelectList(db.Governorates, "Govt_ID", "Govt_Name");
             ViewBag.Product_ID = new SelectList(db.Products, "Product_ID", "Product_Name");
             ViewBag.Sector_ID = new SelectList(db.Sectors, "Sector_ID", "Sector_Name");
+
+            ViewBag.ProductSeason_ID = new SelectList(db.ProductSeason, "ProductSeason_ID", "ProductSeason_Name");
+            ViewBag.ClusterType_ID = new SelectList(db.ClusterType, "ClusterType_ID", "ClusterType_Name");
+            ViewBag.ClusterNature_ID = new SelectList(db.ClusterNature, "ClusterNature_ID", "ClusterNature_Name");
+            ViewBag.IncomeLevel_ID = new SelectList(db.IncomeLevel, "IncomeLevel_ID", "IncomeLevel_Name");
+ 
             return View();
         }
 

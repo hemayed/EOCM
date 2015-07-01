@@ -193,8 +193,9 @@
     <Compile Include="Models\District.cs" />
     <Compile Include="Models\DistrictListModel.cs" />
     <Compile Include="Models\EOCMDB.cs" />
+    <Compile Include="Models\IncomeLevel.cs" />
     <Compile Include="Models\Field.cs" />
-    <Compile Include="Models\FlagType.cs" />
+    <Compile Include="Models\ExportFlag.cs" />
     <Compile Include="Models\Governorate.cs" />
     <Compile Include="Models\GovtData.cs" />
     <Compile Include="Models\IdentityModels.cs" />

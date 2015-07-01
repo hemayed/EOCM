@@ -67,8 +67,8 @@ namespace EOCM.Models
         public System.Data.Entity.DbSet<EOCM.Models.ClusterType> ClusterType { get; set; }
         public System.Data.Entity.DbSet<EOCM.Models.MarketType> MarketType { get; set; }
         public System.Data.Entity.DbSet<EOCM.Models.ProductSeason> ProductSeason { get; set; }
-        public System.Data.Entity.DbSet<EOCM.Models.FlagType> FlagType { get; set; }
-
+        public System.Data.Entity.DbSet<EOCM.Models.ExportFlag> ExportFlag { get; set; }
+        public System.Data.Entity.DbSet<EOCM.Models.IncomeLevel> IncomeLevel { get; set; }
       
 
     }

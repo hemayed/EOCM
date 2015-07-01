@@ -146,13 +146,18 @@
 
     <tr>
         <td>@Html.DisplayNameFor(model => model.ExportFlag_ID)</td>
-        <td>@Html.DisplayFor(model => model.FlagType.FlagType_Name)</td>
+        <td>@Html.DisplayFor(model => model.ExportFlag.ExportFlag_Name)</td>
     </tr>
 
     <tr>
         <td>@Html.DisplayNameFor(model => model.ExportVolume)</td>
         <td>@Html.DisplayFor(model => model.ExportVolume)</td>
     </tr>
+
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.IncomeLevel_ID)</td>
+                <td>@Html.DisplayFor(model => model.IncomeLevel.IncomeLevel_Name)</td>
+            </tr>
 
     <tr>
         <td>@Html.DisplayNameFor(model => model.Income)</td>

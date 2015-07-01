@@ -54,8 +54,9 @@ namespace EOCM.Controllers
             ViewBag.ClusterType_ID = new SelectList(db.ClusterType, "ClusterType_ID", "ClusterType_Name");
             ViewBag.MarketType_ID = new SelectList(db.MarketType, "MarketType_ID", "MarketType_Name");
             ViewBag.ProductSeason_ID = new SelectList(db.ProductSeason, "ProductSeason_ID", "ProductSeason_Name");
-            
-            ViewBag.FlagType_ID = new SelectList(db.FlagType, "FlagType_ID", "FlagType_Name");
+
+            ViewBag.ExportFlag_ID = new SelectList(db.ExportFlag, "ExportFlag_ID", "ExportFlag_Name");
+            ViewBag.IncomeLevel_ID = new SelectList(db.IncomeLevel, "IncomeLevel_ID", "IncomeLevel_Name");
             return View();
         }
 
@@ -76,7 +77,7 @@ namespace EOCM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNumMin,Cluster_EmpNumMax,Cluster_EmpFemale,Cluster_ShopNumMin,Cluster_ShopNumMax,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage1,Cluster_DetailPage2,Cluster_DetailPage3,ClusterNature_ID,ClusterType_ID,NonOfficalProjects,OfficalProjects,Products,MoreProducts,Address,Challenges,MoreChallenges,SupportingOrg,Cluster_StudyFile1,Cluster_StudyFile2,CompanyPercent1,CompanyPercent2,CompanyPercent3,CompanyPercent4,MarketType_ID,ProductSeason_ID,ProductSeasonDetail,ExportFlag_ID,ExportVolume,Income,AdditionalInfo")] Cluster cluster)
+        public ActionResult Create([Bind(Include = "Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNumMin,Cluster_EmpNumMax,Cluster_EmpFemale,Cluster_ShopNumMin,Cluster_ShopNumMax,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage1,Cluster_DetailPage2,Cluster_DetailPage3,ClusterNature_ID,ClusterType_ID,NonOfficalProjects,OfficalProjects,Products,MoreProducts,Address,Challenges,MoreChallenges,SupportingOrg,Cluster_StudyFile1,Cluster_StudyFile2,CompanyPercent1,CompanyPercent2,CompanyPercent3,CompanyPercent4,MarketType_ID,ProductSeason_ID,ProductSeasonDetail,ExportFlag_ID,ExportVolume,Income,IncomeLevel_ID,AdditionalInfo")] Cluster cluster)
         {
             var clustername = (from d in db.Clusters where (d.Cluster_Lat.Equals(cluster.Cluster_Lat) && d.Cluster_Long.Equals(cluster.Cluster_Long)) select d.Cluster_Name).ToList();
             
@@ -170,7 +171,8 @@ namespace EOCM.Controllers
             ViewBag.ClusterType_ID = new SelectList(db.ClusterType, "ClusterType_ID", "ClusterType_Name",cluster.ClusterNature_ID );
             ViewBag.MarketType_ID = new SelectList(db.MarketType, "MarketType_ID", "MarketType_Name",cluster.MarketType_ID);
             ViewBag.ProductSeason_ID = new SelectList(db.ProductSeason, "ProductSeason_ID", "ProductSeason_Name",cluster.ProductSeason_ID );
-            ViewBag.FlagType_ID = new SelectList(db.FlagType, "FlagType_ID", "FlagType_Name", cluster.ExportFlag_ID);
+            ViewBag.ExportFlag_ID = new SelectList(db.ExportFlag, "ExportFlag_ID", "ExportFlag_Name", cluster.ExportFlag_ID);
+            ViewBag.IncomeLevel_ID = new SelectList(db.IncomeLevel, "IncomeLevel_ID", "IncomeLevel_Name", cluster.IncomeLevel_ID);
 
             return View(cluster);
         }
@@ -197,7 +199,8 @@ namespace EOCM.Controllers
             ViewBag.ClusterType_ID = new SelectList(db.ClusterType, "ClusterType_ID", "ClusterType_Name", cluster.ClusterNature_ID);
             ViewBag.MarketType_ID = new SelectList(db.MarketType, "MarketType_ID", "MarketType_Name", cluster.MarketType_ID);
             ViewBag.ProductSeason_ID = new SelectList(db.ProductSeason, "ProductSeason_ID", "ProductSeason_Name", cluster.ProductSeason_ID);
-            ViewBag.FlagType_ID = new SelectList(db.FlagType, "FlagType_ID", "FlagType_Name", cluster.ExportFlag_ID);
+            ViewBag.ExportFlag_ID = new SelectList(db.ExportFlag, "ExportFlag_ID", "ExportFlag_Name", cluster.ExportFlag_ID);
+            ViewBag.IncomeLevel_ID = new SelectList(db.IncomeLevel, "IncomeLevel_ID", "IncomeLevel_Name", cluster.IncomeLevel_ID);
 
             return View(cluster);
         }
@@ -208,7 +211,7 @@ namespace EOCM.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult Edit([Bind(Include = "Cluster_ID,Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNumMin,Cluster_EmpNumMax,Cluster_EmpFemale,Cluster_ShopNumMin,Cluster_ShopNumMax,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage1,Cluster_DetailPage2,Cluster_DetailPage3,ClusterNature_ID,ClusterType_ID,NonOfficalProjects,OfficalProjects,Products,MoreProducts,Address,Challenges,MoreChallenges,SupportingOrg,Cluster_StudyFile1,Cluster_StudyFile2,CompanyPercent1,CompanyPercent2,CompanyPercent3,CompanyPercent4,MarketType_ID,ProductSeason_ID,ProductSeasonDetail,ExportFlag_ID,ExportVolume,Income,AdditionalInfo")] Cluster cluster)
+        public ActionResult Edit([Bind(Include = "Cluster_ID,Cluster_Name,Govt_ID,District_ID,Village_ID,Sector_ID,Field_ID,Product_ID,Cluster_Lat,Cluster_Long,Cluster_EmpNumMin,Cluster_EmpNumMax,Cluster_EmpFemale,Cluster_ShopNumMin,Cluster_ShopNumMax,Cluster_ProductImage,Cluster_ProcessImage,Cluster_DetailPage1,Cluster_DetailPage2,Cluster_DetailPage3,ClusterNature_ID,ClusterType_ID,NonOfficalProjects,OfficalProjects,Products,MoreProducts,Address,Challenges,MoreChallenges,SupportingOrg,Cluster_StudyFile1,Cluster_StudyFile2,CompanyPercent1,CompanyPercent2,CompanyPercent3,CompanyPercent4,MarketType_ID,ProductSeason_ID,ProductSeasonDetail,ExportFlag_ID,ExportVolume,Income,IncomeLevel_ID,AdditionalInfo")] Cluster cluster)
         {
 
             string sourceName;
@@ -268,6 +271,7 @@ namespace EOCM.Controllers
                     myCluster.ProductSeason_ID = cluster.ProductSeason_ID;
                     myCluster.ProductSeasonDetail = cluster.ProductSeasonDetail;
 
+                    myCluster.IncomeLevel_ID = cluster.IncomeLevel_ID;
                     myCluster.Income = cluster.Income;
 
                     myCluster.AdditionalInfo = cluster.AdditionalInfo;
@@ -339,8 +343,8 @@ namespace EOCM.Controllers
             ViewBag.ClusterType_ID = new SelectList(db.ClusterType, "ClusterType_ID", "ClusterType_Name", cluster.ClusterNature_ID);
             ViewBag.MarketType_ID = new SelectList(db.MarketType, "MarketType_ID", "MarketType_Name", cluster.MarketType_ID);
             ViewBag.ProductSeason_ID = new SelectList(db.ProductSeason, "ProductSeason_ID", "ProductSeason_Name", cluster.ProductSeason_ID);
-            ViewBag.FlagType_ID = new SelectList(db.FlagType, "FlagType_ID", "FlagType_Name", cluster.ExportFlag_ID);
-
+            ViewBag.ExportFlag_ID = new SelectList(db.ExportFlag, "ExportFlag_ID", "ExportFlag_Name", cluster.ExportFlag_ID);
+            ViewBag.IncomeLevel_ID = new SelectList(db.IncomeLevel, "IncomeLevel_ID", "IncomeLevel_Name", cluster.IncomeLevel_ID);
             return View(cluster);
         }
 

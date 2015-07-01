@@ -144,13 +144,12 @@ namespace EOCM.Models
          [StringLength(10)]
         [Display(Name = "طبيعة هذا التجمع ")]
          public string ClusterNature_ID { get; set; }
-         [ForeignKey("ClusterNature_ID")]
-         public virtual ClusterNature ClusterNature { get; set; }
+              public virtual ClusterNature ClusterNature { get; set; }
 
          [StringLength(10)]
          [Display(Name = " سبب تواجد التجمع ")]
          public string ClusterType_ID { get; set; }
-         [ForeignKey("ClusterType_ID")]
+        
          public virtual ClusterType ClusterType { get; set; }
 
          [StringLength(1024)]
@@ -206,13 +205,11 @@ namespace EOCM.Models
         [StringLength(10)]
         [Display(Name = " اتجاهات المبيعات/أهم الأسواق   ")]
         public string MarketType_ID { get; set; }
-        [ForeignKey("MarketType_ID")]
         public virtual MarketType MarketType { get; set; }
 
         [StringLength(10)]
         [Display(Name = " موسمية المنتجات المباعة ")]
         public string ProductSeason_ID { get; set; }
-        [ForeignKey("ProductSeason_ID")]
         public virtual ProductSeason ProductSeason { get; set; }
 
         [StringLength(1024)]
@@ -224,15 +221,19 @@ namespace EOCM.Models
         [StringLength(10)]
         [Display(Name = " هل يقوم التجمع بالتصدير ")]
         public string ExportFlag_ID { get; set; }
-        [ForeignKey("ExportFlag_ID")]
-        public virtual FlagType FlagType { get; set; }
+        public virtual ExportFlag ExportFlag { get; set; }
 
         [StringLength(255)]
         [Display(Name = " نسبة التصدير ")]
         public string ExportVolume { get; set; }
 
-        [StringLength(255)]
+        [StringLength(10)]
         [Display(Name = " متوسط مستوى الدخل للورشة / الشركة / الوحدة الإنتاجية فى التجمع  ")]
+        public string IncomeLevel_ID { get; set; }
+        public virtual IncomeLevel IncomeLevel { get; set; }
+
+        [StringLength(255)]
+        [Display(Name = " بيانات إضافيةعن متوسط مستوى الدخل")]
         public string Income { get; set; }
 
         [StringLength(1024)]

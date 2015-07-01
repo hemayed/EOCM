@@ -6,14 +6,14 @@ using System.Text;
 
 namespace EOCM.Models
 {
-    public class FlagType
+    public class ExportFlag
     {
         [Key]
         [StringLength(10)]
-        public string FlagType_ID { get; set; }
+        public string ExportFlag_ID { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string FlagType_Name { get; set; }
+        public string ExportFlag_Name { get; set; }
     }
 }

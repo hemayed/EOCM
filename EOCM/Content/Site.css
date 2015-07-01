@@ -13,6 +13,14 @@ margin:auto;
 
 }
 
+.swHide{
+    display: none;
+}
+
+.swHide{
+    display: block;
+}
+
 .a{
     text-align:left;
     color:white;
@@ -118,6 +126,16 @@ input[type=submit]:hover {
    
 }
 
+.leftPart2{
+    width:200px;
+    float:left;
+    margin-left:1px;
+    margin-right:1px;
+    margin-top:0px;
+    text-align:center;
+   
+}
+
 .middlePart{
     width:760px;
     float:left;
@@ -140,6 +158,16 @@ input[type=submit]:hover {
 }
 
 .filters{
+   
+    padding-left:0px; 
+    padding-right:0px; 
+    background-color:#d5eaee;
+    color:black; 
+    border-radius:10px;
+    font-size:medium;
+}
+
+.filters2{
    
     padding-left:0px; 
     padding-right:0px; 

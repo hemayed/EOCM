@@ -16,7 +16,7 @@
 
             <div id="middlenote">
 تم عمل حصر مبدئى للتجمعات الإنتاجية الطبيعية فى محافظات مصر بواسطة شركة أتش أل بى مصر- مكارى للخبرة الاستشارية 
-                <img alt="HLB Makkary Logo" height="40" src="../Images/HLB_logo.jpg" />
+                @*<img alt="HLB Makkary Logo" height="40" src="../Images/HLB_logo.jpg" />*@
                 ضمن نطاق "دراسة حصر التجمعات الإنتاجية الطبيعية فى مصر" لصالح الصندوق الإجتماعى للتنمية بدعم من بنك التنمية الإفريقى. وتوضح الخريطة أدناه مواقع وبيانات التجمعات التى تم حصرها*.
                  
 
@@ -34,8 +34,8 @@
             <hr />
 
             <div class="leftPart">
-
-                <div class="filters">
+                @*<input id="searchbtn" type="checkbox" name="searchbtn" value="simple" style="color:white; font:medium; display:none">بحث متقدم<br>*@
+                <div id="simplefilters" class="filters">
                     @Html.LabelFor(model => model.Sector_ID, null, htmlAttributes: new { @class = "control-label" })
                     @Html.DropDownList("Sector_ID", null, "كل القطاعات", htmlAttributes: new { @class = "form-control" })
                     @Html.LabelFor(model => model.Field_ID, null, htmlAttributes: new { @class = "control-label" })
@@ -48,13 +48,33 @@
                     @Html.DropDownList("District_ID", null, "كل المراكز", htmlAttributes: new { @class = "form-control" })
                     <br />
                 </div>
-               
+
                 <div class="form-group">
-                    <input id="Submit" type="submit" value="عرض" />
+                    <input id="SubmitSimple" type="submit" value="عرض" />
                     @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
                 </div>
 
-            </div>
+                <div id="advancedfilters" class="filters" style="display: none;">
+
+                    @Html.LabelFor(model => model.ProductSeason_ID, null, htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownList("ProductSeason_ID", null, "كل المواسم", htmlAttributes: new { @class = "form-control" })
+                    @Html.LabelFor(model => model.ClusterType_ID, null, htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownList("ClusterType_ID", null, "كل الانواع", htmlAttributes: new { @class = "form-control" })
+                    @Html.LabelFor(model => model.ClusterNature_ID, null, htmlAttributes: new { @class = "control-label " })
+                    @Html.DropDownList("ClusterNature_ID", null, "كل الاسباب", htmlAttributes: new { @class = "form-control" })
+
+                    <br />
+                </div>
+
+                <div class="form-group">
+                    <input id="SubmitAdvanced" type="submit" value="عرض" style="display: none;" />
+                    @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
+                </div>
+
+               
+                  
+
+                </div>
 
 
             <div class="middlePart">
@@ -125,9 +145,24 @@
         $('#Field_ID').change(function () {
             UpdateProducts($('#Field_ID'), $('#Product_ID'),"كل المنتجات")
         });
+
+        function showhide() {
+            document.getElementById("wizard").className = (document.getElementById("wizard").className == "swMain") ? swHide : swMain;
+        }
     
     });
 
+    $('#searchbtn').change(function() {
+        if ($(this).is(':checked')) {
+            alert("checked")
+           $('#simplefilters').style.display='none';
+           $('#advancedfilters').style.display= 'block';
+        } else {
+            alert("Un checked")
+            $('#simplefilters').style.display = 'block';
+            $('#advancedfilters').style.display = 'none';
+        }
+    });
 
 </script>
 
