@@ -272,7 +272,7 @@ namespace EOCM.Controllers
                     myCluster.ProductSeasonDetail = cluster.ProductSeasonDetail;
 
                     myCluster.IncomeLevel_ID = cluster.IncomeLevel_ID;
-                    myCluster.Income = cluster.Income;
+                    //myCluster.Income = cluster.Income;
 
                     myCluster.AdditionalInfo = cluster.AdditionalInfo;
 
