@@ -40,16 +40,17 @@ namespace EOCM.Controllers
             ViewBag.ClusterType_ID = new SelectList(db.ClusterType, "ClusterType_ID", "ClusterType_Name");
             ViewBag.ClusterNature_ID = new SelectList(db.ClusterNature, "ClusterNature_ID", "ClusterNature_Name");
             ViewBag.IncomeLevel_ID = new SelectList(db.IncomeLevel, "IncomeLevel_ID", "IncomeLevel_Name");
- 
+            ViewBag.ExportFlag_ID = new SelectList(db.ExportFlag, "ExportFlag_ID", "ExportFlag_Name");
+
             return View();
         }
 
 
-        public ActionResult _ClusterMap(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
+        public ActionResult _ClusterMap(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID,string ClusterNature_ID, string ClusterType_ID, string IncomeLevel_ID, string ExportFlag_ID, string ProductSeason_ID)
         {
             
             ClusterMapViewModel clusterMapViewModel = new ClusterMapViewModel();
-            clusterMapViewModel = GetClusters(Govt_ID, District_ID, Sector_ID, Field_ID, Product_ID);
+            clusterMapViewModel = GetClusters(Govt_ID, District_ID, Sector_ID, Field_ID, Product_ID,ClusterNature_ID,  ClusterType_ID,  IncomeLevel_ID,ExportFlag_ID,ProductSeason_ID);
 
             MultipartialResult result = new MultipartialResult(this);
                                    
@@ -152,7 +153,7 @@ namespace EOCM.Controllers
         }
 
         
-        private ClusterMapViewModel GetClusters(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID)
+        private ClusterMapViewModel GetClusters(string Govt_ID, string District_ID, string Sector_ID, string Field_ID, string Product_ID,string ClusterNature_ID, string ClusterType_ID, string IncomeLevel_ID, string ExportFlag_ID, string ProductSeason_ID)
         {
             var clusters = (from d in db.Clusters orderby d.Govt_ID, d.Cluster_Name ascending select d).ToList();
 
@@ -161,6 +162,11 @@ namespace EOCM.Controllers
             if (Sector_ID != "") { clusters = (from d in clusters orderby d.Govt_ID, d.Cluster_Name ascending where d.Sector_ID == Sector_ID select d).ToList(); }
             if (Field_ID != "0" && Field_ID != "") { clusters = (from d in clusters orderby d.Govt_ID, d.Cluster_Name ascending where d.Field_ID == Field_ID select d).ToList(); }
             if (Product_ID != "0" && Product_ID != "") { clusters = (from d in clusters orderby d.Govt_ID, d.Cluster_Name ascending where d.Product_ID == Product_ID select d).ToList(); }
+            if (ClusterNature_ID != null && ClusterNature_ID != "") { clusters = (from d in clusters orderby d.Govt_ID, d.Cluster_Name ascending where d.ClusterNature_ID == ClusterNature_ID select d).ToList(); }
+            if (ClusterType_ID != null && ClusterType_ID != "") { clusters = (from d in clusters orderby d.Govt_ID, d.Cluster_Name ascending where d.ClusterType_ID == ClusterType_ID select d).ToList(); }
+            if (IncomeLevel_ID != null && IncomeLevel_ID != "") { clusters = (from d in clusters orderby d.Govt_ID, d.Cluster_Name ascending where d.IncomeLevel_ID == IncomeLevel_ID select d).ToList(); }
+            if (ExportFlag_ID != null && ExportFlag_ID != "") { clusters = (from d in clusters orderby d.Govt_ID, d.Cluster_Name ascending where d.ExportFlag_ID == ExportFlag_ID select d).ToList(); }
+            if (ProductSeason_ID != null && ProductSeason_ID != "") { clusters = (from d in clusters orderby d.Govt_ID, d.Cluster_Name ascending where d.ProductSeason_ID == ProductSeason_ID select d).ToList(); }
 
             //List<ClusterMapViewModel> listClusterMapViewModel = new List<ClusterMapViewModel>();
             List<GovtData> listGovtData=new List<GovtData>();

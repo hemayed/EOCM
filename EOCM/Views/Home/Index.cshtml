@@ -6,114 +6,120 @@
 
     <div style="direction: rtl; position:center; align-content:center">
 
-        <div id="myheader">
+    <div id="myheader">
 
-          
-            <div id="rightlogo">
-                <img alt="AFDB Logo" width="160" height="120" src="../Images/img14.jpg" />
-            </div>
-           
 
-            <div id="middlenote">
-تم عمل حصر مبدئى للتجمعات الإنتاجية الطبيعية فى محافظات مصر بواسطة شركة أتش أل بى مصر- مكارى للخبرة الاستشارية 
-                @*<img alt="HLB Makkary Logo" height="40" src="../Images/HLB_logo.jpg" />*@
-                ضمن نطاق "دراسة حصر التجمعات الإنتاجية الطبيعية فى مصر" لصالح الصندوق الإجتماعى للتنمية بدعم من بنك التنمية الإفريقى. وتوضح الخريطة أدناه مواقع وبيانات التجمعات التى تم حصرها*.
-                 
-
-            </div>
-
-           
-            <div id="leftlogo">
-                <img alt="SFD Logo" width="160" height="120" src="../Images/golden_logo1.jpg" />
-
-            </div>
-           
+        <div id="rightlogo">
+            <img alt="AFDB Logo" width="160" height="120" src="../Images/img14.jpg" />
         </div>
 
-        <div id="maincontents">
-            <hr />
 
-            <div class="leftPart">
-                @*<input id="searchbtn" type="checkbox" name="searchbtn" value="simple" style="color:white; font:medium; display:none">بحث متقدم<br>*@
-                <div id="simplefilters" class="filters">
-                    @Html.LabelFor(model => model.Sector_ID, null, htmlAttributes: new { @class = "control-label" })
-                    @Html.DropDownList("Sector_ID", null, "كل القطاعات", htmlAttributes: new { @class = "form-control" })
-                    @Html.LabelFor(model => model.Field_ID, null, htmlAttributes: new { @class = "control-label" })
-                    @Html.DropDownList("Field_ID", null, "كل الانشطة", htmlAttributes: new { @class = "form-control" })
-                    @Html.LabelFor(model => model.Product_ID, null, htmlAttributes: new { @class = "control-label " })
-                    @Html.DropDownList("Product_ID", null, "كل المنتجات", htmlAttributes: new { @class = "form-control" })
-                    @Html.LabelFor(model => model.Govt_ID, null, htmlAttributes: new { @class = "control-label" })
-                    @Html.DropDownList("Govt_ID", null, "كل المحافظات", htmlAttributes: new { @class = "form-control" })
-                    @Html.LabelFor(model => model.District_ID, null, htmlAttributes: new { @class = "control-label" })
-                    @Html.DropDownList("District_ID", null, "كل المراكز", htmlAttributes: new { @class = "form-control" })
-                    <br />
+        <div id="middlenote">
+            تم عمل حصر مبدئى للتجمعات الإنتاجية الطبيعية فى محافظات مصر بواسطة شركة أتش أل بى مصر- مكارى للخبرة الاستشارية
+            @*<img alt="HLB Makkary Logo" height="40" src="../Images/HLB_logo.jpg" />*@
+            ضمن نطاق "دراسة حصر التجمعات الإنتاجية الطبيعية فى مصر" لصالح الصندوق الإجتماعى للتنمية بدعم من بنك التنمية الإفريقى. وتوضح الخريطة أدناه مواقع وبيانات التجمعات التى تم حصرها*.
+
+
+        </div>
+
+
+        <div id="leftlogo">
+            <img alt="SFD Logo" width="160" height="120" src="../Images/golden_logo1.jpg" />
+
+        </div>
+
+    </div>
+
+    <div id="maincontents">
+        <hr />
+
+        <div class="leftPart">
+
+            <input id="searchbtn" type="checkbox" name="searchbtn" value="simple"><text style="text-align:center; font-size:x-large; color:white"> بحث متقدم </text>
+            <br/>
+            
+            
+
+            <div id="simplefilters" class="filters1">
+                @Html.LabelFor(model => model.Sector_ID, null, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("Sector_ID", null, "كل القطاعات", htmlAttributes: new { @class = "form-control" })
+                @Html.LabelFor(model => model.Field_ID, null, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("Field_ID", null, "كل الانشطة", htmlAttributes: new { @class = "form-control" })
+                @Html.LabelFor(model => model.Product_ID, null, htmlAttributes: new { @class = "control-label " })
+                @Html.DropDownList("Product_ID", null, "كل المنتجات", htmlAttributes: new { @class = "form-control" })
+                @Html.LabelFor(model => model.Govt_ID, null, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("Govt_ID", null, "كل المحافظات", htmlAttributes: new { @class = "form-control" })
+                @Html.LabelFor(model => model.District_ID, null, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("District_ID", null, "كل المراكز", htmlAttributes: new { @class = "form-control" })
+                <br />
+            </div>
+
+            <div class="form-group">
+                <input id="SubmitSimple" type="submit" value="عرض" />
+                @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
+            </div>
+
+            <div id="advancedfilters" class="filters2" style="display:none">
+
+                @Html.LabelFor(model => model.ProductSeason_ID, null, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("ProductSeason_ID", null, "الكل", htmlAttributes: new { @class = "form-control" })
+                @Html.LabelFor(model => model.ClusterType_ID, null, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("ClusterType_ID", null, "الكل", htmlAttributes: new { @class = "form-control" })
+                @Html.LabelFor(model => model.ClusterNature_ID, null, htmlAttributes: new { @class = "control-label " })
+                @Html.DropDownList("ClusterNature_ID", null, "الكل", htmlAttributes: new { @class = "form-control" })
+                @Html.LabelFor(model => model.IncomeLevel_ID, "متوسط مستوى الدخل ", htmlAttributes: new { @class = "control-label " })
+                @Html.DropDownList("IncomeLevel_ID", null, "الكل", htmlAttributes: new { @class = "form-control" })
+                @Html.LabelFor(model => model.ExportFlag_ID, null, htmlAttributes: new { @class = "control-label " })
+                @Html.DropDownList("ExportFlag_ID", null, "الكل", htmlAttributes: new { @class = "form-control" })
+                <br />
+            </div>
+
+            <div class="form-group">
+                <input id="SubmitAdvanced" type="submit" value="عرض" style="display:none" />
+                @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
+            </div>
+
+        </div>
+
+
+        <div class="middlePart">
+
+            <center>
+
+                <div id="ClusterMapContainer">
                 </div>
 
-                <div class="form-group">
-                    <input id="SubmitSimple" type="submit" value="عرض" />
-                    @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
-                </div>
-
-                <div id="advancedfilters" class="filters" style="display: none;">
-
-                    @Html.LabelFor(model => model.ProductSeason_ID, null, htmlAttributes: new { @class = "control-label" })
-                    @Html.DropDownList("ProductSeason_ID", null, "كل المواسم", htmlAttributes: new { @class = "form-control" })
-                    @Html.LabelFor(model => model.ClusterType_ID, null, htmlAttributes: new { @class = "control-label" })
-                    @Html.DropDownList("ClusterType_ID", null, "كل الانواع", htmlAttributes: new { @class = "form-control" })
-                    @Html.LabelFor(model => model.ClusterNature_ID, null, htmlAttributes: new { @class = "control-label " })
-                    @Html.DropDownList("ClusterNature_ID", null, "كل الاسباب", htmlAttributes: new { @class = "form-control" })
-
-                    <br />
-                </div>
-
-                <div class="form-group">
-                    <input id="SubmitAdvanced" type="submit" value="عرض" style="display: none;" />
-                    @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
-                </div>
-
-               
-                  
-
-                </div>
-
-
-            <div class="middlePart">
-               
-                <center>
-
-                    <div id="ClusterMapContainer">
-                    </div>
-
-                    <div id="MapLegend" class="mapLegend">
-                        &nbsp;&nbsp;
-                        <img src="~/Images/RedPushPin.png" alt="صناعي" />   القطاع الصناعي &nbsp;&nbsp;
-                        <img src="~/Images/GreenPushPin.png" alt="حرف يدوية" />   حرف يدوية &nbsp;&nbsp;
-                        @*<img src="~/Images/GreenPushPin.png" alt="قطاع الانتاج الحيواني" />   قطاع الانتاج الحيواني &nbsp;&nbsp;
+                <div id="MapLegend" class="mapLegend">
+                    &nbsp;&nbsp;
+                    <img src="~/Images/RedPushPin.png" alt="صناعي" />   القطاع الصناعي &nbsp;&nbsp;
+                    <img src="~/Images/GreenPushPin.png" alt="حرف يدوية" />   حرف يدوية &nbsp;&nbsp;
+                    @*<img src="~/Images/GreenPushPin.png" alt="قطاع الانتاج الحيواني" />   قطاع الانتاج الحيواني &nbsp;&nbsp;
                         <img src="~/Images/LightBluePushPin.png" alt="القطاع الخدمي" />  القطاع الخدمي &nbsp;&nbsp;
                         <img src="~/Images/BlackPushPin.png" alt="القطاع التجاري" />    القطاع التجاري &nbsp;&nbsp;
                         <img src="~/Images/YellowPushPin.png" alt="قطاع مهن حرة" />    قطاع مهن حرة*@
-                    </div>
-                   
-
-                </center>
-            </div>
-
-            <div class="rightPart">
-
-
-
-                <div id="ClusterListContainer" class="clusterList">
-
                 </div>
+
+
+            </center>
+        </div>
+
+        <div class="rightPart">
+
+
+
+            <div id="ClusterListContainer" class="clusterList">
+
             </div>
         </div>
+
 
         <div id="myfooter">
             <hr />
-           *وفقاً للبيانات المتاحة وقت إعداد الدراسة. 
+            *وفقاً للبيانات المتاحة وقت إعداد الدراسة.
         </div>
 
-        </div>
+    </div>
+</div>
 
 
 
@@ -129,10 +135,14 @@
 
         UpdateViews($('#Govt_ID').val(), $('#District_ID').val(), $('#Sector_ID').val(), $('#Field_ID').val(), $('#Product_ID').val());
         
-        $('#Submit').click(function () {
+        $('#SubmitSimple').click(function () {
             UpdateViews($('#Govt_ID').val(), $('#District_ID').val(), $('#Sector_ID').val(), $('#Field_ID').val(), $('#Product_ID').val());
         });
-                              
+                 
+        $('#SubmitAdvanced').click(function () {
+            UpdateViews2($('#Govt_ID').val(), $('#District_ID').val(), $('#Sector_ID').val(), $('#Field_ID').val(), $('#Product_ID').val(),$('#ClusterNature_ID').val(),$('#ClusterType_ID').val(),$('#IncomeLevel_ID').val(),$('#ExportFlag_ID').val(),$('#ProductSeason_ID').val());
+        });
+
         $('#Govt_ID').change(function () {
             UpdateDistricts($('#Govt_ID'), $('#District_ID'), "كل المراكز")
         });
@@ -145,22 +155,38 @@
         $('#Field_ID').change(function () {
             UpdateProducts($('#Field_ID'), $('#Product_ID'),"كل المنتجات")
         });
-
-        function showhide() {
-            document.getElementById("wizard").className = (document.getElementById("wizard").className == "swMain") ? swHide : swMain;
-        }
+              
     
     });
 
     $('#searchbtn').change(function() {
         if ($(this).is(':checked')) {
-            alert("checked")
-           $('#simplefilters').style.display='none';
-           $('#advancedfilters').style.display= 'block';
+           
+            mydiv1 = document.getElementById("simplefilters");
+            mydiv1.style.display = "none";
+
+            mydiv2 = document.getElementById("SubmitSimple");
+            mydiv2.style.display = "none";
+
+            mydiv3 = document.getElementById("advancedfilters");
+            mydiv3.style.display = "block";
+
+            mydiv4 = document.getElementById("SubmitAdvanced");
+            mydiv4.style.display = "block";
+          
         } else {
-            alert("Un checked")
-            $('#simplefilters').style.display = 'block';
-            $('#advancedfilters').style.display = 'none';
+           
+            mydiv1 = document.getElementById("advancedfilters");
+            mydiv1.style.display = "none";
+
+            mydiv2 = document.getElementById("SubmitAdvanced");
+            mydiv2.style.display = "none";
+
+            mydiv3 = document.getElementById("simplefilters");
+            mydiv3.style.display = "block";
+
+            mydiv4 = document.getElementById("SubmitSimple");
+            mydiv4.style.display = "block";
         }
     });
 

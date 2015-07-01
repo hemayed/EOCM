@@ -1,29 +1,19 @@
 ﻿body {
     padding-top: 2px;
     padding-bottom: 2px;
-  
 background: #00aa77;
 background-image: url("/Images/zenbg-1.png"), url("/Images/zenbg-1.png");
 background-repeat: repeat-x, repeat;
 overflow: auto;
 width:1250px;
 position:center;
-
 margin:auto;
 
 }
 
-.swHide{
-    display: none;
-}
+.banner{
+    height:1em;
 
-.swHide{
-    display: block;
-}
-
-.a{
-    text-align:left;
-    color:white;
 }
 
 #myheader{
@@ -75,22 +65,15 @@ margin:auto;
 }
 
 
-/*#mainpage{
-    background: -webkit-linear-gradient(left top, cyan , blue); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right, cyan , blue); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right, cyan , blue); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom right, cyan , blue); /* Standard syntax (must be last) */
-
-}*/
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 2px;
     padding-right: 2px;
     position:absolute;
     position:center;
     top:150px;
 
-}
+}*/
 
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -157,9 +140,19 @@ input[type=submit]:hover {
     margin-top:0px;
 }
 
-.filters{
+.filters1{
    
     padding-left:0px; 
+    padding-right:0px; margin-top:1em;
+    background-color:#d5eaee;
+    color:black; 
+    border-radius:10px;
+    font-size:medium;
+}
+.filters2{
+   
+    padding-left:0px; 
+    
     padding-right:0px; 
     background-color:#d5eaee;
     color:black; 
@@ -167,15 +160,6 @@ input[type=submit]:hover {
     font-size:medium;
 }
 
-.filters2{
-   
-    padding-left:0px; 
-    padding-right:0px; 
-    background-color:#d5eaee;
-    color:black; 
-    border-radius:10px;
-    font-size:medium;
-}
 
 .control-label{
     padding-left:0px; 
