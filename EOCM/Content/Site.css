@@ -3,7 +3,7 @@
     padding-bottom: 2px;
   
 background: #00aa77;
-background-image: url("/Images/zenbg-1.png"), url("/Images/zenbg-2.png");
+background-image: url("/Images/zenbg-1.png"), url("/Images/zenbg-1.png");
 background-repeat: repeat-x, repeat;
 overflow: auto;
 width:1250px;
@@ -57,19 +57,19 @@ margin:auto;
 
 #leftlogo {
     display: table-cell;
-    width: 200px;   
+    width: 270px;   
   
 }
 
 #rightlogo {
-   	width: 280px;
+   	width: 270px;
    display: table-cell;
 	 
 }
 
 #middlenote {
     display: table-cell;
-    width:760px;
+    width:700px;
     vertical-align:middle;
               
 }
@@ -117,7 +117,7 @@ input[type=submit]:hover {
 }
 
 .leftPart{
-    width:200px;
+    width:270px;
     float:left;
     margin-left:1px;
     margin-right:1px;
@@ -127,7 +127,7 @@ input[type=submit]:hover {
 }
 
 .leftPart2{
-    width:200px;
+    width:270px;
     float:left;
     margin-left:1px;
     margin-right:1px;
@@ -137,7 +137,7 @@ input[type=submit]:hover {
 }
 
 .middlePart{
-    width:760px;
+    width:700px;
     float:left;
     text-align:center;
     position:relative;
@@ -147,7 +147,7 @@ input[type=submit]:hover {
 }
 
 .rightPart{
-    width:280px;
+    width:270px;
     float:left;
     text-align:right;
     position:relative;
@@ -191,7 +191,7 @@ input[type=submit]:hover {
    top:5px; 
    padding-top:5px; 
    height:50px; 
-   width:760px;
+   width:700px;
    border:1px solid blue; 
    border-radius: 10px; 
    background-color:#d5eaee;

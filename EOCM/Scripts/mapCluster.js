@@ -1,7 +1,7 @@
 ﻿
 var map = null, govtTooltip, clusterTooltip, clusterInfobox, clusterLayer, govtLayer;
 
-var mapWidth = 760;
+var mapWidth = 700;
 var mapHeight = 500;
 var govtLocations = [],
     maxValue = 50;
