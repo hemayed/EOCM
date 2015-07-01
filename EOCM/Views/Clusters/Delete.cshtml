@@ -4,16 +4,18 @@
     ViewBag.Title = "حذف التجمع";
 }
 
-<div style="font-family:Arial; text-align: center; direction: rtl;">
+<div style="font-family:Arial; text-align: center; direction: rtl; color:white">
     <h2>حذف التجمع</h2>
     <h3>هل تريد فعلا حذف التجمع؟ </h3>
     <hr />
     </div>
 
    
-   
+  @{
+      ViewBag.Title = @Html.DisplayFor(model => model.Cluster_Name);
+}
 
-   <div style="text-align: center; direction: rtl;">
+<div style="text-align: center; direction: rtl; color:white">
     <h2>@Html.DisplayFor(model => model.Cluster_Name)</h2>
 </div>
 <hr />
@@ -47,15 +49,6 @@
             <td>@Html.DisplayFor(model => model.Address)</td>
         </tr>
         <tr>
-            <td>@Html.DisplayNameFor(model => model.Cluster_Lat)</td>
-            <td>@Html.DisplayFor(model => model.Cluster_Lat)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.Cluster_Long)</td>
-            <td>@Html.DisplayFor(model => model.Cluster_Long)</td>
-        </tr>
-
-        <tr>
             <td>@Html.DisplayNameFor(model => model.Sector.Sector_Name)</td>
             <td>@Html.DisplayFor(model => model.Sector.Sector_Name)</td>
         </tr>
@@ -70,31 +63,37 @@
         <tr>
             <td>
                 @Html.DisplayNameFor(model => model.Products)
-                @if (@Model.MoreProducts != null)
-                {
-                    <br />
-                    <a href="#" onclick="$('#hiddenText').show(); return false;"> معلومات اكثر</a>
 
-                    <a href="#" onclick="$('#hiddenText').hide(); return false;">&nbsp  معلومات اقل &nbsp </a>
-
-                }
             </td>
             <td>
                 @Html.DisplayFor(model => model.Products)
-                <div style="display: none;" id="hiddenText">@Html.DisplayFor(model => model.MoreProducts) </div>
 
+                @if (@Model.MoreProducts != null && @Model.MoreProducts != "")
+                {
 
+                    <a href="#" id="moreinfop" onclick="$('#hiddenTextp2').show(); $('#moreinfop').hide(); $('#lessinfop').show(); return false;"><small>&nbsp  معلومات اكثر &nbsp</small></a>
+
+                }
+                <div style="display: none;" id="hiddenTextp2">
+                    @Html.DisplayFor(model => model.MoreProducts)
+
+                    @if (@Model.MoreProducts != null)
+                    {
+                        <a href="#" id="lessinfop" onclick="$('#hiddenTextp2').hide(); $('#lessinfop').hide(); $('#moreinfop').show(); return false;"><small>&nbsp  معلومات اقل &nbsp </small></a>
+                    }
+                </div>
             </td>
+
         </tr>
 
 
         <tr>
             <td>@Html.DisplayNameFor(model => model.Cluster_ShopNumMin)</td>
-            <td>@Html.DisplayFor(model => model.Cluster_ShopNumMin) :  @Html.DisplayFor(model => model.Cluster_ShopNumMax) </td>
+            <td>@Html.DisplayFor(model => model.Cluster_ShopNumMin) - @Html.DisplayFor(model => model.Cluster_ShopNumMax) </td>
         </tr>
         <tr>
             <td>@Html.DisplayNameFor(model => model.Cluster_EmpNumMin)</td>
-            <td>@Html.DisplayFor(model => model.Cluster_EmpNumMin) : @Html.DisplayFor(model => model.Cluster_EmpNumMax)</td>
+            <td>@Html.DisplayFor(model => model.Cluster_EmpNumMin) - @Html.DisplayFor(model => model.Cluster_EmpNumMax)</td>
         </tr>
         <tr>
             <td>@Html.DisplayNameFor(model => model.Cluster_EmpFemale)</td>
@@ -111,169 +110,188 @@
         </tr>
 
         <tr>
-            <td>@Html.DisplayNameFor(model => model.CompanyPercent1)</td>
-            <td>@Html.DisplayFor(model => model.CompanyPercent1)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.CompanyPercent2)</td>
-            <td>@Html.DisplayFor(model => model.CompanyPercent2)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.CompanyPercent3)</td>
-            <td>@Html.DisplayFor(model => model.CompanyPercent3)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.CompanyPercent4)</td>
-            <td>@Html.DisplayFor(model => model.CompanyPercent4)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.ClusterNature_ID)</td>
-            <td>@Html.DisplayFor(model => model.ClusterNature.ClusterNature_Name)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.ClusterType_ID)</td>
-            <td>@Html.DisplayFor(model => model.ClusterType.ClusterType_Name)</td>
-        </tr>
-
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.MarketType_ID)</td>
-            <td>@Html.DisplayFor(model => model.MarketType.MarketType_Name)</td>
-        </tr>
-
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.ProductSeason_ID)</td>
-            <td>@Html.DisplayFor(model => model.ProductSeason.ProductSeason_Name)</td>
-        </tr>
-
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.ProductSeasonDetail)</td>
-            <td>@Html.DisplayFor(model => model.ProductSeasonDetail)</td>
-        </tr>
-
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.ExportVolume)</td>
-            <td>@Html.DisplayFor(model => model.ExportVolume)</td>
-        </tr>
-
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.Income)</td>
-            <td>@Html.DisplayFor(model => model.Income)</td>
-        </tr>
-
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.SupportingOrg)</td>
-            <td>@Html.DisplayFor(model => model.SupportingOrg)</td>
-        </tr>
-        <tr>
             <td>
-                @Html.DisplayNameFor(model => model.Challenges)
-                @if (@Model.MoreChallenges != null)
-                {
-                    <br />
-                    <a href="#" onclick="$('#hiddenText2').show(); return false;"> معلومات اكثر</a>
-
-                    <a href="#" onclick="$('#hiddenText2').hide(); return false;">&nbsp  معلومات اقل &nbsp </a>
-                }
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Challenges)
-
-                <div style="display: none;" id="hiddenText2">@Html.DisplayFor(model => model.MoreChallenges) </div>
+                @Html.DisplayNameFor(model => model.CompanyPercent1) <br />
+            @Html.DisplayNameFor(model => model.CompanyPercent2)<br />
+            @Html.DisplayNameFor(model => model.CompanyPercent3)<br />
+            @Html.DisplayNameFor(model => model.CompanyPercent4)
 
 
-            </td>
-        </tr>
+        </td>
 
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.AdditionalInfo)</td>
-            <td>@Html.DisplayFor(model => model.AdditionalInfo)</td>
-        </tr>
+        <td>
+            @Html.DisplayFor(model => model.CompanyPercent1) <br />
+            @Html.DisplayFor(model => model.CompanyPercent2)<br />
+            @Html.DisplayFor(model => model.CompanyPercent3)<br />
+            @Html.DisplayFor(model => model.CompanyPercent4)
+        </td>
+    </tr>
 
-    </table>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.ClusterNature_ID) (تكامل أفقى - أى تنتج كل الشركات نفس المنتجات)
+        أم  (تكامل رأسى- أى تنتج الشركات منتجات تكمل بعضها فى سلسلة الإنتاج) أم (تكامل مركزى - أى معتمد بشكل كبير على الشركات الكبيرة به)
+    </td>
+    <td>@Html.DisplayFor(model => model.ClusterNature.ClusterNature_Name)</td>
+</tr>
+<tr>
+    <td>@Html.DisplayNameFor(model => model.ClusterType_ID) (استهداف نفس السوق / استخدام نفس الموارد / وجود نفس البنية الأساسية والمرافق)</td>
+    <td>@Html.DisplayFor(model => model.ClusterType.ClusterType_Name)</td>
+</tr>
+
+<tr>
+    <td>@Html.DisplayNameFor(model => model.MarketType_ID)</td>
+    <td>@Html.DisplayFor(model => model.MarketType.MarketType_Name)</td>
+</tr>
+
+<tr>
+    <td>@Html.DisplayNameFor(model => model.ProductSeason_ID)</td>
+    <td>@Html.DisplayFor(model => model.ProductSeason.ProductSeason_Name)</td>
+</tr>
+
+<tr>
+    <td>@Html.DisplayNameFor(model => model.ProductSeasonDetail)</td>
+    <td>@Html.DisplayFor(model => model.ProductSeasonDetail)</td>
+</tr>
+
+<tr>
+    <td>@Html.DisplayNameFor(model => model.ExportFlag_ID)</td>
+    <td>@Html.DisplayFor(model => model.FlagType.FlagType_Name)</td>
+</tr>
+
+<tr>
+    <td>@Html.DisplayNameFor(model => model.ExportVolume)</td>
+    <td>@Html.DisplayFor(model => model.ExportVolume)</td>
+</tr>
+
+<tr>
+    <td>@Html.DisplayNameFor(model => model.Income)</td>
+    <td>@Html.DisplayFor(model => model.Income)</td>
+</tr>
+
+<tr>
+    <td>@Html.DisplayNameFor(model => model.SupportingOrg)</td>
+    <td>@Html.DisplayFor(model => model.SupportingOrg)</td>
+</tr>
+<tr>
+    <td>
+        @Html.DisplayNameFor(model => model.Challenges)
+
+</td>
+<td>
+    @Html.DisplayFor(model => model.Challenges)
+
+@if (@Model.MoreChallenges != null && @Model.MoreChallenges != "")
+{
+
+    <a href="#" id="moreinfoc" onclick="$('#hiddenTextc2').show(); $('#moreinfoc').hide(); $('#lessinfoc').show(); return false;"><small>&nbsp  معلومات اكثر &nbsp</small></a>
+
+}
+<div style="display: none;" id="hiddenTextc2">
+    @Html.DisplayFor(model => model.MoreChallenges)
+
+    @if (@Model.MoreChallenges != null)
+    {
+        <a href="#" id="lessinfoc" onclick="$('#hiddenTextc2').hide(); $('#lessinfoc').hide(); $('#moreinfoc').show(); return false;"><small>&nbsp  معلومات اقل &nbsp </small></a>
+    }
+</div>
+</td>
+</tr>
+
+<tr>
+    <td>@Html.DisplayNameFor(model => model.AdditionalInfo)</td>
+    <td>@Html.DisplayFor(model => model.AdditionalInfo)</td>
+</tr>
+
+</table>
 
 
-    <br /><br />
-    <table id="FooterTable" align="center">
-        <colgroup>
-            <col class="c1" style="width: 30%;">
-            <col class="c2" style="width: 70%;">
-        </colgroup>
-        @if (@Model.Cluster_StudyFile1 != null | @Model.Cluster_StudyFile2 != null)
+<br /><br />
+<table id="FooterTable" align="center">
+    <colgroup>
+        <col class="c1" style="width: 30%;">
+        <col class="c2" style="width: 70%;">
+    </colgroup>
+
+
+
+    <tr>
+
+        @if ((@Model.Cluster_StudyFile1 != "" && @Model.Cluster_StudyFile1 != null) || (@Model.Cluster_StudyFile2 != "" && @Model.Cluster_StudyFile2 != null))
         {
-
-
-            <tr>
-
-                @*<td>@Html.DisplayNameFor(model => model.Cluster_StudyFile1)</td>*@
-                <td>دراسة عن التجمع:</td>
-                <td>
-                    <a target="_blank" href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile1)"> @Html.DisplayFor(model => model.Cluster_StudyFile1) </a>
-                    <br />
-
-                    <a target="_blank" href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile2)">@Html.DisplayFor(model => model.Cluster_StudyFile2)</a>
-
-
-                </td>
-            </tr>
+            <td>دراسة عن التجمع:</td>
+            <td>
+                <a target="_blank" href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile1)" style="text-align:left"> @Html.DisplayFor(model => model.Cluster_StudyFile1) </a>
+                <br />
+                <a target="_blank" href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile2)" style="text-align:left">@Html.DisplayFor(model => model.Cluster_StudyFile2)</a>
+            </td>
         }
+    </tr>
 
-        <tr>
 
+    <tr>
+        @if ((@Model.Cluster_DetailPage1 != "" && @Model.Cluster_DetailPage1 != null) || (@Model.Cluster_DetailPage2 != "" && @Model.Cluster_DetailPage2 != null) || (@Model.Cluster_DetailPage3 != "" && @Model.Cluster_DetailPage3 != null))
+        {
             <td>روابط لصفحات خارجية ذات صلة:</td>
             <td>
                 <br />
-                <a href="@Html.Raw(Model.Cluster_DetailPage1)" onclick="return popup(this, 'notes')">@Html.DisplayFor(model => model.Cluster_DetailPage1)</a>
+                <a href="@Html.Raw(Model.Cluster_DetailPage1)" style="text-align:left">@Html.DisplayFor(model => model.Cluster_DetailPage1)</a>
                 <br />
 
-                <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage2)">@Html.DisplayFor(model => model.Cluster_DetailPage2)</a>
+                <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage2)" style="text-align:left">@Html.DisplayFor(model => model.Cluster_DetailPage2)</a>
                 <br />
 
-                <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage3)">@Html.DisplayFor(model => model.Cluster_DetailPage3)</a>
+                <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage3)" style="text-align:left">@Html.DisplayFor(model => model.Cluster_DetailPage3)</a>
 
             </td>
-        </tr>
+        }
 
-    </table>
+    </tr>
 
+    <tr>
+        <td>
+
+            @Html.ActionLink("تجمعات اخرى في نفس المحافظة", "OtherGovtClusters", new { id = @Model.Govt_ID }, new { target = "_blank" })
+            <br />
+            @Html.ActionLink("تجمعات مشابهة في كل المحافظات", "SimilarClusters", new { id = @Model.Product_ID }, new { target = "_blank" })
+            <br />
+
+
+        </td>
+        <td></td>
+    </tr>
+
+</table>
+<br />
 
 </div>
-
-
-<script type="text/javascript">
-<!--
-function popup(mylink, windowname)
-{
-if (! window.focus)return true;
-var href;
-if (typeof(mylink) == 'string')
-   href=mylink;
-else
-   href=mylink.href;
-window.open(href, windowname, 'width=400,height=200,scrollbars=yes');
-return false;
-}
-
-$('#createInput').click(function () {
-    $('#textarea').html('<input type="text" />');
-    return false;
-});
-
-//-->
-</script>
 
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-    <div class="form-actions no-color col-md-offset-1">
-        <input type="submit" value="احذف التجمع" class="btn btn-default " />
-        <br />
-        @Html.ActionLink("عودة للقائمة الرئيسية", "Index")
+   
+        <table id="FooterTable2" align="center">
+            <tr>
+                <td>
 
-    </div>
+
+                    <input type="submit" value="احذف التجمع" class="btn btn-default " />
+                </td>
+            </tr>
+<tr>
+    <td>
+        <center>
+
+
+            @Html.ActionLink("عودة للقائمة الرئيسية", "Index", null, new { style = "color:yellow;" })
+        </center>
+    </td>
+            </tr>  
+            </table>         
+
     }
-<div style="font-family:Arial; direction: rtl; text-align: right; ">
-  
-</div>
+
 

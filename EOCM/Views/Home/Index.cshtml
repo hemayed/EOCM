@@ -6,23 +6,36 @@
 
     <div style="direction: rtl; position:center; align-content:center">
 
-        <div id="logo1">
-            <img alt="SFD Logo" width="150" src="../Images/golden_logo1.jpg" style="float:right; position:center" />
-        </div>
-        <div id="logo2">
-            <img alt="AFDB Logo" width="180" src="../Images/img14.jpg" style="float:left; position:center"/>
-        </div>
-        <div id="header" >
-            
-            <center> تم عمل حصر مبدئى للتجمعات الإنتاجية الطبيعية فى محافظات مصر بواسطة شركة أتش أل بى مصر-مكارى للخبرة الاستشارية ضمن نطاق "دراسة حصر التجمعات الإنتاجية الطبيعية فى مصر" لصالح الصندوق الإجتماعى للتنمية بدعم من بنك التنمية الإفريقى. وتوضح الخريطة أدناه مواقع وبيانات التجمعات التى تم حصرها*. </center>
-</div>
-        
-        <div class="leftPart">
+        <div id="myheader">
 
           
+            <div id="rightlogo">
+                <img alt="AFDB Logo" height="120" src="../Images/img14.jpg" />
+            </div>
+           
+
+            <div id="middlenote">
+تم عمل حصر مبدئى للتجمعات الإنتاجية الطبيعية فى محافظات مصر بواسطة شركة أتش أل بى مصر- مكارى للخبرة الاستشارية 
+                <img alt="HLB Makkary Logo" height="40" src="../Images/HLB_logo.jpg" />
+                ضمن نطاق "دراسة حصر التجمعات الإنتاجية الطبيعية فى مصر" لصالح الصندوق الإجتماعى للتنمية بدعم من بنك التنمية الإفريقى. وتوضح الخريطة أدناه مواقع وبيانات التجمعات التى تم حصرها*.
+                 
+
+            </div>
+
+           
+            <div id="leftlogo">
+                <img alt="SFD Logo" height="120" src="../Images/golden_logo1.jpg" />
+
+            </div>
+           
+        </div>
+
+        <div id="maincontents">
+            <hr />
+
+            <div class="leftPart">
 
                 <div class="filters">
-
                     @Html.LabelFor(model => model.Sector_ID, null, htmlAttributes: new { @class = "control-label" })
                     @Html.DropDownList("Sector_ID", null, "كل القطاعات", htmlAttributes: new { @class = "form-control" })
                     @Html.LabelFor(model => model.Field_ID, null, htmlAttributes: new { @class = "control-label" })
@@ -35,51 +48,50 @@
                     @Html.DropDownList("District_ID", null, "كل المراكز", htmlAttributes: new { @class = "form-control" })
                     <br />
                 </div>
-                <br />
+               
                 <div class="form-group">
-
                     <input id="Submit" type="submit" value="عرض" />
                     @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
+                </div>
+
+            </div>
+
+
+            <div class="middlePart">
+               
+                <center>
+
+                    <div id="ClusterMapContainer">
+                    </div>
+
+                    <div id="MapLegend" class="mapLegend">
+                        &nbsp;&nbsp;
+                        <img src="~/Images/RedPushPin.png" alt="صناعي" />   القطاع الصناعي &nbsp;&nbsp;
+                        <img src="~/Images/GreenPushPin.png" alt="حرف يدوية" />   حرف يدوية &nbsp;&nbsp;
+                        @*<img src="~/Images/GreenPushPin.png" alt="قطاع الانتاج الحيواني" />   قطاع الانتاج الحيواني &nbsp;&nbsp;
+                        <img src="~/Images/LightBluePushPin.png" alt="القطاع الخدمي" />  القطاع الخدمي &nbsp;&nbsp;
+                        <img src="~/Images/BlackPushPin.png" alt="القطاع التجاري" />    القطاع التجاري &nbsp;&nbsp;
+                        <img src="~/Images/YellowPushPin.png" alt="قطاع مهن حرة" />    قطاع مهن حرة*@
+                    </div>
+                   
+
+                </center>
+            </div>
+
+            <div class="rightPart">
+
+
+
+                <div id="ClusterListContainer" class="clusterList">
 
                 </div>
-          
-
-        </div>
-
-       
-           
-                <div class="middlePart" >  @*class="col-md-7"*@
-                    <center>
-                      
-                            <div id="ClusterMapContainer">
-                            </div>
-                       
-                        <div id="MapLegend" class="mapLegend">
-                            &nbsp;&nbsp;
-                            <img src="~/Images/RedPushPin.png" alt="صناعي" />   القطاع الصناعي &nbsp;&nbsp;
-                            <img src="~/Images/GreenPushPin.png" alt="حرف يدوية" />   حرف يدوية &nbsp;&nbsp;
-                            @*<img src="~/Images/GreenPushPin.png" alt="قطاع الانتاج الحيواني" />   قطاع الانتاج الحيواني &nbsp;&nbsp;
-                <img src="~/Images/LightBluePushPin.png" alt="القطاع الخدمي" />  القطاع الخدمي &nbsp;&nbsp;
-                <img src="~/Images/BlackPushPin.png" alt="القطاع التجاري" />    القطاع التجاري &nbsp;&nbsp;
-                <img src="~/Images/YellowPushPin.png" alt="قطاع مهن حرة" />    قطاع مهن حرة*@
-                        </div>
-                        <hr />
-                          <h2>  *وفقاً للبيانات المتاحة وقت إعداد الدراسة. </h2> 
-                        
-                    </center>
-            </div>
-
-      
-
-        <div class="rightPart" >
-           
-
-            <div id="ClusterListContainer" class="clusterList">
-
-
             </div>
         </div>
 
+        <div id="myfooter">
+            <hr />
+           *وفقاً للبيانات المتاحة وقت إعداد الدراسة. 
+        </div>
 
         </div>
 

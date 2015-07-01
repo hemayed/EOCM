@@ -5,7 +5,7 @@
         ViewBag.Title = @Html.DisplayFor(model => model.Cluster_Name);
     }
 
-    <div style="text-align: center; direction: rtl;">
+    <div style="text-align: center; direction: rtl; color:white; width:85%">
         <h2>@Html.DisplayFor(model => model.Cluster_Name)</h2>
     </div>
     <hr />
@@ -58,18 +58,18 @@
             <td>
                 @Html.DisplayFor(model => model.Products)
 
-            @if (@Model.MoreProducts != null)
+            @if (@Model.MoreProducts != null && @Model.MoreProducts!="")
             {
 
-                <a href="#" id="moreinfo" onclick="$('#hiddenText2').show(); $('#moreinfo').hide(); $('#lessinfo').show(); return false;"><small>&nbsp  معلومات اكثر &nbsp</small></a>
+                <a href="#" id="moreinfop" onclick="$('#hiddenTextp2').show(); $('#moreinfop').hide(); $('#lessinfop').show(); return false;"><small>&nbsp  معلومات اكثر &nbsp</small></a>
 
             }
-            <div style="display: none;" id="hiddenText2">
+            <div style="display: none;" id="hiddenTextp2">
                 @Html.DisplayFor(model => model.MoreProducts)
 
                 @if (@Model.MoreProducts != null)
                 {
-                    <a href="#" id="lessinfo" onclick="$('#hiddenText2').hide(); $('#lessinfo').hide(); $('#moreinfo').show(); return false;"><small>&nbsp  معلومات اقل &nbsp </small></a>
+                    <a href="#" id="lessinfop" onclick="$('#hiddenTextp2').hide(); $('#lessinfop').hide(); $('#moreinfop').show(); return false;"><small>&nbsp  معلومات اقل &nbsp </small></a>
                 }
             </div>
             </td>
@@ -87,7 +87,7 @@
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Cluster_EmpFemale)</td>
-                <td>@Html.DisplayFor(model => model.Cluster_EmpFemale)</td>
+               <td>@Html.DisplayFor(model => model.Cluster_EmpFemale)</td>
             </tr>
 
             <tr>
@@ -144,6 +144,11 @@
             </tr>
 
             <tr>
+                <td>@Html.DisplayNameFor(model => model.ExportFlag_ID)</td>
+                <td>@Html.DisplayFor(model => model.FlagType.FlagType_Name)</td>
+            </tr>
+
+            <tr>
                 <td>@Html.DisplayNameFor(model => model.ExportVolume)</td>
                 <td>@Html.DisplayFor(model => model.ExportVolume)</td>
             </tr>
@@ -163,18 +168,18 @@
                 </td>
                 <td>@Html.DisplayFor(model => model.Challenges) 
             
-                    @if (@Model.MoreChallenges != null)
+                    @if (@Model.MoreChallenges != null && @Model.MoreChallenges!="")
                     {
                        
-                        <a href="#" id="moreinfo" onclick="$('#hiddenText2').show(); $('#moreinfo').hide(); $('#lessinfo').show(); return false;"><small>&nbsp  معلومات اكثر &nbsp</small></a>
+                        <a href="#" id="moreinfoc" onclick="$('#hiddenTextc2').show(); $('#moreinfoc').hide(); $('#lessinfoc').show(); return false;"><small>&nbsp  معلومات اكثر &nbsp</small></a>
 
                     }
-                    <div style="display: none;" id="hiddenText2">
+                    <div style="display: none;" id="hiddenTextc2">
                         @Html.DisplayFor(model => model.MoreChallenges)
 
                     @if (@Model.MoreChallenges != null)
                     {
-                        <a href="#" id="lessinfo" onclick="$('#hiddenText2').hide(); $('#lessinfo').hide(); $('#moreinfo').show(); return false;"><small>&nbsp  معلومات اقل &nbsp </small></a>
+                        <a href="#" id="lessinfoc" onclick="$('#hiddenTextc2').hide(); $('#lessinfoc').hide(); $('#moreinfoc').show(); return false;"><small>&nbsp  معلومات اقل &nbsp </small></a>
                     }
                 </div>
                 </td>
@@ -189,60 +194,62 @@
 
        
         <br /><br />
-        <table id="FooterTable" align="center">
+        <table id="FooterTable" align="center" >
             <colgroup>
                 <col class="c1" style="width: 30%;">
                 <col class="c2" style="width: 70%;">
             </colgroup>
-            @if (@Model.Cluster_StudyFile1 != null | @Model.Cluster_StudyFile2 != null)
-            {
+           
                 
 
             <tr>
-               
-                @*<td>@Html.DisplayNameFor(model => model.Cluster_StudyFile1)</td>*@
+              
+             @if ((@Model.Cluster_StudyFile1 != "" && @Model.Cluster_StudyFile1 != null) || (@Model.Cluster_StudyFile2 != "" && @Model.Cluster_StudyFile2 != null))
+             {
                 <td>دراسة عن التجمع:</td>
                 <td>
-                    <a target="_blank"  href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile1)"> @Html.DisplayFor(model => model.Cluster_StudyFile1) </a>
+                    <a target="_blank"  href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile1)" style="text-align:left"> @Html.DisplayFor(model => model.Cluster_StudyFile1) </a>
                     <br />
-
-                    <a target="_blank" href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile2)">@Html.DisplayFor(model => model.Cluster_StudyFile2)</a>
-
-
-                </td>
+                    <a target="_blank" href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile2)" style="text-align:left">@Html.DisplayFor(model => model.Cluster_StudyFile2)</a>
+                </td> 
+             }
             </tr>
-            }
+           
 
             <tr>
-                
+                @if ((@Model.Cluster_DetailPage1 != "" && @Model.Cluster_DetailPage1 != null) || (@Model.Cluster_DetailPage2 != "" && @Model.Cluster_DetailPage2 != null)  || (@Model.Cluster_DetailPage3 != "" && @Model.Cluster_DetailPage3 != null))
+             {
                 <td>روابط لصفحات خارجية ذات صلة:</td>
                 <td>
-                    <br />
-                    <a href="@Html.Raw(Model.Cluster_DetailPage1)" onclick="return popup(this, 'notes')">@Html.DisplayFor(model => model.Cluster_DetailPage1)</a>
+                    <br /> 
+                    <a href="@Html.Raw(Model.Cluster_DetailPage1)" style="text-align:left">@Html.DisplayFor(model => model.Cluster_DetailPage1)</a>
                     <br />
                 
-                    <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage2)">@Html.DisplayFor(model => model.Cluster_DetailPage2)</a>
+                    <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage2)" style="text-align:left">@Html.DisplayFor(model => model.Cluster_DetailPage2)</a>
                     <br />
 
-                    <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage3)">@Html.DisplayFor(model => model.Cluster_DetailPage3)</a>
+                    <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage3)" style="text-align:left">@Html.DisplayFor(model => model.Cluster_DetailPage3)</a>
 
                 </td>
+                }
+                
             </tr>
            
             <tr>
                 <td>
-                    <br />
+                   
                     @Html.ActionLink("تجمعات اخرى في نفس المحافظة", "OtherGovtClusters", new { id = @Model.Govt_ID }, new { target = "_blank" })
                     <br />
                     @Html.ActionLink("تجمعات مشابهة في كل المحافظات", "SimilarClusters", new { id = @Model.Product_ID }, new { target = "_blank" })
                     <br />
-                    <br />
-                    <br />
+                    
+                    
                 </td>
+                <td></td>
             </tr>
 
          </table>
-
+       <br/>
 
 </div>
 </div>
@@ -254,24 +261,3 @@
         <img src="~/@Html.DisplayFor(model => model.Cluster_ProcessImage)" alt="صورة عملية الانتاج" style="width:65px; height:65px">
     </dd>*@
 
-<script type="text/javascript">
-<!--
-function popup(mylink, windowname)
-{
-if (! window.focus)return true;
-var href;
-if (typeof(mylink) == 'string')
-   href=mylink;
-else
-   href=mylink.href;
-window.open(href, windowname, 'width=400,height=200,scrollbars=yes');
-return false;
-}
-
-$('#createInput').click(function () {
-    $('#textarea').html('<input type="text" />');
-    return false;
-});
-
-//-->
-</script>

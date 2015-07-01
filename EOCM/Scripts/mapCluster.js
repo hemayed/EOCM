@@ -2,7 +2,7 @@
 var map = null, govtTooltip, clusterTooltip, clusterInfobox, clusterLayer, govtLayer;
 
 var mapWidth = 760;
-var mapHeight = 560;
+var mapHeight = 500;
 var govtLocations = [],
     maxValue = 50;
 var clat = new Array(27);
@@ -78,7 +78,7 @@ function GetMap(myArray) {
         var govtTooltipLayer = new Microsoft.Maps.EntityCollection();
         map.entities.push(govtTooltipLayer);
 
-        govtTooltip = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, width:200, height:140, offset: new Microsoft.Maps.Point(-100, 35) });
+        govtTooltip = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, width:200, height:160, offset: new Microsoft.Maps.Point(-100, 35) });
 
         govtTooltipLayer.push(govtTooltip);
         AddGovtLocations();
@@ -273,11 +273,11 @@ function CreateGovtLayer() {
 
             govtpin[i].Title = " محافظة " + govtData[i].Govt_Name;
 
-            govtpin[i].Description = " عدد الوحدات الانتاجية " + ":&nbsp" + govtData[i].ShopNumMin + " - " + govtData[i].ShopNumMax + "<br>" + " عدد العاملين " + ":&nbsp" + govtData[i].EmpNumMin + " - " + govtData[i].EmpNumMax + "<br>" + " عدد التجمعات المصدرة " + ":&nbsp" + govtData[i].ExportNum;
+            govtpin[i].Description = " عدد التجمعات " + ":&nbsp" + govtData[i].Cluster_Num + "<br>" + " عدد الوحدات الانتاجية " + ":&nbsp" + govtData[i].ShopNumMin + " - " + govtData[i].ShopNumMax + "<br>" + " عدد العاملين " + ":&nbsp" + govtData[i].EmpNumMin + " - " + govtData[i].EmpNumMax + "<br>" + " عدد التجمعات المصدرة " + ":&nbsp" + govtData[i].ExportNum;
 
             imgsection = '<img src= "/Images/' + govtData[i].Govt_ID + '.png' + '" alt="محافظة' + govtData[i].Govt_ID + '" style="width:50px; height:50px">';
 
-            govtpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:thin; border-color:blue; width:200px; height:140px">'+
+            govtpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:thin; border-color:blue; width:200px;  min-height:120px;">' +
             '<div id="infoboxTitle" style="text-decoration:underline; text-align:center; font-size:medium; margin-right: 1em; margin-left: 1em;">' + govtpin[i].Title + '</div> ' + imgsection +
         '<div id="infoboxDescription" style="text-decoration:none; text-align:right; margin-right: 1em; margin-left: 1em;" >' + govtpin[i].Description + '</div> </div>'
 
@@ -370,7 +370,7 @@ function createClusterLayer(e) {
             clusterpin[i] = new Microsoft.Maps.Pushpin(location1, pushpinOptions);
             clusterpin[i].Title = pintxt + '-' + clusterData[i].Cluster_Name;
 
-            clusterpin[i].Description = clusterData[i].Cluster_Info1 + "<br>" + clusterData[i].Cluster_Info2 + "<br>" + clusterData[i].Cluster_Info3 + "<br>" + clusterData[i].Cluster_Info4 + "<br>" + clusterData[i].Cluster_Info5;
+            clusterpin[i].Description = clusterData[i].Cluster_Info1 + "<br>" + clusterData[i].Cluster_Info2 + "<br>" + clusterData[i].Cluster_Info3 + "<br>" + clusterData[i].Cluster_Info5 ;
             clusterpin[i].showCloseButton = true;
            //clusterpin[i].titleClickHandler = titleClick(info1[i]);
 
@@ -389,7 +389,7 @@ function createClusterLayer(e) {
             //clusterpin[i].htmlContent = '<div id="' + divID + '" style="direction: rtl; background-color:White; border-style:solid;border-width:medium; border-color:blue; position:relative; top:0px; left:0px; min-height:25px;width:105px; ">' + '<center> <b id="infoboxTitle' + i +
             //'" style="text-decoration:none; position:absolute; top:0px; right:2px; width:100px;">' + clusterData[i].Cluster_Name + ' </center> </div> ';
 
-            clusterpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:thin;  width:200px; min-height:150px; border-color:blue; ">' +
+            clusterpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:thin;  width:200px; min-height:120px; border-color:blue; ">' +
             '<div id="infoboxTitle1" style="text-decoration:underline;position:center; text-align:center; font-size:medium; margin-right: 1em; margin-left: 1em">' + clusterData[i].Cluster_Name + '</div>' +
             '<div id="infoboxDescription1" style="text-decoration:none;position:center;  text-align:right; margin-right: 1em; margin-left: 1em" >' + clusterpin[i].Description + '</div> </div>'
           

@@ -1,45 +1,89 @@
 ﻿body {
     padding-top: 2px;
     padding-bottom: 2px;
-   
-}
+  
+background: #00aa77;
+background-image: url("/Images/zenbg-1.png"), url("/Images/zenbg-2.png");
+background-repeat: repeat-x, repeat;
+overflow: auto;
+width:1250px;
+position:center;
 
-#logo1 {
-	float: left;
-	width: 200px;
-}
-
-#logo2 {
-	float: right;
-	width: 280px;
-	
-}
-
-#header {
-	margin-left:250px;
-	margin-right:380px;
-	width:670px;
-	height: 150px;
-    direction: rtl;
-    font-size:x-large;
-    position:center;
-   
+margin:auto;
 
 }
 
+.a{
+    text-align:left;
+    color:white;
+}
 
-#mainpage{
+#myheader{
+    display: table;
+    width:100%;
+    height:120px;
+    text-align:center; 
+    margin-top:0px;
+    direction:rtl;
+    font-size:large;
+    color:white;  
+}
+
+#maincontents{
+    display: table;
+    width:100%;
+    text-align:center; 
+    margin-top:0px;
+}
+
+#myfooter{
+    display: table;
+    width:100%;
+    /*height:10px;*/
+    text-align:center; 
+    margin-top:0px;
+    direction:rtl;
+    font-size:medium;
+    color:white;  
+}
+
+#leftlogo {
+    display: table-cell;
+    width: 200px;   
+  
+}
+
+#rightlogo {
+   	width: 280px;
+   display: table-cell;
+	 
+}
+
+#middlenote {
+    display: table-cell;
+    width:760px;
+    vertical-align:middle;
+              
+}
+
+
+/*#mainpage{
     background: -webkit-linear-gradient(left top, cyan , blue); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(bottom right, cyan , blue); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(bottom right, cyan , blue); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to bottom right, cyan , blue); /* Standard syntax (must be last) */
 
-}
+}*/
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 2px;
     padding-right: 2px;
+    position:absolute;
+    position:center;
+    top:150px;
+
 }
+
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -49,30 +93,6 @@
 }
 
 
-/* Set width on the form input elements since they're 100% wide by default */
-/*input,
-select,
-textarea {
-    max-width: 280px;
-}*/
-
-.mapframe {
-    
-    align-content: center;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-left:0px;
-    margin-right:0px;
-    z-index: 0;
-    width:760px;
-    height:560px;
-    /*border:1px solid;*/
-}
-
-.banner {
-    background-color: #d5eaee;
-    text-align: center;
-}
 
 input[type=submit] {
     border: 1px solid blue;
@@ -91,9 +111,11 @@ input[type=submit]:hover {
 .leftPart{
     width:200px;
     float:left;
-    margin-left:1em;
-    margin-right:1em;
+    margin-left:1px;
+    margin-right:1px;
+    margin-top:0px;
     text-align:center;
+   
 }
 
 .middlePart{
@@ -101,7 +123,9 @@ input[type=submit]:hover {
     float:left;
     text-align:center;
     position:relative;
-    left:2px;
+    margin-left:1px;
+    margin-right:1px;
+     
 }
 
 .rightPart{
@@ -109,14 +133,17 @@ input[type=submit]:hover {
     float:left;
     text-align:right;
     position:relative;
-    left:2px;
-    margin-left:1em;
+   
+     margin-left:1px;
+    margin-right:1px;
+    margin-top:0px;
 }
 
 .filters{
+   
     padding-left:0px; 
     padding-right:0px; 
-    background-color:#d5eaee; 
+    background-color:#d5eaee;
     color:black; 
     border-radius:10px;
     font-size:medium;
@@ -151,6 +178,17 @@ input[type=submit]:hover {
     color:black; 
     border-radius:10px;
     font-size:medium;
+    direction:rtl;
+}
+
+.clusterDetailList{
+    padding-left:0px; 
+    padding-right:0px; 
+    background-color:#d5eaee; 
+    color:black; 
+    border-radius:10px;
+    font-size:medium;
+    direction:rtl;
 }
 
 .form-control{
@@ -197,29 +235,42 @@ input[type=submit]:hover {
 
 /*border:solid 1px blue; border-spacing:0px; border-collapse:separate;*/ 
 
-#ProfileTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:80%}
+#ProfileTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:85%}
 #ProfileTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
 #ProfileTable .c1 {background-color:lightblue;}
 #ProfileTable .c2 {background-color:white;}
 #ProfileTable td, #ProfileTable th {border:solid 1px blue; padding:4px;}
 
-#FooterTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:80%}
-#FooterTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
-/*#ProfileTable td, #ProfileTable th {border:solid 1px blue; padding:4px;}*/
+#ProfileTable2 {position:center; direction:rtl; font-size:x-large; word-wrap: break-word;}
+#ProfileTable2 th {font-weight:bold; color:white; background-color:blue;  text-align: center}
+#ProfileTable2 .c1 {background-color:lightblue;}
+#ProfileTable2 .c2 {background-color:white;}
+#ProfileTable2 td, #ProfileTable2 th {border:solid 1px blue; padding:4px;}
 
-#GovtClustersTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:80%}
+#FooterTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:85%; background-color:white;}
+#FooterTable th,#FooterTable td {font-weight:bold; color:black;  text-align: center}
+
+#FooterTable2 {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:85%; }
+#FooterTable2 th,#FooterTable td {font-weight:bold; color:black;  text-align: center}
+
+
+#GovtClustersTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:85%}
 #GovtClustersTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
 #GovtClustersTable .c1 {background-color:white;}
 #GovtClustersTable .c2 {background-color:white;}
-#GovtClustersTable td, #ProfileTable th {border:solid 1px blue; padding:4px;}
+#GovtClustersTable td, #GovtClustersTable th {border:solid 1px blue; padding:4px;}
 
-#SimilarClustersTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:80%}
+#SimilarClustersTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:85%}
 #SimilarClustersTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
-#SimilarClustersTable td, #ProfileTable th {border:solid 1px blue; padding:4px;}
+#SimilarClustersTable td, #SimilarClustersTable th {border:solid 1px blue; padding:4px;color:black; background-color:white; }
 
 #ClusterTable {border:solid 1px blue; border-spacing:0px; border-collapse:separate; direction:rtl; font-size:x-large; word-wrap: break-word}
 #ClusterTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
-#ClusterTable td, #ProfileTable th {border:solid 1px blue; padding:4px;}
+#ClusterTable td, #ClusterTable th {border:solid 1px blue; padding:4px;}
+
+#ClusterDetailTable {border:solid 1px blue; border-spacing:0px; border-collapse:separate; direction:rtl; font-size:x-large; word-wrap: break-word}
+#ClusterDetailTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
+#ClusterDetailTable td, #ClusterDetailTable th {border:solid 1px blue; padding:4px;}
 
 
 

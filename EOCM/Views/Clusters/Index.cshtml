@@ -4,31 +4,31 @@
     ViewBag.Title = "قائمة التجمعات";
 }
 
-<div style="font-family:Arial; text-align: center; direction: rtl;">
+<div style="font-family:Arial; text-align: center; direction: rtl; color:white">
     <h2>قائمة التجمعات</h2>
 
     <p>
-        <h3> @Html.ActionLink("اضافة تجمع جديد", "Create")</h3>
+        <h3> @Html.ActionLink("اضافة تجمع جديد", "Create",null,new{style="color:yellow"})</h3>
     </p>
 </div>
 
-    <div style="font-family:Arial; direction: rtl;">
-        <table id="clusterTable" class="display" cellspacing="0">
+    <div class="clusterDetailList" >
+
+        <table id="clusterDetailTable" class="display compact" cellspacing="0" width="1024">
             <thead>
                 <tr>
                     <td>
                         @Html.DisplayNameFor(model => model.Cluster_Name)
                     </td>
-                   
+
                     <td>
                         @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
                     </td>
-                   
+
                     <td>
                         @Html.DisplayNameFor(model => model.Product.Product_Name)
                     </td>
-                    
-                   
+
 
                     <td>
                         @Html.DisplayNameFor(model => model.Cluster_Lat)
@@ -42,30 +42,26 @@
                     <td>
                         @Html.DisplayNameFor(model => model.Cluster_ShopNumMin)
                     </td>
-                   
 
                     <td></td>
                 </tr>
             </thead>
-
             <tbody>
-
                 @foreach (var item in Model)
                 {
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.Cluster_Name)
                         </td>
-                        
+
                         <td>
                             @Html.DisplayFor(modelItem => item.Governorate.Govt_Name)
                         </td>
-                       
+
                         <td>
                             @Html.DisplayFor(modelItem => item.Product.Product_Name)
                         </td>
-                       
-                       
+
 
                         <td>
                             @Html.DisplayFor(modelItem => item.Cluster_Lat)
@@ -79,8 +75,6 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Cluster_ShopNumMin) : @Html.DisplayFor(modelItem => item.Cluster_ShopNumMax)
                         </td>
-
-                        
 
                         <td>
                             @Html.ActionLink("تعديل", "Edit", new { id = item.Cluster_ID }) |
@@ -96,35 +90,38 @@
 
     <script>
 
-        $(document).ready(function () {
-            $('#clusterTable').DataTable({
-                "sdom": '<"row"lf><t><"center"p>',
-                // "columns": [{ "width": "20%" }, null],
-                "sPaginationType": "full_numbers",
-                "oLanguage": {
-                    "sSearch": "بحث",
-                    "sEmptyTable": "لايوجد تجمعات",
-                    "sInfoEmpty": "",
-                    "sZeroRecords": "لايوجد تجمعات",
-                    //"sInfo": "_TOTAL_ من _END_ الى _START_",
-                    "sInfo": "",
-                    "sInfoFiltered": "",
-                    "sLengthMenu": ' <select>' +
-                    '<option value="10">10</option>' +
-                    '<option value="15">15</option>' +
-                    '<option value="20">20</option>' +
-                    '<option value="25">25</option>' +
-                    //'<option value="50">50</option>' +
-                    //'<option value="-1">الكل</option>' +
-                    '</select>عرض',
-                    "oPaginate": {
-                        "sFirst": "<<",
-                        "sPrevious": "<",
-                        "sNext": ">",
-                        "sLast": ">>"
-                    }
+    $(document).ready(function () {
+        $('#clusterDetailTable').DataTable({
+            //"sdom": '<lf><t><p>',
+            "sdom": '<"center"ftp>',
+            // "columns": [{ "width": "20%" }, null],
+            "sPaginationType": "full_numbers",
+            "bLengthChange": false,
+            "oLanguage": {
+                "sSearch": "بحث",
+                "sEmptyTable": "لايوجد تجمعات",
+                "sInfoEmpty": "",
+                "sZeroRecords": "لايوجد تجمعات",
+                //"sInfo": "_TOTAL_ من _END_ الى _START_",
+                "sInfo": "",
+                "sInfoFiltered": "",
+                //"sLengthMenu": ' <select>' +
+                //'<option value="10">10</option>' +
+                //'<option value="15">15</option>' +
+                //'<option value="20">20</option>' +
+                //'<option value="25">25</option>' +
+                ////'<option value="50">50</option>' +
+                ////'<option value="-1">الكل</option>' +
+                //'</select>عرض',
+                "oPaginate": {
+                    "sFirst": "<<",
+                    "sPrevious": "<",
+                    "sNext": ">",
+                    "sLast": ">>"
                 }
-            });
+            }
+        });
 
-        })
-    </script>
+    })
+ </script>
+

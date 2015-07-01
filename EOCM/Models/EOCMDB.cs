@@ -39,6 +39,14 @@ namespace EOCM.Models
             modelBuilder.Entity<Cluster>().Property(x => x.Cluster_Lat).HasPrecision(10, 6);
             modelBuilder.Entity<Cluster>().Property(x => x.Cluster_Long).HasPrecision(10, 6);
 
+            modelBuilder.Entity<Cluster>().Property(x => x.Cluster_EmpFemale).HasPrecision(5, 2);
+            modelBuilder.Entity<Cluster>().Property(x => x.OfficalProjects).HasPrecision(5, 2);
+            modelBuilder.Entity<Cluster>().Property(x => x.NonOfficalProjects).HasPrecision(5, 2);
+            modelBuilder.Entity<Cluster>().Property(x => x.CompanyPercent1).HasPrecision(5, 2);
+            modelBuilder.Entity<Cluster>().Property(x => x.CompanyPercent2).HasPrecision(5, 2);
+            modelBuilder.Entity<Cluster>().Property(x => x.CompanyPercent3).HasPrecision(5, 2);
+            modelBuilder.Entity<Cluster>().Property(x => x.CompanyPercent4).HasPrecision(5, 2);
+
 
 
         }
@@ -60,8 +68,8 @@ namespace EOCM.Models
         public System.Data.Entity.DbSet<EOCM.Models.MarketType> MarketType { get; set; }
         public System.Data.Entity.DbSet<EOCM.Models.ProductSeason> ProductSeason { get; set; }
         public System.Data.Entity.DbSet<EOCM.Models.FlagType> FlagType { get; set; }
-        
 
+      
 
     }
 

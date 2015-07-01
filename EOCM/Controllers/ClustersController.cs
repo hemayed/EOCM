@@ -102,7 +102,7 @@ namespace EOCM.Controllers
                     string sourceName;
                     string imgExt;
                     string destName;
-
+                                        
                     if (cluster.Cluster_StudyFile1 != null)
                     {
                         sourceName = Path.GetFileName(Request.Files[0].FileName);
@@ -147,6 +147,7 @@ namespace EOCM.Controllers
                         cluster.Cluster_ProcessImage =  cluster.Cluster_ID + imgExt;
                     }
 
+                   
 
                     db.Clusters.Add(cluster);
                     db.SaveChanges();
