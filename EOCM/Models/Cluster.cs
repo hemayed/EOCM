@@ -95,7 +95,7 @@ namespace EOCM.Models
 
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
         [Range(0, 1, ErrorMessage = "  يجب ان تكون النسبة بين 0 و 1")]
-         [Display(Name = "نسبة عمالة المرأة (%) ")]
+         [Display(Name = "نسبة عمالة المرأة ")]
         public decimal? Cluster_EmpFemale { get; set; }
 
         [Required]
@@ -112,32 +112,32 @@ namespace EOCM.Models
 
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
         [Range(0, 1, ErrorMessage = "  يجب ان تكون النسبة بين 0 و 1")]
-        [Display(Name = "نسبة المشاريع الرسمية في التجمع (%)")]
+        [Display(Name = "نسبة المشاريع الرسمية في التجمع ")]
         public decimal? OfficalProjects { get; set; }
 
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
         [Range(0, 1, ErrorMessage = "  يجب ان تكون النسبة بين 0 و 1")]
-        [Display(Name = "نسبة المشاريع الغير رسمية في التجمع (%)")]
+        [Display(Name = "نسبة المشاريع الغير رسمية في التجمع ")]
         public decimal? NonOfficalProjects { get; set; }
 
  [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
  [Range(0, 1, ErrorMessage = "  يجب ان تكون النسبة بين 0 و 1")]
-         [Display(Name = "نسبة الشركات المتناهية الصغر (أى عدد العمالة من 1 إلى 4)  (%) ")]
+         [Display(Name = "نسبة الشركات المتناهية الصغر (أى عدد العمالة من 1 إلى 4) ")]
          public decimal? CompanyPercent1 { get; set; }
 
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
         [Range(0, 1, ErrorMessage = "  يجب ان تكون النسبة بين 0 و 1")]
-         [Display(Name = "نسبة الشركات الصغيرة (أى عدد العمالة من 5 إلى 49)  (%) ")]
+         [Display(Name = "نسبة الشركات الصغيرة (أى عدد العمالة من 5 إلى 49) ")]
          public decimal? CompanyPercent2 { get; set; }
 
           [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
          [Range(0, 1, ErrorMessage = "  يجب ان تكون النسبة بين 0 و 1")]
-         [Display(Name = "نسبة الشركات المتوسطة (أى عدد العمالة من 50 إلى 99)  (%) ")]
+         [Display(Name = "نسبة الشركات المتوسطة (أى عدد العمالة من 50 إلى 99) ")]
          public decimal? CompanyPercent3 { get; set; }
 
            [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:P0}")]
           [Range(0, 1, ErrorMessage = "  يجب ان تكون النسبة بين 0 و 1")]
-          [Display(Name = "نسبة الشركات الكبيرة (أى عدد العمالة أكثر من 100)  (%)")]
+          [Display(Name = "نسبة الشركات الكبيرة (أى عدد العمالة أكثر من 100) ")]
          public decimal? CompanyPercent4 { get; set; }
 
        
