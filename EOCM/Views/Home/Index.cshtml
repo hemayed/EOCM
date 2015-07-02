@@ -45,12 +45,12 @@
                 @Html.LabelFor(model => model.Govt_ID, null, htmlAttributes: new { @class = "control-label" })
                 @Html.DropDownList("Govt_ID", null, "كل المحافظات", htmlAttributes: new { @class = "form-control" })
                 @Html.LabelFor(model => model.District_ID, null, htmlAttributes: new { @class = "control-label" })
-                @Html.DropDownList("District_ID", null, "كل المراكز", htmlAttributes: new { @class = "form-control" })
-                <br />
+                @Html.DropDownList("District_ID", null, "كل المراكز", htmlAttributes: new { @class = "form-control" }) 
+                <br/>
             </div>
 
-            <div class="form-group">
-                <input id="SubmitSimple" type="submit" value="عرض" />
+            <div id="SubmitSimple" class="form-group">
+                <input id="SubmitSimple1" type="submit" value="عرض" />
                 @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
             </div>
 
@@ -68,8 +68,8 @@
                 <br />
             </div>
 
-            <div class="form-group">
-                <input id="SubmitAdvanced" type="submit" value="عرض" style="display:none" />
+            <div id="SubmitAdvanced" class="form-group" style="display:none">
+                <input id="SubmitAdvanced1" type="submit" value="عرض" />
                 @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
             </div>
 
@@ -131,11 +131,11 @@
 
         UpdateViews($('#Govt_ID').val(), $('#District_ID').val(), $('#Sector_ID').val(), $('#Field_ID').val(), $('#Product_ID').val());
         
-        $('#SubmitSimple').click(function () {
+        $('#SubmitSimple1').click(function () {
             UpdateViews($('#Govt_ID').val(), $('#District_ID').val(), $('#Sector_ID').val(), $('#Field_ID').val(), $('#Product_ID').val());
         });
                  
-        $('#SubmitAdvanced').click(function () {
+        $('#SubmitAdvanced1').click(function () {
             UpdateViews2($('#Govt_ID').val(), $('#District_ID').val(), $('#Sector_ID').val(), $('#Field_ID').val(), $('#Product_ID').val(),$('#ClusterNature_ID').val(),$('#ClusterType_ID').val(),$('#IncomeLevel_ID').val(),$('#ExportFlag_ID').val(),$('#ProductSeason_ID').val());
         });
 
