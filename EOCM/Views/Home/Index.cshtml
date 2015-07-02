@@ -34,12 +34,7 @@
         <hr />
 
         <div class="leftPart">
-
-            <input id="searchbtn" type="checkbox" name="searchbtn" value="simple"><text style="text-align:center; font-size:x-large; color:white"> بحث متقدم </text>
-            <br/>
             
-            
-
             <div id="simplefilters" class="filters1">
                 @Html.LabelFor(model => model.Sector_ID, null, htmlAttributes: new { @class = "control-label" })
                 @Html.DropDownList("Sector_ID", null, "كل القطاعات", htmlAttributes: new { @class = "form-control" })
@@ -60,7 +55,6 @@
             </div>
 
             <div id="advancedfilters" class="filters2" style="display:none">
-
                 @Html.LabelFor(model => model.ProductSeason_ID, null, htmlAttributes: new { @class = "control-label" })
                 @Html.DropDownList("ProductSeason_ID", null, "الكل", htmlAttributes: new { @class = "form-control" })
                 @Html.LabelFor(model => model.ClusterType_ID, null, htmlAttributes: new { @class = "control-label" })
@@ -78,6 +72,8 @@
                 <input id="SubmitAdvanced" type="submit" value="عرض" style="display:none" />
                 @*@Ajax.ActionLink("ActionLink", "_ClusterMap", new AjaxOptions { OnSuccess = "MultipartialUpdate" })*@
             </div>
+
+            <label> <input id="searchbtn" type="checkbox" name="searchbtn" value="simple" width="40" height="40" ><text style="text-align:center; font-size:x-large; color:white"> بحث متقدم </text> </label>
 
         </div>
 

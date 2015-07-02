@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 2px;
     padding-bottom: 2px;
-background: #00aa77;
+background: #d0d0d0;
 background-image: url("/Images/zenbg-1.png"), url("/Images/zenbg-1.png");
 background-repeat: repeat-x, repeat;
 overflow: auto;
@@ -279,7 +279,9 @@ input[type=submit]:hover {
 
 #SimilarClustersTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:85%}
 #SimilarClustersTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
-#SimilarClustersTable td, #SimilarClustersTable th {border:solid 1px blue; padding:4px;color:black; background-color:white; }
+#SimilarClustersTable td, #SimilarClustersTable th {border:solid 1px blue; padding:4px; }
+#SimilarClustersTable td {color:black; background-color:white; }
+
 
 #ClusterTable {border:solid 1px blue; border-spacing:0px; border-collapse:separate; direction:rtl; font-size:x-large; word-wrap: break-word}
 #ClusterTable th {font-weight:bold; color:white; background-color:blue;  text-align: center}
