@@ -201,8 +201,8 @@
         <br /><br />
         <table id="FooterTable" align="center" >
             <colgroup>
-                <col class="c1" style="width: 30%;">
-                <col class="c2" style="width: 70%;">
+                <col class="xc1" width="150" >
+                <col class="xc2" width="500">
             </colgroup>
            
                 
@@ -213,9 +213,9 @@
              {
                 <td>دراسة عن التجمع:</td>
                 <td>
-                    <a target="_blank"  href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile1)" style="text-align:left"> @Html.DisplayFor(model => model.Cluster_StudyFile1) </a>
+                    <a target="_blank"  href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile1)" > @Html.DisplayFor(model => model.Cluster_StudyFile1) </a>
                     <br />
-                    <a target="_blank" href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile2)" style="text-align:left">@Html.DisplayFor(model => model.Cluster_StudyFile2)</a>
+                    <a target="_blank" href="../../StudyFiles/@Html.Raw(Model.Cluster_StudyFile2)" >@Html.DisplayFor(model => model.Cluster_StudyFile2)</a>
                 </td> 
              }
             </tr>
@@ -227,13 +227,13 @@
                 <td>روابط لصفحات خارجية ذات صلة:</td>
                 <td>
                     <br /> 
-                    <a href="@Html.Raw(Model.Cluster_DetailPage1)" style="text-align:left">@Html.DisplayFor(model => model.Cluster_DetailPage1)</a>
+                    <a href="@Html.Raw(Model.Cluster_DetailPage1)" >@Html.DisplayFor(model => model.Cluster_DetailPage1)</a>
                     <br />
                 
-                    <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage2)" style="text-align:left">@Html.DisplayFor(model => model.Cluster_DetailPage2)</a>
+                    <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage2)" >@Html.DisplayFor(model => model.Cluster_DetailPage2)</a>
                     <br />
 
-                    <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage3)" style="text-align:left">@Html.DisplayFor(model => model.Cluster_DetailPage3)</a>
+                    <a target="_blank" href="@Html.Raw(Model.Cluster_DetailPage3)">@Html.DisplayFor(model => model.Cluster_DetailPage3)</a>
 
                 </td>
                 }

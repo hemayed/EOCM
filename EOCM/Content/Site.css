@@ -64,7 +64,10 @@ margin:auto;
               
 }
 
+.a{
+    font-weight:normal;
 
+}
 /* Set padding to keep content from hitting the edges */
 /*.body-content {
     padding-left: 2px;
@@ -259,8 +262,10 @@ input[type=submit]:hover {
 #ProfileTable2 .c2 {background-color:white;}
 #ProfileTable2 td, #ProfileTable2 th {border:solid 1px blue; padding:4px;}
 
-#FooterTable {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:85%; background-color:white;}
-#FooterTable th,#FooterTable td {font-weight:bold; color:black;  text-align: center}
+#FooterTable {direction:rtl; width:85%; background-color:white; color:black; font-size:large; }
+#FooterTable .xc1 { font-size:x-large; text-align:right;}
+#FooterTable .xc2 { font-size:small;text-align:left; word-wrap: break-word;}
+#FooterTable td, #FooterTable th {border:solid 1px blue; padding:4px; border-left: none; border-right: none;}
 
 #FooterTable2 {position:center; direction:rtl; font-size:x-large; word-wrap: break-word; width:85%; }
 #FooterTable2 th,#FooterTable td {font-weight:bold; color:black;  text-align: center}

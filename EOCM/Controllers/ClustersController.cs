@@ -196,7 +196,7 @@ namespace EOCM.Controllers
             ViewBag.Sector_ID = new SelectList(db.Sectors, "Sector_ID", "Sector_Name", cluster.Sector_ID);
             ViewBag.Village_ID = new SelectList(db.Villages, "Village_ID", "Village_Name", cluster.Village_ID);
             ViewBag.ClusterNature_ID = new SelectList(db.ClusterNature, "ClusterNature_ID", "ClusterNature_Name", cluster.ClusterNature_ID);
-            ViewBag.ClusterType_ID = new SelectList(db.ClusterType, "ClusterType_ID", "ClusterType_Name", cluster.ClusterNature_ID);
+            ViewBag.ClusterType_ID = new SelectList(db.ClusterType, "ClusterType_ID", "ClusterType_Name", cluster.ClusterType_ID);
             ViewBag.MarketType_ID = new SelectList(db.MarketType, "MarketType_ID", "MarketType_Name", cluster.MarketType_ID);
             ViewBag.ProductSeason_ID = new SelectList(db.ProductSeason, "ProductSeason_ID", "ProductSeason_Name", cluster.ProductSeason_ID);
             ViewBag.ExportFlag_ID = new SelectList(db.ExportFlag, "ExportFlag_ID", "ExportFlag_Name", cluster.ExportFlag_ID);
@@ -340,7 +340,7 @@ namespace EOCM.Controllers
             ViewBag.Sector_ID = new SelectList(db.Sectors, "Sector_ID", "Sector_Name", cluster.Sector_ID);
             ViewBag.Village_ID = new SelectList(db.Villages, "Village_ID", "Village_Name", cluster.Village_ID);
             ViewBag.ClusterNature_ID = new SelectList(db.ClusterNature, "ClusterNature_ID", "ClusterNature_Name", cluster.ClusterNature_ID);
-            ViewBag.ClusterType_ID = new SelectList(db.ClusterType, "ClusterType_ID", "ClusterType_Name", cluster.ClusterNature_ID);
+            ViewBag.ClusterType_ID = new SelectList(db.ClusterType, "ClusterType_ID", "ClusterType_Name", cluster.ClusterType_ID);
             ViewBag.MarketType_ID = new SelectList(db.MarketType, "MarketType_ID", "MarketType_Name", cluster.MarketType_ID);
             ViewBag.ProductSeason_ID = new SelectList(db.ProductSeason, "ProductSeason_ID", "ProductSeason_Name", cluster.ProductSeason_ID);
             ViewBag.ExportFlag_ID = new SelectList(db.ExportFlag, "ExportFlag_ID", "ExportFlag_Name", cluster.ExportFlag_ID);
