@@ -178,7 +178,7 @@ namespace EOCM.Controllers
                 govtData.ShopNumMin= 0;
                 govtData.ShopNumMax = 0;
             govtData.EmpNumMin = 0;
-           govtData.EmpNumMax = 0;
+           
            govtData.ExportNum = 0;
 
                    Governorate govt = db.Governorates.Find(govtID.ToString("00"));
@@ -200,7 +200,7 @@ namespace EOCM.Controllers
                listGovtData[govtIndex].ShopNumMin = listGovtData[govtIndex].ShopNumMin + c.Cluster_ShopNumMin;
                listGovtData[govtIndex].ShopNumMax = listGovtData[govtIndex].ShopNumMax + c.Cluster_ShopNumMax;
                listGovtData[govtIndex].EmpNumMin = listGovtData[govtIndex].EmpNumMin + c.Cluster_EmpNumMin;
-               listGovtData[govtIndex].EmpNumMax = listGovtData[govtIndex].EmpNumMax + c.Cluster_EmpNumMax;
+               
                if (c.ExportFlag_ID == "01")
                    listGovtData[govtIndex].ExportNum++;
 
@@ -233,12 +233,11 @@ namespace EOCM.Controllers
                     clusterData.Cluster_Info1 = clusterData.Cluster_Info1 + " - " + c.Village.Village_Name;
 
 
-               clusterData.Cluster_Info2 = " عدد العاملين " + ":&nbsp" ;
+               clusterData.Cluster_Info2 = " متوسط عدد العاملين " + ":&nbsp" ;
                if (c.Cluster_EmpNumMin != 0)
-                   clusterData.Cluster_Info2=clusterData.Cluster_Info2+c.Cluster_EmpNumMin + " - ";
+                   clusterData.Cluster_Info2=clusterData.Cluster_Info2+c.Cluster_EmpNumMin ;
 
-               if (c.Cluster_EmpNumMax != 0)
-                   clusterData.Cluster_Info2 = clusterData.Cluster_Info2 + c.Cluster_EmpNumMax;
+              
 
 
                clusterData.Cluster_Info3 = " عدد الوحدات الانتاجية " + ":&nbsp";

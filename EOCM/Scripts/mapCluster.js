@@ -273,11 +273,11 @@ function CreateGovtLayer() {
 
             govtpin[i].Title = " محافظة " + govtData[i].Govt_Name;
 
-            govtpin[i].Description = " عدد التجمعات " + ":&nbsp" + govtData[i].Cluster_Num + "<br>" + " عدد الوحدات الانتاجية " + ":&nbsp" + govtData[i].ShopNumMin + " - " + govtData[i].ShopNumMax + "<br>" + " عدد العاملين " + ":&nbsp" + govtData[i].EmpNumMin + " - " + govtData[i].EmpNumMax + "<br>" + " عدد التجمعات المصدرة " + ":&nbsp" + govtData[i].ExportNum;
+            govtpin[i].Description = " عدد التجمعات " + ":&nbsp" + govtData[i].Cluster_Num + "<br>" + " عدد الوحدات الانتاجية " + ":&nbsp" + govtData[i].ShopNumMin + " - " + govtData[i].ShopNumMax + "<br>" + " متوسط عدد العاملين " + ":&nbsp" + govtData[i].EmpNumMin + "<br>" + " عدد التجمعات المصدرة " + ":&nbsp" + govtData[i].ExportNum;
 
             imgsection = '<img src= "/Images/' + govtData[i].Govt_ID + '.png' + '" alt="محافظة' + govtData[i].Govt_ID + '" style="width:50px; height:50px">';
 
-            govtpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:thin; border-color:blue; width:200px;  min-height:120px;">' +
+            govtpin[i].htmlContent = '<div id="' + divID + '" style="background-color:White; border-style:solid;border-width:thin; border-color:blue; width:200px;  min-height:120px;" lang="ar-EG">' +
             '<div id="infoboxTitle" style="text-decoration:underline; text-align:center; font-size:medium; margin-right: 1em; margin-left: 1em;">' + govtpin[i].Title + '</div> ' + imgsection +
         '<div id="infoboxDescription" style="text-decoration:none; text-align:right; margin-right: 1em; margin-left: 1em;" >' + govtpin[i].Description + '</div> </div>'
 

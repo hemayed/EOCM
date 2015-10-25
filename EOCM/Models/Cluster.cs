@@ -84,7 +84,7 @@ namespace EOCM.Models
         [Required]
         [DefaultValue(0)]
         [Range(0, int.MaxValue, ErrorMessage = "يجب ان يكون العدد اكبر من 0")]
-        [Display(Name = "عدد العاملين")]
+        [Display(Name = "متوسط عدد العاملين")]
         public int  Cluster_EmpNumMin { get; set; }
 
         [Required]
