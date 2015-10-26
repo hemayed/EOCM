@@ -11,12 +11,25 @@ using System.Text;
 using System.IO;
 using Pulzonic.Multipartial;
 using Newtonsoft.Json;
+using System.Globalization;
+using System.Threading;
 
 namespace EOCM.Controllers
 {
     public class HomeController : Controller
     {
         private EOCMDB db = new EOCMDB();
+
+        protected override void Initialize(System.Web.Routing.RequestContext requestContext)
+        {
+            base.Initialize(requestContext);
+
+            const string culture = "ar-EG";
+            CultureInfo ci = CultureInfo.GetCultureInfo(culture);
+
+            Thread.CurrentThread.CurrentCulture = ci;
+            Thread.CurrentThread.CurrentUICulture = ci;
+        }
 
         protected internal virtual CustomJsonResult CustomJson(object json = null, bool allowGet = true)
         {
@@ -176,7 +189,7 @@ namespace EOCM.Controllers
                 GovtData govtData = new GovtData();
                 govtData.Cluster_Num = 0;
                 govtData.ShopNumMin= 0;
-                govtData.ShopNumMax = 0;
+               
             govtData.EmpNumMin = 0;
            
            govtData.ExportNum = 0;
@@ -198,7 +211,7 @@ namespace EOCM.Controllers
                ClusterData clusterData = new ClusterData();
                listGovtData[govtIndex].Cluster_Num++;
                listGovtData[govtIndex].ShopNumMin = listGovtData[govtIndex].ShopNumMin + c.Cluster_ShopNumMin;
-               listGovtData[govtIndex].ShopNumMax = listGovtData[govtIndex].ShopNumMax + c.Cluster_ShopNumMax;
+              
                listGovtData[govtIndex].EmpNumMin = listGovtData[govtIndex].EmpNumMin + c.Cluster_EmpNumMin;
                
                if (c.ExportFlag_ID == "01")
@@ -240,12 +253,11 @@ namespace EOCM.Controllers
               
 
 
-               clusterData.Cluster_Info3 = " عدد الوحدات الانتاجية " + ":&nbsp";
+               clusterData.Cluster_Info3 = " متوسط عدد الوحدات الانتاجية " + ":&nbsp";
                if (c.Cluster_ShopNumMin != 0)
-                   clusterData.Cluster_Info3=clusterData.Cluster_Info3+c.Cluster_ShopNumMin + " - ";
+                   clusterData.Cluster_Info3=clusterData.Cluster_Info3+c.Cluster_ShopNumMin ;
 
-                if (c.Cluster_ShopNumMax != 0)
-                   clusterData.Cluster_Info3=clusterData.Cluster_Info3+c.Cluster_ShopNumMax;
+              
 
                clusterData.Cluster_Info4 = "نسبة التصدير: ";
                if (c.Products != null)

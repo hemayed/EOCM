@@ -101,7 +101,7 @@ namespace EOCM.Models
         [Required]
         [DefaultValue(0)]
         [Range(0, int.MaxValue, ErrorMessage = "يجب ان يكون العدد اكبر من 0")]
-        [Display(Name = "عدد الوحدات الانتاجية")]
+        [Display(Name = "متوسط عدد الوحدات الانتاجية")]
         public int Cluster_ShopNumMin { get; set; }
 
         [Required]

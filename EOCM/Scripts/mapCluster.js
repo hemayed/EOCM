@@ -273,7 +273,7 @@ function CreateGovtLayer() {
 
             govtpin[i].Title = " محافظة " + govtData[i].Govt_Name;
 
-            govtpin[i].Description = " عدد التجمعات " + ":&nbsp" + govtData[i].Cluster_Num + "<br>" + " عدد الوحدات الانتاجية " + ":&nbsp" + govtData[i].ShopNumMin + " - " + govtData[i].ShopNumMax + "<br>" + " متوسط عدد العاملين " + ":&nbsp" + govtData[i].EmpNumMin + "<br>" + " عدد التجمعات المصدرة " + ":&nbsp" + govtData[i].ExportNum;
+            govtpin[i].Description = " عدد التجمعات " + ":&nbsp" + govtData[i].Cluster_Num + "<br>" + "  متوسط عدد الوحدات الانتاجية " + ":&nbsp" + govtData[i].ShopNumMin + "<br>" + " متوسط عدد العاملين " + ":&nbsp" + govtData[i].EmpNumMin + "<br>" + " عدد التجمعات المصدرة " + ":&nbsp" + govtData[i].ExportNum;
 
             imgsection = '<img src= "/Images/' + govtData[i].Govt_ID + '.png' + '" alt="محافظة' + govtData[i].Govt_ID + '" style="width:50px; height:50px">';
 
