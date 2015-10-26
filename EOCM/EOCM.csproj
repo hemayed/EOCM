@@ -372,15 +372,12 @@
     <Content Include="Scripts\DataTables-1.10.6\extensions\FixedColumns\js\dataTables.fixedColumns.min.js" />
     <Content Include="Scripts\DataTables-1.10.6\extensions\FixedHeader\js\dataTables.fixedHeader.js" />
     <Content Include="Scripts\DataTables-1.10.6\extensions\FixedHeader\js\dataTables.fixedHeader.min.js" />
-    <Content Include="Scripts\DataTables-1.10.6\extensions\FixedHeader\Readme.txt" />
     <Content Include="Scripts\DataTables-1.10.6\extensions\KeyTable\js\dataTables.keyTable.js" />
     <Content Include="Scripts\DataTables-1.10.6\extensions\KeyTable\js\dataTables.keyTable.min.js" />
-    <Content Include="Scripts\DataTables-1.10.6\extensions\KeyTable\Readme.txt" />
     <Content Include="Scripts\DataTables-1.10.6\extensions\Responsive\js\dataTables.responsive.js" />
     <Content Include="Scripts\DataTables-1.10.6\extensions\Responsive\js\dataTables.responsive.min.js" />
     <Content Include="Scripts\DataTables-1.10.6\extensions\Scroller\js\dataTables.scroller.js" />
     <Content Include="Scripts\DataTables-1.10.6\extensions\Scroller\js\dataTables.scroller.min.js" />
-    <Content Include="Scripts\DataTables-1.10.6\extensions\Scroller\Readme.txt" />
     <Content Include="Scripts\DataTables-1.10.6\extensions\TableTools\js\dataTables.tableTools.js" />
     <Content Include="Scripts\DataTables-1.10.6\extensions\TableTools\js\dataTables.tableTools.min.js" />
     <Content Include="Scripts\DataTables-1.10.6\extensions\TableTools\Readme.md" />
