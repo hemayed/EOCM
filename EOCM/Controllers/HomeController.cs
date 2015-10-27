@@ -11,8 +11,7 @@ using System.Text;
 using System.IO;
 using Pulzonic.Multipartial;
 using Newtonsoft.Json;
-using System.Globalization;
-using System.Threading;
+
 
 namespace EOCM.Controllers
 {
@@ -20,16 +19,7 @@ namespace EOCM.Controllers
     {
         private EOCMDB db = new EOCMDB();
 
-        protected override void Initialize(System.Web.Routing.RequestContext requestContext)
-        {
-            base.Initialize(requestContext);
-
-            const string culture = "ar-EG";
-            CultureInfo ci = CultureInfo.GetCultureInfo(culture);
-
-            Thread.CurrentThread.CurrentCulture = ci;
-            Thread.CurrentThread.CurrentUICulture = ci;
-        }
+        
 
         protected internal virtual CustomJsonResult CustomJson(object json = null, bool allowGet = true)
         {

@@ -10,11 +10,13 @@ using EOCM.Models;
 using System.Web.UI.WebControls;
 using System.IO;
 
+
 namespace EOCM.Controllers
 {
     public class ClustersController : Controller
     {
         private EOCMDB db = new EOCMDB();
+
 
         // GET: Clusters
         public ActionResult Index()
