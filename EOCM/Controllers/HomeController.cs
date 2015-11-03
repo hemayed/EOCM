@@ -250,7 +250,7 @@ namespace EOCM.Controllers
               
 
                clusterData.Cluster_Info4 = "نسبة التصدير: ";
-               if (c.Products != null)
+               if (c.ExportVolume != null)
                    clusterData.Cluster_Info4 = clusterData.Cluster_Info4+c.ExportVolume;
 
             clusterData.Cluster_Info5 = "المنتجات: ";

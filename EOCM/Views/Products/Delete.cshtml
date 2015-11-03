@@ -1,48 +1,85 @@
 ﻿@model EOCM.Models.Product
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "حذف المنتج";
 }
-
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Product</h4>
+<div style="font-family:Arial; text-align: center; direction: rtl; color:white">
+    <h2>@ViewBag.Title</h2>
+    <h3>هل تريد فعلا حذف المنتج؟ </h3>
     <hr />
-    <dl class="dl-horizontal" style=" direction:rtl ">
-        <dt>
-            @Html.DisplayNameFor(model => model.Field.Field_Name)
-        </dt>
+</div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Field.Field_Name)
-        </dd>
+@{
+    ViewBag.Title = @Html.DisplayFor(model => model.Product_Name);
+}
+<div style="text-align: center; direction: rtl; color:white">
+    <h2>@Html.DisplayFor(model => model.Product_Name)</h2>
+</div>
+<hr />
+<div id="ProductDetailContainer">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sector.Sector_Name)
-        </dt>
+    <table id="ProfileTable2" align="center">
+        <colgroup>
+            <col class="c1" style="width: 50%;">
+            <col class="c2" style="width: 50%;">
+        </colgroup>
+        <tr>
+            <th>البند</th>
+            <th>البيان</th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Field.Field_Name)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sector.Sector_Name)
-        </dd>
+            <td>
+                @Html.DisplayFor(model => model.Field.Field_Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Sector.Sector_Name)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Product_Name)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Sector.Sector_Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Product_Name)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Product_Name)
-        </dd>
+            <td>
+                @Html.DisplayFor(model => model.Product_Name)
+            </td>
+        </tr>
 
-    </dl>
+    </table>
+    <br />
+</div>
 
-    @using (Html.BeginForm()) {
+
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+
+        <table id="FooterTable2" align="center">
+            <tr>
+                <td>
+
+                    <input type="submit" value="احذف المنتج" class="btn btn-default " />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <center>
+
+                        @Html.ActionLink("عودة للقائمة الرئيسية", "Index", null, new { style = "color:yellow;" })
+                    </center>
+                </td>
+            </tr>
+        </table>
+
     }
-</div>

@@ -1,34 +1,43 @@
 ﻿@model EOCM.Models.District
 
-@{
-    ViewBag.Title = "Details";
-}
-
-<h2>Details</h2>
-
-<div>
-    <h4>District</h4>
+<div id="DistrictDetails">
+    @{
+        ViewBag.Title = @Html.DisplayFor(model => model.District_Name);
+    }
+    <div style="font-family:Arial; text-align: center; direction: rtl; color:white;">
+        <h2>@Html.DisplayFor(model => model.District_Name)</h2>
+    </div>
     <hr />
-    <dl class="dl-horizontal" style=" direction:rtl ">
-        <dt>
-            @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Governorate.Govt_Name)
-        </dd>
+    <div id="DistrictDetailContainer">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.District_Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.District_Name)
-        </dd>
-
-    </dl>
+        <table id="ProfileTable2" align="center">
+            <colgroup>
+                <col class="c1" style="width: 50%;">
+                <col class="c2" style="width: 50%;">
+            </colgroup>
+            <tr>
+                <th>البند</th>
+                <th>البيان</th>
+            </tr>
+            <tr>
+                <td>     @Html.DisplayNameFor(model => model.Governorate.Govt_Name)       </td>
+                <td>      @Html.DisplayFor(model => model.Governorate.Govt_Name)            </td>
+            </tr>
+            <tr>
+                <td>                 @Html.DisplayNameFor(model => model.District_Name)            </td>
+                <td>           @Html.DisplayFor(model => model.District_Name)            </td>
+            </tr>
+        </table>
+        <br />
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.District_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<table id="FooterTableSmall" align="center" >
+
+    <tr>
+        <td>
+            @Html.ActionLink("عودة للقائمة الرئيسية", "Index")
+        </td>
+    </tr>
+</table>

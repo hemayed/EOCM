@@ -1,34 +1,52 @@
 ﻿@model EOCM.Models.Field
-
-@{
-    ViewBag.Title = "Details";
-}
-
-<h2>Details</h2>
-
-<div>
-    <h4>Field</h4>
+<div id="FieldDetails">
+    @{
+        ViewBag.Title = @Html.DisplayFor(model => model.Field_Name);
+    }
+    <div style="font-family:Arial; text-align: center; direction: rtl; color:white;">
+        <h2>@Html.DisplayFor(model => model.Field_Name)</h2>
+    </div>
     <hr />
-    <dl class="dl-horizontal" style=" direction:rtl ">
-        <dt>
-            @Html.DisplayNameFor(model => model.Sector.Sector_Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sector.Sector_Name)
-        </dd>
+    <div id="FieldDetailContainer">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Field_Name)
-        </dt>
+        <table id="ProfileTable2" align="center">
+            <colgroup>
+                <col class="c1" style="width: 50%;">
+                <col class="c2" style="width: 50%;">
+            </colgroup>
+            <tr>
+                <th>البند</th>
+                <th>البيان</th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Sector.Sector_Name)
+                </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Field_Name)
-        </dd>
+                <td>
+                    @Html.DisplayFor(model => model.Sector.Sector_Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Field_Name)
+                </td>
 
-    </dl>
+                <td>
+                    @Html.DisplayFor(model => model.Field_Name)
+                </td>
+            </tr>
+        </table>
+        <br />
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Field_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<table id="FooterTableSmall" align="center">
+
+    <tr>
+        <td>
+            @Html.ActionLink("عودة للقائمة الرئيسية", "Index")
+        </td>
+    </tr>
+</table>

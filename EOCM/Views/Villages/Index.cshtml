@@ -1,31 +1,29 @@
 ﻿@model IEnumerable<EOCM.Models.Village>
-
 @{
     ViewBag.Title = "قائمة القرى";
 }
-
-<div style="font-family:Arial; text-align: center; direction: rtl;">
-    <h2>قائمة القرى</h2>
-
+<div style="font-family:Arial; text-align: center; direction: rtl; color:white">
+    <h2>@ViewBag.Title</h2>
+    <hr />
     <p>
-        <h3> @Html.ActionLink("اضافة قرية جديدة", "Create") </h3>
-</p>
-    </div>
+        <h3> @Html.ActionLink("اضافة قرية جديد", "Create", null, new { style = "color:yellow" })</h3>
+    </p>
+</div>
 
-<div style="font-family:Arial; direction: rtl; align-content:center">
-    <table id="villageTable"  class="display compact" cellspacing="0">
+<div class="clusterDetailList">
+    <table id="villageDetailTable" class="display compact" cellspacing="0">
         <thead>
             <tr>
-                <th>
+                <td>
                     @Html.DisplayNameFor(model => model.Village_Name)
-                </th>
-                <th>
+                </td>
+                <td>
                     @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
-                </th>
-                <th>
+                </td>
+                <td>
                     @Html.DisplayNameFor(model => model.District.District_Name)
-                </th>
-                <th></th>
+                </td>
+                <td></td>
             </tr>
         </thead>
         <tbody>
@@ -51,29 +49,31 @@
         </tbody>
     </table>
 </div>
-
 <script>
 
     $(document).ready(function () {
-        $('#villageTable').DataTable({
-            "sdom": '<ftip>',
-            //"bLengthChange": false,
-            "sPaginationType": "full",
+        $('#villageDetailTable').DataTable({
+            //"sdom": '<lf><t><p>',
+            "sdom": '<"center"ftp>',
+            // "columns": [{ "width": "20%" }, null],
+            "sPaginationType": "full_numbers",
+            "bLengthChange": false,
             "oLanguage": {
                 "sSearch": "بحث",
-                "sEmptyTable": "لاتوجد قرى",
+                "sEmptyTable": "لايوجد منتجات",
                 "sInfoEmpty": "",
-                "sZeroRecords": "لاتوجد قرى",
-                "sInfo": "_END_-_START_ من _TOTAL_",
+                "sZeroRecords": "لايوجد منتجات",
+                //"sInfo": "_TOTAL_ من _END_ الى _START_",
+                "sInfo": "",
                 "sInfoFiltered": "",
-                "sLengthMenu": ' <select>' +
-                '<option value="10">10</option>' +
-                '<option value="15">15</option>' +
-                '<option value="20">20</option>' +
-                '<option value="25">25</option>' +
-                '<option value="50">50</option>' +
-                '<option value="-1">الكل</option>' +
-                '</select>عرض',
+                //"sLengthMenu": ' <select>' +
+                //'<option value="10">10</option>' +
+                //'<option value="15">15</option>' +
+                //'<option value="20">20</option>' +
+                //'<option value="25">25</option>' +
+                ////'<option value="50">50</option>' +
+                ////'<option value="-1">الكل</option>' +
+                //'</select>عرض',
                 "oPaginate": {
                     "sFirst": "<<",
                     "sPrevious": "<",
@@ -82,7 +82,6 @@
                 }
             }
         });
-
 
     })
 </script>

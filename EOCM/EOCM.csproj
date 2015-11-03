@@ -412,19 +412,13 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jqueryshorten.js" />
-    <Content Include="Scripts\map.js" />
     <Content Include="Scripts\mapCluster.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\UpdateLists.js" />
     <Content Include="Scripts\UpdateMultipartialViews.js" />
-    <Content Include="Scripts\WIP.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Home\InfoBox.html" />
-    <Content Include="Views\HtmlPage1.html">
-      <BrowseToURL>~/Views/HtmlPage1.html</BrowseToURL>
-    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

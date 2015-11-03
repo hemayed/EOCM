@@ -1,26 +1,23 @@
 ﻿@model EOCM.Models.Cluster
-
 @{
     ViewBag.Title = "تعديل بيانات التجمع";
 }
-
 <div style="font-family:Arial; text-align: center; direction: rtl; color:white">
-    <h2>تعديل بيانات التجمع</h2>
- </div>
+    <h2>@ViewBag.Title</h2>
+</div>
+
+@using (Html.BeginForm("Edit", "Clusters", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
 
 
-    @using (Html.BeginForm("Edit", "Clusters", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        @Html.AntiForgeryToken()
 
-      
-           
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.Cluster_ID)
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Cluster_ID)
 
-    <div class="form-horizontal" style="direction:rtl; background-color:white; position:center; width:800px; text-align:center; margin:auto;">
-        <br/>
+    <div class="form-horizontal" style="direction:rtl; background-color:white; position:center; width:800px; text-align:center; margin:auto; padding-bottom:2px;">
+        <br />
         <div class="form-group">
             @Html.LabelFor(model => model.Cluster_Name, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
             <div class="col-md-5 ">
@@ -108,26 +105,22 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Cluster_ShopNumMin, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
             <div class="col-md-2">
-              
+
                 @Html.EditorFor(model => model.Cluster_ShopNumMin, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Cluster_ShopNumMin, "", new { @class = "text-danger" })
             </div>
 
-           
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Cluster_EmpNumMin, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
-
             <div class="col-md-2">
-               
+
                 @Html.EditorFor(model => model.Cluster_EmpNumMin, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Cluster_EmpNumMin, "", new { @class = "text-danger" })
             </div>
 
 
-          
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Cluster_EmpFemale, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
             <div class="col-md-5">
@@ -184,7 +177,6 @@
                 @Html.ValidationMessageFor(model => model.ClusterNature_ID, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.ClusterType_ID, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
             <div class="col-md-5">
@@ -227,7 +219,6 @@
                 @Html.ValidationMessageFor(model => model.ExportVolume, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.IncomeLevel_ID, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
             <div class="col-md-5">
@@ -235,14 +226,13 @@
                 @Html.ValidationMessageFor(model => model.IncomeLevel_ID, "", new { @class = "text-danger" })
             </div>
         </div>
-
         @*<div class="form-group">
-            @Html.LabelFor(model => model.Income, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
-            <div class="col-md-5">
-                @Html.EditorFor(model => model.Income, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Income, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+                @Html.LabelFor(model => model.Income, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.Income, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Income, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
         <div class="form-group">
             @Html.LabelFor(model => model.SupportingOrg, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
             <div class="col-md-5">
@@ -299,7 +289,6 @@
                 @Html.ValidationMessageFor(model => model.Cluster_StudyFile2)
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Cluster_ProductImage, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
             <div class="col-md-5">
@@ -313,7 +302,6 @@
                 @Html.TextBoxFor(model => model.Cluster_ProcessImage, new { type = "file" })
                 @Html.ValidationMessageFor(model => model.Cluster_ProcessImage)
             </div>
-
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.AdditionalInfo, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-5" })
@@ -322,43 +310,40 @@
                 @Html.ValidationMessageFor(model => model.AdditionalInfo, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
+        <div class="form-group" style="font-size:large">
             <div class="col-md-offset-4 col-md-5">
                 <input type="submit" value="حفظ التعديلات" class="btn btn-default" />
-                <br />
+                <br /> <br />
                 @Html.ActionLink("عودة للقائمة الرئيسية", "Index")
             </div>
         </div>
     </div>
-    }
+}
+<div>
 
-    <div>
-      
-    </div>
+</div>
+<script>
 
-    <script>
-
-        $(document).ready(function () {
+    $(document).ready(function () {
 
 
-            $('#Govt_ID').change(function () {
-                UpdateDistricts($('#Govt_ID'), $('#District_ID'), "اختار المركز-المدينة", $('#Village_ID'), "اختار القرية")
-            });
-
-            $('#District_ID').change(function () {
-                UpdateVillages($('#District_ID'), $('#Village_ID'), "اختار القرية")
-            });
-
-            $('#Sector_ID').change(function () {
-                UpdateFields($('#Sector_ID'), $('#Field_ID'), $('#Product_ID'), "اختار النشاط")
-            });
-
-            $('#Field_ID').change(function () {
-                UpdateProducts($('#Field_ID'), $('#Product_ID'), "اختار المنتج")
-            });
-
+        $('#Govt_ID').change(function () {
+            UpdateDistricts($('#Govt_ID'), $('#District_ID'), "اختار المركز-المدينة", $('#Village_ID'), "اختار القرية")
         });
 
+        $('#District_ID').change(function () {
+            UpdateVillages($('#District_ID'), $('#Village_ID'), "اختار القرية")
+        });
 
-    </script>
+        $('#Sector_ID').change(function () {
+            UpdateFields($('#Sector_ID'), $('#Field_ID'), $('#Product_ID'), "اختار النشاط")
+        });
+
+        $('#Field_ID').change(function () {
+            UpdateProducts($('#Field_ID'), $('#Product_ID'), "اختار المنتج")
+        });
+
+    });
+
+
+</script>

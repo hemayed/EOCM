@@ -1,42 +1,63 @@
 ﻿@model EOCM.Models.Product
 
-@{
-    ViewBag.Title = "Details";
-}
-
-<h2>Details</h2>
-
-<div>
-    <h4>Product</h4>
+<div id="ProductDetails">
+    @{
+        ViewBag.Title = @Html.DisplayFor(model => model.Product_Name);
+    }
+    <div style="font-family:Arial; text-align: center; direction: rtl; color:white;">
+        <h2>@Html.DisplayFor(model => model.Product_Name)</h2>
+    </div>
     <hr />
-    <dl class="dl-horizontal" style=" direction:rtl ">
-        <dt>
-            @Html.DisplayNameFor(model => model.Field.Field_Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Field.Field_Name)
-        </dd>
+    <div id="ProductDetailContainer">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sector.Sector_Name)
-        </dt>
+        <table id="ProfileTable2" align="center">
+            <colgroup>
+                <col class="c1" style="width: 50%;">
+                <col class="c2" style="width: 50%;">
+            </colgroup>
+            <tr>
+                <th>البند</th>
+                <th>البيان</th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Field.Field_Name)
+                </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sector.Sector_Name)
-        </dd>
+                <td>
+                    @Html.DisplayFor(model => model.Field.Field_Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Sector.Sector_Name)
+                </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Product_Name)
-        </dt>
+                <td>
+                    @Html.DisplayFor(model => model.Sector.Sector_Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Product_Name)
+                </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Product_Name)
-        </dd>
-
-    </dl>
+                <td>
+                    @Html.DisplayFor(model => model.Product_Name)
+                </td>
+            </tr>
+            
+        </table>
+        <br />
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Product_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<table id="FooterTableSmall" align="center">
+
+    <tr>
+        <td>
+            @Html.ActionLink("عودة للقائمة الرئيسية", "Index")
+        </td>
+    </tr>
+</table>

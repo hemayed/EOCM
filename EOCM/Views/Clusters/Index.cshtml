@@ -1,94 +1,81 @@
 ﻿@model IEnumerable<EOCM.Models.Cluster>
-
 @{
     ViewBag.Title = "قائمة التجمعات";
 }
-
 <div style="font-family:Arial; text-align: center; direction: rtl; color:white">
-    <h2>قائمة التجمعات</h2>
-
+    <h2>@ViewBag.Title</h2>
+    <hr />
     <p>
-        <h3> @Html.ActionLink("اضافة تجمع جديد", "Create",null,new{style="color:yellow"})</h3>
+        <h3> @Html.ActionLink("اضافة تجمع جديد", "Create", null, new { style = "color:yellow" })</h3>
     </p>
 </div>
+<div class="clusterDetailList">
+    <table id="clusterDetailTable" class="display compact" cellspacing="0">
+        <thead>
+            <tr>
+                <td style="width:22%">
+                    @Html.DisplayNameFor(model => model.Cluster_Name)
+                </td>
+                <td style="width:8%">
+                    @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
+                </td>
+                <td style="width:25%">
+                    @Html.DisplayNameFor(model => model.Product.Product_Name)
+                </td>
 
-    <div class="clusterDetailList" >
+                <td style="width:8%">
+                    @Html.DisplayNameFor(model => model.Cluster_Lat)
+                </td>
+                <td style="width:8%">
+                    @Html.DisplayNameFor(model => model.Cluster_Long)
+                </td>
+                <td style="width:8%">
+                    @Html.DisplayNameFor(model => model.Cluster_EmpNumMin)
+                </td>
+                <td style="width:8%">
+                    @Html.DisplayNameFor(model => model.Cluster_ShopNumMin)
+                </td>
+                <td style="width:13%"></td>
 
-        <table id="clusterDetailTable" class="display compact" cellspacing="0">
-            <thead>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
                     <td>
-                        @Html.DisplayNameFor(model => model.Cluster_Name)
+                        @Html.DisplayFor(modelItem => item.Cluster_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Governorate.Govt_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.Product_Name)
                     </td>
 
                     <td>
-                        @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
-                    </td>
-
-                    <td>
-                        @Html.DisplayNameFor(model => model.Product.Product_Name)
-                    </td>
-
-
-                    <td>
-                        @Html.DisplayNameFor(model => model.Cluster_Lat)
+                        @Html.DisplayFor(modelItem => item.Cluster_Lat)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(model => model.Cluster_Long)
+                        @Html.DisplayFor(modelItem => item.Cluster_Long)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(model => model.Cluster_EmpNumMin)
+                        @Html.DisplayFor(modelItem => item.Cluster_EmpNumMin)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(model => model.Cluster_ShopNumMin)
+                        @Html.DisplayFor(modelItem => item.Cluster_ShopNumMin)
                     </td>
-
-                    <td></td>
+                    <td>
+                        @Html.ActionLink("تعديل", "Edit", new { id = item.Cluster_ID }) |
+                        @Html.ActionLink("تفاصيل", "Details", new { id = item.Cluster_ID }) |
+                        @Html.ActionLink("حذف", "Delete", new { id = item.Cluster_ID })
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Cluster_Name)
-                        </td>
-
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Governorate.Govt_Name)
-                        </td>
-
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Product.Product_Name)
-                        </td>
-
-
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Cluster_Lat)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Cluster_Long)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Cluster_EmpNumMin) 
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Cluster_ShopNumMin) 
-                        </td>
-
-                        <td>
-                            @Html.ActionLink("تعديل", "Edit", new { id = item.Cluster_ID }) |
-                            @Html.ActionLink("تفاصيل", "Details", new { id = item.Cluster_ID }) |
-                            @Html.ActionLink("حذف", "Delete", new { id = item.Cluster_ID })
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-
-    </div>
-
-    <script>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
 
     $(document).ready(function () {
         $('#clusterDetailTable').DataTable({
@@ -123,5 +110,4 @@
         });
 
     })
- </script>
-
+</script>

@@ -1,42 +1,63 @@
 ﻿@model EOCM.Models.Village
 
-@{
-    ViewBag.Title = "Details";
-}
-
-<h2>Details</h2>
-
-<div>
-    <h4>Village</h4>
+<div id="VillageDetails">
+    @{
+        ViewBag.Title = @Html.DisplayFor(model => model.Village_Name);
+    }
+    <div style="font-family:Arial; text-align: center; direction: rtl; color:white;">
+        <h2>@Html.DisplayFor(model => model.Village_Name)</h2>
+    </div>
     <hr />
-    <dl class="dl-horizontal" style=" direction:rtl ">
-        <dt>
-            @Html.DisplayNameFor(model => model.District.District_Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.District.District_Name)
-        </dd>
+    <div id="VillageDetailContainer">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
-        </dt>
+        <table id="ProfileTable2" align="center">
+            <colgroup>
+                <col class="c1" style="width: 50%;">
+                <col class="c2" style="width: 50%;">
+            </colgroup>
+            <tr>
+                <th>البند</th>
+                <th>البيان</th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.District.District_Name)
+                </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Governorate.Govt_Name)
-        </dd>
+                <td>
+                    @Html.DisplayFor(model => model.District.District_Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Governorate.Govt_Name)
+                </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Village_Name)
-        </dt>
+                <td>
+                    @Html.DisplayFor(model => model.Governorate.Govt_Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Village_Name)
+                </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Village_Name)
-        </dd>
+                <td>
+                    @Html.DisplayFor(model => model.Village_Name)
+                </td>
+            </tr>
 
-    </dl>
+        </table>
+        <br />
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Village_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<table id="FooterTableSmall" align="center">
+
+    <tr>
+        <td>
+            @Html.ActionLink("عودة للقائمة الرئيسية", "Index")
+        </td>
+    </tr>
+</table>
