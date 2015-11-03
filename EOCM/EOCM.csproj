@@ -320,46 +320,12 @@
     <Content Include="Images\27.png" />
     <Content Include="Images\BlackPushPin.png" />
     <Content Include="Images\blueFlag.png" />
-    <Content Include="Images\govtBluepin.png" />
-    <Content Include="Images\govtpin.png" />
-    <Content Include="Images\govtpin2.jpg" />
-    <Content Include="Images\govtpin3.png" />
     <Content Include="Images\GreenPushPin.png" />
     <Content Include="Images\LightBluePushPin.png" />
     <Content Include="Images\OrangePushPin.png" />
-    <Content Include="Images\pushpin-flag.jpg" />
-    <Content Include="Images\pushpin.png" />
     <Content Include="Images\RedPushPin.png" />
     <Content Include="Images\TransparentPushPin.png" />
     <Content Include="Images\YellowPushPin.png" />
-    <Content Include="ProcessImages\01170401100601.jpg" />
-    <Content Include="ProcessImages\01201901051201.jpg" />
-    <Content Include="ProcessImages\01201901051202.jpg" />
-    <Content Include="ProcessImages\01201901051203.jpg" />
-    <Content Include="ProcessImages\04940302030101.jpg" />
-    <Content Include="ProcessImages\12031401072401.jpg" />
-    <Content Include="ProcessImages\12031402030101.jpg" />
-    <Content Include="ProcessImages\19010101010101.jpg" />
-    <Content Include="ProcessImages\19041502030201.jpg" />
-    <Content Include="ProcessImages\20010202040103.jpg" />
-    <Content Include="ProcessImages\20022602040101.jpg" />
-    <Content Include="ProcessImages\20072202040102.jpg" />
-    <Content Include="ProcessImages\22040802020101.jpg" />
-    <Content Include="ProcessImages\24032203040201.jpg" />
-    <Content Include="ProductImages\01170401100601.jpg" />
-    <Content Include="ProductImages\01201901051201.jpg" />
-    <Content Include="ProductImages\01201901051202.jpg" />
-    <Content Include="ProductImages\01201901051203.jpg" />
-    <Content Include="ProductImages\04940302030101.jpg" />
-    <Content Include="ProductImages\12031401072401.jpg" />
-    <Content Include="ProductImages\12031402030101.jpg" />
-    <Content Include="ProductImages\19010101010101.jpg" />
-    <Content Include="ProductImages\19041502030201.jpg" />
-    <Content Include="ProductImages\20010202040103.jpg" />
-    <Content Include="ProductImages\20022602040101.jpg" />
-    <Content Include="ProductImages\20072202040102.jpg" />
-    <Content Include="ProductImages\22040802020101.jpg" />
-    <Content Include="ProductImages\24032203040201.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\DataTables-1.10.6\extensions\AutoFill\js\dataTables.autoFill.js" />
@@ -485,6 +451,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ProcessImages\" />
+    <Folder Include="ProductImages\" />
     <Folder Include="StudyFiles\" />
   </ItemGroup>
   <ItemGroup>
